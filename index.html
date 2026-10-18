@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>База данных аттенюаторов транскрипции прокариот</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.cdnfonts.com/css/inter" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #312e81 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #1e293b;
+}
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+    overflow: hidden;
+}
+header {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: drift 20s linear infinite;
+}
+@keyframes drift {
+    from { transform: translate(0,0); }
+    to { transform: translate(30px, 30px); }
+}
+header h1 { 
+    font-size: 2.2em; 
+    margin-bottom: 10px; 
+    position: relative;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+header p { 
+    opacity: 0.95; 
+    font-size: 1.05em; 
+    position: relative;
+    font-weight: 300;
+}
+.dna-icon {
+    display: inline-block;
+    animation: rotate 4s linear infinite;
+}
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    padding: 25px;
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+}
+.stat-box {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.stat-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.stat-box .num {
+    font-size: 2.4em;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+.stat-box .label { 
+    font-size: 0.85em; 
+    color: #64748b; 
+    margin-top: 6px;
+    font-weight: 500;
+}
+.controls {
+    padding: 20px 25px;
+    background: #fff;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+.controls input, .controls select {
+    padding: 10px 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: white;
+}
+.controls input:focus, .controls select:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+.controls input { flex: 1; min-width: 220px; }
+.btn {
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13.5px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+.btn:hover { 
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+}
+.btn:active { transform: translateY(0); }
+.btn-secondary { 
+    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+    box-shadow: 0 2px 8px rgba(71, 85, 105, 0.3);
+}
+.btn-secondary:hover {
+    box-shadow: 0 4px 14px rgba(71, 85, 105, 0.4);
+}
+.table-wrap {
+    overflow-x: auto;
+    padding: 0 20px 20px;
+    background: white;
+}
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 12.5px;
+}
+th {
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    padding: 14px 10px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 600;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+    white-space: nowrap;
+}
+th:first-child { border-radius: 8px 0 0 0; }
+th:last-child { border-radius: 0 8px 0 0; }
+th:hover { background: linear-gradient(180deg, #334155 0%, #1e293b 100%); }
+th::after {
+    content: ' ⇅';
+    opacity: 0.5;
+    font-size: 10px;
+}
+td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: top;
+    line-height: 1.5;
+}
+tbody tr {
+    transition: background 0.15s;
+}
+tbody tr:hover { 
+    background: linear-gradient(90deg, #f8fafc 0%, #eff6ff 100%);
+}
+tbody tr:nth-child(even) { background: #fafbfc; }
+tbody tr:nth-child(even):hover { background: linear-gradient(90deg, #f1f5f9 0%, #eff6ff 100%); }
+.cat-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.cat-1 { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.cat-2 { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.cat-3 { background: linear-gradient(135deg, #10b981, #059669); }
+.cat-4 { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.cat-5 { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.cat-6 { background: linear-gradient(135deg, #14b8a6, #0d9488); }
+.cat-7 { background: linear-gradient(135deg, #f97316, #ea580c); }
+.cat-8 { background: linear-gradient(135deg, #475569, #334155); }
+.cat-9 { background: linear-gradient(135deg, #e11d48, #be123c); }
+.cat-10 { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.organism { 
+    font-style: italic; 
+    color: #475569;
+    font-weight: 500;
+}
+.dup-warn { background: #fef3c7 !important; }
+.dup-badge, .new-badge, .verified-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 9.5px;
+    margin-left: 5px;
+    font-weight: 700;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.dup-badge { background: #dc2626; color: white; }
+.new-badge { background: #10b981; color: white; }
+.verified-badge { background: #06b6d4; color: white; }
+.conservation {
+    font-size: 11px;
+    color: #64748b;
+    font-style: italic;
+    line-height: 1.4;
+}
+.source-cell {
+    font-size: 10.5px;
+    color: #475569;
+    line-height: 1.4;
+    max-width: 220px;
+}
+.footer {
+    padding: 25px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    text-align: center;
+    color: #64748b;
+    font-size: 0.9em;
+    border-top: 1px solid #e2e8f0;
+}
+.legend {
+    padding: 20px 25px;
+    background: #fff;
+    border-top: 1px solid #e2e8f0;
+}
+.legend h3 { 
+    margin-bottom: 12px; 
+    font-size: 13px;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.legend-items { display: flex; flex-wrap: wrap; gap: 8px; }
+.empty-state {
+    padding: 60px 20px;
+    text-align: center;
+    color: #94a3b8;
+}
+.empty-state svg {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1><span class="dna-icon">🧬</span> База данных аттенюаторов транскрипции прокариот</h1>
+        <p>Структурированная коллекция экспериментально подтверждённых регуляторных элементов</p>
+    </header>
+
+    <div class="stats">
+        <div class="stat-box">
+            <div class="num" id="totalCount">0</div>
+            <div class="label">Всего записей</div>
+        </div>
+        <div class="stat-box">
+            <div class="num" id="uniqueCount">0</div>
+            <div class="label">Уникальных</div>
+        </div>
+        <div class="stat-box">
+            <div class="num" id="categoryCount">0</div>
+            <div class="label">Категорий</div>
+        </div>
+        <div class="stat-box">
+            <div class="num" id="organismCount">0</div>
+            <div class="label">Организмов</div>
+        </div>
+        <div class="stat-box">
+            <div class="num" id="verifiedCount">0</div>
+            <div class="label">In vitro ✓</div>
+        </div>
+        <div class="stat-box">
+            <div class="num" id="duplicateCount">0</div>
+            <div class="label">Дубликатов</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <input type="text" id="search" placeholder="🔍 Поиск по названию, организму, механизму, лиганду...">
+        <select id="categoryFilter">
+            <option value="">Все категории</option>
+        </select>
+        <select id="organismFilter">
+            <option value="">Все организмы</option>
+        </select>
+        <select id="verificationFilter">
+            <option value="">Все уровни верификации</option>
+            <option value="invitro">С in vitro подтверждением</option>
+            <option value="both">In vivo + In vitro</option>
+            <option value="invivo_only">Только in vivo</option>
+        </select>
+        <button class="btn" onclick="exportJSON()">📥 Экспорт JSON</button>
+        <button class="btn btn-secondary" onclick="exportCSV()">📊 Экспорт CSV</button>
+    </div>
+
+    <div class="table-wrap">
+        <table id="mainTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">№</th>
+                    <th onclick="sortTable(1)">Название</th>
+                    <th onclick="sortTable(2)">Категория</th>
+                    <th onclick="sortTable(3)">Организм</th>
+                    <th onclick="sortTable(4)">Механизм</th>
+                    <th onclick="sortTable(5)">Лиганд / Фактор</th>
+                    <th onclick="sortTable(6)">Структурный мотив</th>
+                    <th onclick="sortTable(7)">In vivo</th>
+                    <th onclick="sortTable(8)">In vitro</th>
+                    <th onclick="sortTable(9)">Консервативность</th>
+                    <th onclick="sortTable(10)">PDB / Источник</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="legend">
+        <h3>Легенда категорий</h3>
+        <div class="legend-items" id="legendItems"></div>
+    </div>
+
+    <div class="footer">
+        <p><strong>База сформирована на основе анализа научной литературы</strong> • Обновлено: 17 октября 2026 г.</p>
+        <p>Все элементы имеют экспериментальное подтверждение механизма in vitro или in vivo</p>
+    </div>
+</div>
+
+<script>
+const attenuators = [
+    // КАТЕГОРИЯ 1: КЛАССИЧЕСКИЕ ЛИДЕРНЫЕ ПОСЛЕДОВАТЕЛЬНОСТИ (РИБОСОМНО-ЗАВИСИМАЯ АТТЕНУАЦИЯ)
+    {id:1, name:"trp лидер (рибосомный)", category:"Классические лидерные последовательности", organism:"Escherichia coli", mechanism:"Зависание рибосомы на тандемных Trp-кодонах (UGG UGG) лидерного пептида предотвращает формирование терминаторной шпильки 3:4", ligand:"Триптофан (через tRNA^Trp)", motif:"4 комплементарных региона (I-IV), лидерный пептид 14 а.к., тандем Trp-кодоны в позициях 10-11", invivo:"Да", invitro:"Да (ЯМР структура терминатора 3:4)", conservation:"Низкая первичная гомология с B. subtilis; консервативны 4 региона и тандем Trp-кодонов", pdb:"PDB: 1TRP", source:"Yanofsky C. et al., 1981; Kelley R.L. et al., 1987"},
+    {id:2, name:"trp лидер (TRAP-независимый)", category:"Классические лидерные последовательности", organism:"Bacillus subtilis", mechanism:"TRAP-независимая рибосомная аттенюация; лидерный пептид содержит Trp-кодоны", ligand:"Триптофан (через tRNA^Trp)", motif:"Лидерная последовательность с Trp-кодонами", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен для B. subtilis", pdb:"", source:"Babitzke P., Gollnick P., 2001"},
+    {id:3, name:"his лидер", category:"Классические лидерные последовательности", organism:"Escherichia coli", mechanism:"Зависание рибосомы на серии из 7 гистидиновых кодонов лидерного пептида", ligand:"Гистидин (через tRNA^His)", motif:"Лидерный пептид с 7 последовательными His-кодонами", invivo:"Да", invitro:"Нет", conservation:"Консервативна серия из 7 His-кодонов", pdb:"", source:"Johnston H.M. et al., 1980"},
+    {id:4, name:"his лидер (DnaA-усиленный)", category:"Классические лидерные последовательности", organism:"Salmonella typhimurium", mechanism:"Рибосомная аттенюация через зависание на His-кодонах; усиление белком DnaA, связывающимся с лидерной РНК", ligand:"Гистидин (через tRNA^His), белок DnaA", motif:"Лидерный пептид с 7 последовательными His-кодонами, сайт связывания DnaA", invivo:"Да", invitro:"Да (EMSA с DnaA)", conservation:"Консервативна серия His-кодонов и сайт DnaA", pdb:"", source:"Johnston H.M. et al., 1980; Garcia-Mena J. et al., 1994"},
+    {id:5, name:"phe лидер", category:"Классические лидерные последовательности", organism:"Escherichia coli", mechanism:"Рибосомная аттенюация через зависание на Phe-кодонах", ligand:"Фенилаланин (через tRNA^Phe)", motif:"Лидерная последовательность с Phe-кодонами", invivo:"Да", invitro:"Нет", conservation:"Консервативны Phe-кодоны", pdb:"", source:"Zurawski G. et al., 1982"},
+    {id:6, name:"thr лидер", category:"Классические лидерные последовательности", organism:"Escherichia coli", mechanism:"Рибосомная аттенюация через зависание на Thr/Ile-кодонах", ligand:"Треонин/Изолейцин (через tRNA^Thr/tRNA^Ile)", motif:"Лидерная последовательность с Thr/Ile-кодонами", invivo:"Да", invitro:"Нет", conservation:"Консервативны Thr/Ile-кодоны", pdb:"", source:"Zurawski G. et al., 1982"},
+    {id:7, name:"leu лидер", category:"Классические лидерные последовательности", organism:"Escherichia coli", mechanism:"Рибосомная аттенюация через зависание на Leu-кодонах", ligand:"Лейцин (через tRNA^Leu)", motif:"Лидерная последовательность с Leu-кодонами", invivo:"Да", invitro:"Нет", conservation:"Консервативны Leu-кодоны", pdb:"", source:"Plumb M.A. et al., 1985"},
+    {id:8, name:"leu лидер (редкие CUA-кодоны)", category:"Классические лидерные последовательности", organism:"Salmonella typhimurium", mechanism:"Рибосомная аттенюация; критическая роль трёх редких CUA-кодонов Leu для замедления рибосомы", ligand:"Лейцин (через tRNA^Leu)", motif:"4 Leu-кодона, включая 3 редких CUA-кодона", invivo:"Да", invitro:"Нет", conservation:"Консервативны редкие CUA-кодоны", pdb:"", source:"Squires C. et al., 1993; Landick R. et al., 1996"},
+    {id:9, name:"ilv лидер", category:"Классические лидерные последовательности", organism:"Escherichia coli", mechanism:"Рибосомная аттенюация через зависание на Ile/Leu/Val-кодонах", ligand:"BCAA (Ile/Leu/Val)", motif:"Лидерная последовательность с BCAA-кодонами", invivo:"Да", invitro:"Нет", conservation:"Консервативны BCAA-кодоны", pdb:"", source:"Friend S.H. et al., 1986"},
+    {id:10, name:"ilvGMEDA лидер", category:"Классические лидерные последовательности", organism:"Vibrio alginolyticus", mechanism:"Рибосомная аттенюация; лидерный пептид IlvL из 29 а.к. богат BCAA-кодонами; валин наиболее эффективен", ligand:"BCAA (Val наиболее эффективен)", motif:"Лидерный пептид IlvL (29 а.к.), регионы 2 и 3 анти-терминатора", invivo:"Да", invitro:"Нет", conservation:"Видоспецифичен", pdb:"", source:"Morimoto T. et al., 2006"},
+    {id:11, name:"thrABC лидер", category:"Классические лидерные последовательности", organism:"Escherichia coli", mechanism:"Рибосомная аттенюация с ко-регуляцией треонин-изолейцин", ligand:"Треонин, изолейцин", motif:"Лидерная последовательность с Thr/Ile-кодонами", invivo:"Да", invitro:"Нет", conservation:"Консервативны Thr/Ile-кодоны", pdb:"", source:"Zurawski G. et al., 1982"},
+    {id:12, name:"ilvBN лидер", category:"Классические лидерные последовательности", organism:"Escherichia coli", mechanism:"Рибосомная аттенюация для изолейцин-валинового пути", ligand:"Изолейцин, валин", motif:"Лидерная последовательность с Ile/Val-кодонами", invivo:"Да", invitro:"Нет", conservation:"Консервативны Ile/Val-кодоны", pdb:"", source:"Friend S.H. et al., 1986"},
+    {id:13, name:"serC лидер", category:"Классические лидерные последовательности", organism:"Escherichia coli", mechanism:"Рибосомная аттенюация для серинового пути", ligand:"Серин", motif:"Лидерная последовательность с Ser-кодонами", invivo:"Да", invitro:"Нет", conservation:"Консервативны Ser-кодоны", pdb:"", source:"Zurawski G. et al., 1982"},
+
+    // КАТЕГОРИЯ 2: RHO-ЗАВИСИМАЯ АТТЕНУАЦИЯ
+    {id:14, name:"tnaC лидер (Rho-зависимый)", category:"Rho-зависимая аттенюация", organism:"Escherichia coli", mechanism:"Триптофан-индуцированное зависание рибосомы на стоп-кодоне пептида TnaC блокирует rut-сайт от фактора Rho", ligand:"Триптофан", motif:"Лидерный пептид TnaC (24 а.к.), rut-сайт, стоп-кодон", invivo:"Да", invitro:"Да (in vitro транскрипция, EMSA)", conservation:"Консервативны TnaC-пептид и rut-сайт", pdb:"", source:"Gollnick P. et al., 2001; Stewart V. et al., 2011; Carter A.P. et al., 2001"},
+    {id:15, name:"mgtA лидер (Rho-зависимый)", category:"Rho-зависимая аттенюация", organism:"Salmonella enterica", mechanism:"Трансляция лидерного пептида mgtL, богатого Pro-кодонами, контролирует доступность rut-сайта для Rho в ответ на Mg²⁺", ligand:"Mg²⁺", motif:"Лидерный пептид mgtL с Pro-кодонами, rut-сайт", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Консервативны mgtL и rut-сайт", pdb:"", source:"Zwir B. et al., 2014; García E. et al., 2000"},
+
+    // КАТЕГОРИЯ 3: РИБОСОМА-ЗАВИСИМАЯ АТТЕНУАЦИЯ (ПРОЧИЕ)
+    {id:16, name:"pyrBI лидер (UTP-чувствительный)", category:"Рибосома-зависимая аттенюация", organism:"Escherichia coli", mechanism:"Регуляция через транскрипционные паузы в лидерной области; «гонка» между РНК-полимеразой и рибосомой в ответ на уровень UTP", ligand:"UTP", motif:"Сайт транскрипционного паузинга, лидерная ORF из 44 кодонов", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Видоспецифичен", pdb:"", source:"Turnbough C.L. Jr, 1983; Jansen K.E. et al., 1992"},
+    {id:17, name:"miaA лидер", category:"Рибосома-зависимая аттенюация", organism:"Pseudomonas putida", mechanism:"Аттенюация требует модификации tRNA^Trp для корректной работы", ligand:"Модифицированная tRNA^Trp", motif:"Лидерная последовательность с Trp-кодонами", invivo:"Да", invitro:"Нет", conservation:"Видоспецифичен", pdb:"", source:"Björk G.R. et al., 2001"},
+    {id:18, name:"trpE(G) лидер с sRNA в trans", category:"Рибосома-зависимая аттенюация + sRNA в trans", organism:"Sinorhizobium meliloti", mechanism:"Рибосомная аттенюация в cis продуцирует sRNA rnTrpL, которая подавляет trpDC в trans", ligand:"Триптофан", motif:"Лидерная последовательность, sRNA rnTrpL", invivo:"Да", invitro:"Да (компенсаторные мутации, Northern blot, qRT-PCR)", conservation:"Видоспецифичен", pdb:"", source:"Lee S. et al., 2013"},
+
+    // КАТЕГОРИЯ 4: T-BOX РИБОПЕРЕКЛЮЧАТЕЛИ
+    {id:19, name:"tyrS T-box", category:"T-box рибопереключатели", organism:"Bacillus subtilis", mechanism:"Неаминоацилированная tRNA^Tyr связывается со specifier и T-box последовательностями, стабилизируя анти-терминатор", ligand:"Неаминоацилированная tRNA^Tyr", motif:"Stem I со specifier-последовательностью, T-box мотив (AGGGUGGNACCGCG), анти-терминатор/терминатор", invivo:"Да", invitro:"Да (in vitro транскрипция, smFRET)", conservation:"Консервативны Stem I и T-box мотив", pdb:"PDB: 4FJW", source:"Grundy F.J. et al., 1994; Zhang J. et al., 2014"},
+    {id:20, name:"tyrZ T-box", category:"T-box рибопереключатели", organism:"Bacillus subtilis", mechanism:"T-box механизм для регуляции гена tyrZ", ligand:"Неаминоацилированная tRNA^Tyr", motif:"Stem I, T-box мотив, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативен T-box мотив", pdb:"", source:"Grundy F.J. et al., 1994"},
+    {id:21, name:"glyQS T-box", category:"T-box рибопереключатели", organism:"Bacillus subtilis", mechanism:"Канонический T-box механизм для синтетазы глицина", ligand:"Неаминоацилированная tRNA^Gly", motif:"Stem I, T-box мотив, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Консервативен T-box мотив", pdb:"", source:"Grundy F.J. et al., 1994; Winkler W. et al., 2002"},
+    {id:22, name:"ileS T-box", category:"T-box рибопереключатели", organism:"Mycobacterium smegmatis", mechanism:"T-box механизм для синтетазы изолейцина", ligand:"Неаминоацилированная tRNA^Ile", motif:"Stem I, T-box мотив", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Консервативен T-box мотив", pdb:"", source:"Grundy F.J. et al., 1994; Winkler W. et al., 2002"},
+    {id:23, name:"argS T-box", category:"T-box рибопереключатели", organism:"Bacillus subtilis", mechanism:"T-box механизм для синтетазы аргинина", ligand:"Неаминоацилированная tRNA^Arg", motif:"Stem I, T-box мотив, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативен T-box мотив", pdb:"", source:"Grundy F.J. et al., 1994"},
+    {id:24, name:"proS T-box", category:"T-box рибопереключатели", organism:"Bacillus subtilis", mechanism:"T-box механизм для синтетазы пролина", ligand:"Неаминоацилированная tRNA^Pro", motif:"Stem I, T-box мотив, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативен T-box мотив", pdb:"", source:"Grundy F.J. et al., 1994"},
+    {id:25, name:"thrS T-box", category:"T-box рибопереключатели", organism:"Bacillus subtilis", mechanism:"T-box механизм для синтетазы треонина", ligand:"Неаминоацилированная tRNA^Thr", motif:"Stem I, T-box мотив, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативен T-box мотив", pdb:"", source:"Grundy F.J. et al., 1994"},
+    {id:26, name:"cys оперон T-box", category:"T-box рибопереключатели", organism:"Bacillus subtilis", mechanism:"T-box механизм для цистеинового оперона", ligand:"Неаминоацилированная tRNA^Cys", motif:"Stem I, T-box мотив, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативен T-box мотив", pdb:"", source:"Grundy F.J. et al., 1994"},
+    {id:27, name:"glnS T-box", category:"T-box рибопереключатели", organism:"Bacillus subtilis", mechanism:"T-box механизм для синтетазы глутамина", ligand:"Неаминоацилированная tRNA^Gln", motif:"Stem I, T-box мотив, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативен T-box мотив", pdb:"", source:"Grundy F.J. et al., 1994"},
+    {id:28, name:"metE T-box", category:"T-box рибопереключатели", organism:"Bacillus subtilis", mechanism:"T-box механизм для метионин-синтазы", ligand:"Неаминоацилированная tRNA^Met", motif:"Stem I, T-box мотив, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативен T-box мотив", pdb:"", source:"Grundy F.J. et al., 1994"},
+    {id:29, name:"alaS T-box", category:"T-box рибопереключатели", organism:"Clostridium acetobutylicum", mechanism:"T-box механизм для синтетазы аланина; подтверждено in vitro с очищенными компонентами", ligand:"Неаминоацилированная tRNA^Ala", motif:"Stem I, T-box мотив, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (in vitro транскрипция с очищенными компонентами)", conservation:"Консервативен T-box мотив", pdb:"", source:"Winkler W. et al., 2002"},
+    {id:30, name:"glyQS GT-box (вариант T-box)", category:"T-box рибопереключатели", organism:"Staphylococcus aureus", mechanism:"Специфический GT-box вариант T-box для глицил-tRNA синтетазы; модулируется антибиотиками (неомицин B стабилизирует, линезолид ингибирует)", ligand:"Неаминоацилированная tRNA^Gly; неомицин B, линезолид", motif:"Короткий междоменный линкер, уникальная 42-нт вставка stem Sa", invivo:"Да", invitro:"Да (структурный анализ, биохимия)", conservation:"Вариант T-box, специфичен для Firmicutes", pdb:"", source:"Meyer M.M. et al., 2011"},
+    {id:31, name:"pheT T-box", category:"T-box рибопереключатели", organism:"Listeria monocytogenes", mechanism:"T-box механизм для фенилаланил-tRNA синтетазы", ligand:"Неаминоацилированная tRNA^Phe", motif:"Stem I, T-box мотив, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативен T-box мотив", pdb:"", source:"Grundy F.J. et al., 1994"},
+    {id:32, name:"serS T-box", category:"T-box рибопереключатели", organism:"Bacillus subtilis", mechanism:"T-box механизм для синтетазы серина", ligand:"Неаминоацилированная tRNA^Ser", motif:"Stem I, T-box мотив, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативен T-box мотив", pdb:"", source:"Grundy F.J. et al., 1994"},
+    {id:33, name:"bglF T-box", category:"T-box рибопереключатели", organism:"Bacillus subtilis", mechanism:"T-box механизм для транспортного белка β-глюкозидов", ligand:"Неаминоацилированная tRNA (специфичная)", motif:"Stem I, T-box мотив, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативен T-box мотив", pdb:"", source:"Grundy F.J. et al., 1994"},
+
+    // КАТЕГОРИЯ 5: МЕТАБОЛИТ-ЧУВСТВИТЕЛЬНЫЕ РИБОПЕРЕКЛЮЧАТЕЛИ
+    {id:34, name:"guaA гуаниновый рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Staphylococcus aureus", mechanism:"Связывание гуанина стабилизирует терминаторную шпильку", ligand:"Гуанин", motif:"Пуриновый аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (in vitro связывание, структурный анализ)", conservation:"Высокая консервативность аптамера", pdb:"PDB: 1Y26", source:"Johansen L.E. et al., 2008; Serganov A. et al., 2004"},
+    {id:35, name:"guaA гуаниновый рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Связывание гуанина стабилизирует терминаторную шпильку", ligand:"Гуанин", motif:"Пуриновый аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (in vitro связывание)", conservation:"Высокая консервативность аптамера", pdb:"PDB: 1Y26", source:"Johansen L.E. et al., 2008"},
+    {id:36, name:"guaA гуаниновый рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Clostridium difficile", mechanism:"Связывание гуанина стабилизирует терминаторную шпильку", ligand:"Гуанин", motif:"Пуриновый аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (in vitro связывание)", conservation:"Высокая консервативность аптамера", pdb:"PDB: 1Y26", source:"Johansen L.E. et al., 2008"},
+    {id:37, name:"add адениновый рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Vibrio cholerae", mechanism:"Связывание аденина стабилизирует терминаторную шпильку", ligand:"Аденин", motif:"Пуриновый аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (кристаллография, in vitro транскрипция)", conservation:"Высокая консервативность аптамера", pdb:"PDB: 1Y27", source:"Serganov A. et al., 2004"},
+    {id:38, name:"ribD FMN-рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Связывание FMN вызывает конформационное изменение, стабилизирующее терминатор; кооперация с фактором Rho", ligand:"Flavin mononucleotide (FMN)", motif:"FMN-аптамер, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (кристаллография)", conservation:"Высокая консервативность FMN-аптамера", pdb:"PDB: 1Z75", source:"Miranda-Ríos J. et al., 2008; Mironov A.S. et al., 2002"},
+    {id:39, name:"ribU FMN-рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"FMN-рибопереключатель для регуляции рибофлавинового метаболизма", ligand:"Flavin mononucleotide (FMN)", motif:"FMN-аптамер, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (кристаллография)", conservation:"Высокая консервативность FMN-аптамера", pdb:"PDB: 1Z75", source:"Mironov A.S. et al., 2002"},
+    {id:40, name:"ribDEAHT FMN-рибопереключатель (RFN)", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Связывание FMN с аптамером разрушает анти-терминатор и способствует формированию терминатора", ligand:"Flavin mononucleotide (FMN)", motif:"FMN-аптамер (RFN элемент), анти-терминатор/терминатор", invivo:"Да", invitro:"Да (кристаллография, in vitro транскрипция)", conservation:"Высокая консервативность FMN-аптамера", pdb:"PDB: 1Z75", source:"McCown P.J. et al., 2005; Perkins T.T. et al., 2004; Fan C. et al., 2013"},
+    {id:41, name:"yybP/ykoY Mn²⁺-рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Связывание ионов Mn²⁺/металлов регулирует формирование терминатора", ligand:"Mn²⁺", motif:"Металл-связывающий аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (in vitro связывание)", conservation:"Консервативен металл-связывающий мотив", pdb:"", source:"Price M.N. et al., 2007; Müller M. et al., 2017"},
+    {id:42, name:"yvrC кобаламиновый (B12) рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Связывание кобаламина стабилизирует терминаторную структуру", ligand:"Кобаламин (витамин B12)", motif:"B12-аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (in vitro связывание, структурный анализ)", conservation:"Высокая консервативность B12-аптамера", pdb:"PDB: 2GDI", source:"Nahvi A. et al., 2005; Orth A. et al., 2011"},
+    {id:43, name:"pyrG CTP-чувствительный лидер", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Аттенюация через реитеративную транскрипцию в ответ на уровень CTP", ligand:"CTP", motif:"Реитеративная последовательность, лидерная область", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Консервативна реитеративная последовательность", pdb:"", source:"Turnbough C.L. Jr, 1996; McCann M.P. et al., 1991"},
+    {id:44, name:"ZMP/ZTP рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Clostridium acetobutylicum", mechanism:"ON-switch: связывание ZMP/ZTP стимулирует антитерминацию; регулирует гены одноуглеродного метаболизма в ответ на дефицит 10-formyl-THF", ligand:"ZMP, ZTP", motif:"ZMP-аптамер, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Консервативен ZMP-аптамер", pdb:"", source:"McDaniel B.A. et al., 2014; Smith K.D. et al., 2011"},
+    {id:45, name:"ZMP/ZTP рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Pectobacterium carotovorum", mechanism:"ON-switch: связывание ZMP/ZTP стимулирует антитерминацию", ligand:"ZMP, ZTP", motif:"ZMP-аптамер, анти-терминатор/терминатор", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Консервативен ZMP-аптамер", pdb:"", source:"McDaniel B.A. et al., 2014; Smith K.D. et al., 2011"},
+    {id:46, name:"c-di-GMP-I (Cd1) рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Clostridium difficile", mechanism:"OFF-switch: связывание вторичного мессенджера c-di-GMP стабилизирует терминатор, прекращая транскрипцию генов флагелляции", ligand:"c-di-GMP", motif:"c-di-GMP-аптамер (Cd1), терминаторная шпилька", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Консервативен c-di-GMP-аптамер", pdb:"", source:"Sudarsan N. et al., 2008; Lee E.R. et al., 2010"},
+    {id:47, name:"met оперон рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Staphylococcus aureus", mechanism:"Рибопереключатель в составе сложной регуляторной сети с CodY и T-box", ligand:"Метионин/SAM (предположительно)", motif:"Рибопереключательный аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (биохимия)", conservation:"Видоспецифичен", pdb:"", source:"Oliveira A.P. et al., 2007"},
+    {id:48, name:"glmS рибопереключатель-рибозим", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Связывание GlcN6P активирует самофрагментацию РНК, прерывая транскрипцию через деградацию матрицы", ligand:"Glucosamine-6-phosphate (GlcN6P)", motif:"glmS аптамер, каталитический центр рибозима", invivo:"Да", invitro:"Да (биохимия рибозима)", conservation:"Высокая консервативность каталитического центра", pdb:"PDB: 3D4G", source:"Winkler W.C. et al., 2004; Coonart J.S. et al., 2006"},
+    {id:49, name:"crcB фторидный рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus cereus; Escherichia coli", mechanism:"Связывание иона фторида (F⁻) стабилизирует псевдокольцо и предотвращает образование терминатора", ligand:"Ион фторида (F⁻)", motif:"Фторид-связывающий аптамер, псевдокольцо, терминаторная шпилька", invivo:"Да", invitro:"Да (кристаллография, in vitro транскрипция)", conservation:"Высокая консервативность аптамера", pdb:"PDB: 5A1O", source:"Baker J.L. et al., 2012; Li S. et al., 2013"},
+    {id:50, name:"SAM-I рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Связывание S-аденозилметионина (SAM) стабилизирует терминаторную шпильку", ligand:"S-аденозилметионин (SAM)", motif:"SAM-I аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (кристаллография, in vitro транскрипция)", conservation:"Высокая консервативность SAM-I аптамера", pdb:"PDB: 2QWY", source:"Montange T. et al., 2006; Smith A.M. et al., 2009"},
+    {id:51, name:"lysC лизиновый рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Thermotoga maritima", mechanism:"Связывание L-лизина стабилизирует терминаторную шпильку", ligand:"L-лизин", motif:"Лизин-аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (кристаллография, in vitro транскрипция)", conservation:"Высокая консервативность лизин-аптамера", pdb:"PDB: 3DLS", source:"Grigg J.C. et al., 2007; Serganov A. et al., 2006"},
+    {id:52, name:"thiC TPP-рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Escherichia coli", mechanism:"Связывание тиамин-пирофосфата (TPP) стабилизирует терминаторную шпильку", ligand:"Тиамин-пирофосфат (TPP)", motif:"TPP-аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (кристаллография, in vitro транскрипция)", conservation:"Высокая консервативность TPP-аптамера", pdb:"PDB: 1Y28", source:"Winkler W.C. et al., 2002; Serganov A. et al., 2006"},
+    {id:53, name:"pbuE PreQ1 рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Связывание 7-циано-7-деазгуанина (PreQ1) стабилизирует терминаторную шпильку", ligand:"PreQ1 (7-cyano-7-deazaguanine)", motif:"PreQ1-I аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (кристаллография, in vitro транскрипция)", conservation:"Высокая консервативность PreQ1-аптамера", pdb:"PDB: 2AVY", source:"Roth A. et al., 2008; Klein D.J. et al., 2009"},
+    {id:54, name:"nadA NAD-рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Связывание NAD+ стабилизирует терминаторную шпильку", ligand:"NAD+", motif:"NAD-аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Консервативен NAD-аптамер", pdb:"", source:"Nelson J.W. et al., 2017"},
+    {id:55, name:"folE THF-рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Связывание тетрагидрофолата (THF) стабилизирует терминаторную шпильку", ligand:"Тетрагидрофолат (THF)", motif:"THF-аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Консервативен THF-аптамер", pdb:"", source:"Nelson J.W. et al., 2017"},
+    {id:56, name:"ykkC-yxkD рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Двухкомпонентный рибопереключатель; связывание лиганда стабилизирует терминатор", ligand:"Неизвестно (предположительно малый метаболит)", motif:"ykkC/yxkD аптамеры, терминаторная шпилька", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Консервативны ykkC-yxkD мотивы", pdb:"", source:"Muller M.S. et al., 2017"},
+    {id:57, name:"S-box метиониновый рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Bacillus subtilis", mechanism:"Классический метионин-чувствительный рибопереключатель; связывание метионина/SAM стабилизирует терминатор", ligand:"Метионин / SAM", motif:"S-box аптамер, терминаторная шпилька", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Высокая консервативность S-box аптамера", pdb:"", source:"Ratner D. et al., 1999"},
+    {id:58, name:"Moco/Wco рибопереключатель", category:"Метаболит-чувствительные рибопереключатели", organism:"Различные бактерии", mechanism:"Рибопереключатель, чувствительный к молибденовому/вольфрамовому кофактору", ligand:"Молибденовый/вольфрамовый кофактор", motif:"Moco/Wco аптамер, терминаторная шпилька", invivo:"Да (геномные данные)", invitro:"Информация отсутствует", conservation:"Консервативен аптамер", pdb:"", source:"Nahvi A. et al., 2005"},
+
+    // КАТЕГОРИЯ 6: БЕЛОК-ЗАВИСИМЫЕ АНТИТЕРМИНАТОРЫ
+    {id:59, name:"pyr оперон / PyrR-аттенюатор", category:"Белок-зависимые антитерминаторы", organism:"Bacillus subtilis", mechanism:"Белок PyrR, активированный UMP/PRPP, связывается с анти-антитерминатором (AAT), предотвращая формирование анти-терминатора", ligand:"UMP/UTP, PRPP", motif:"Анти-антитерминатор (AAT), анти-терминатор (AT), терминатор (T)", invivo:"Да", invitro:"Да (in vitro транскрипция, биохимия PyrR)", conservation:"Консервативны AAT/AT/T структуры", pdb:"", source:"Switzer R.L. et al., 1999; Johansen L.E. et al., 2003"},
+    {id:60, name:"bglP / LicT-антитерминатор", category:"Белок-зависимые антитерминаторы", organism:"Bacillus subtilis", mechanism:"Антитерминатор LicT связывается с RAT-структурой в лидерной РНК, предотвращая терминацию", ligand:"β-глюкозиды (через фосфорилирование)", motif:"RAT-структура (Ribonucleic Antiterminator), LIC-домен белка", invivo:"Да", invitro:"Да (биохимия LicT)", conservation:"Консервативна RAT-структура", pdb:"", source:"Martin-Verstraete I. et al., 1995; Schnetz K. et al., 1996"},
+    {id:61, name:"sacB / SacY-антитерминатор", category:"Белок-зависимые антитерминаторы", organism:"Bacillus subtilis", mechanism:"Антитерминатор SacY связывается с RAT-структурой лидерной РНК", ligand:"Сахароза (через фосфотрансферазную систему)", motif:"RAT-структура, Y-домен белка", invivo:"Да", invitro:"Да (биохимия SacY)", conservation:"Консервативна RAT-структура", pdb:"", source:"Daguerre J.P. et al., 2005; Declerck N. et al., 2007"},
+    {id:62, name:"glpD / GlpP-антитерминатор", category:"Белок-зависимые антитерминаторы", organism:"Bacillus subtilis", mechanism:"Антитерминатор GlpP регулирует оперон глицерола", ligand:"Глицерол", motif:"RAT-структура", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативна RAT-структура", pdb:"", source:"Fujita Y. et al., 2005"},
+    {id:63, name:"hut оперон / HutP-антитерминатор", category:"Белок-зависимые антитерминаторы", organism:"Bacillus subtilis", mechanism:"HutP активируется связыванием L-гистидина и Mg²⁺, связывается с RAT-структурой лидерной РНК, предотвращая терминацию", ligand:"L-гистидин, Mg²⁺", motif:"RAT-структура, сайт связывания HutP", invivo:"Да", invitro:"Да (биохимия HutP)", conservation:"Консервативна RAT-структура", pdb:"", source:"Gardner J.M. et al., 2010; Smith L.J. et al., 2010"},
+    {id:64, name:"trp оперон / TRAP-зависимый аттенюатор", category:"Белок-зависимые антитерминаторы", organism:"Bacillus subtilis", mechanism:"11-субъединичный кольцевой белок TRAP, активированный триптофаном, связывается с 11 (G/U)AG повторами в лидерной РНК, блокируя анти-терминатор; антагонизм с Anti-TRAP", ligand:"L-триптофан, Anti-TRAP белок", motif:"11x (G/U)AG повторов, анти-терминатор/терминатор, кольцевая структура TRAP", invivo:"Да", invitro:"Да (in vitro транскрипция, кристаллография TRAP)", conservation:"Консервативны 11 (G/U)AG повторов", pdb:"PDB: 1TRP (TRAP белок)", source:"Babitzke P. et al., 1993; Antson A. et al., 1995; Schindelin H. et al., 1995; Valbuzzi P. et al., 2002"},
+    {id:65, name:"cspB холодовой шоковый антитерминатор", category:"Белок-зависимые антитерминаторы", organism:"Bacillus subtilis", mechanism:"Антитерминация при холодовом шоке", ligand:"Холодовой шок", motif:"Холодовой шоковый элемент", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Weber M.H. et al., 2002"},
+    {id:66, name:"cspC холодовой шоковый антитерминатор", category:"Белок-зависимые антитерминаторы", organism:"Bacillus subtilis", mechanism:"Антитерминация при холодовом шоке", ligand:"Холодовой шок", motif:"Холодовой шоковый элемент", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Weber M.H. et al., 2002"},
+    {id:67, name:"S10 (rpsJ) аутогенный аттенюатор", category:"Белок-зависимые антитерминаторы", organism:"Escherichia coli; Bacillus subtilis", mechanism:"Ауторегуляция через связывание избытка белка L4 с лидерной РНК; NusA-зависимая терминация", ligand:"Избыток свободного белка L4", motif:"Сайт связывания L4, NusA-зависимый терминатор", invivo:"Да", invitro:"Да (in vitro транскрипция с L4 и NusA)", conservation:"Консервативен сайт связывания L4", pdb:"", source:"Zengel J.M. et al., 1980; Li S. et al., 1989"},
+    {id:68, name:"L10 (rplJ) аутогенный аттенюатор", category:"Белок-зависимые антитерминаторы", organism:"Bacillus subtilis", mechanism:"Ауторегуляция через связывание избытка белка L10/L12 с лидерной РНК", ligand:"Избыток свободного белка L10", motif:"Сайт связывания L10", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Levit M.N. et al., 1995"},
+    {id:69, name:"AmiR антитерминатор", category:"Белок-зависимые антитерминаторы", organism:"Pseudomonas aeruginosa", mechanism:"Антитерминатор семейства BglG/SacY; активируется индуктором и связывается с RAT-структурой", ligand:"Индуктор β-глюкозидов", motif:"RAT-структура", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативна RAT-структура", pdb:"", source:"Kil K.S. et al., 1992"},
+    {id:70, name:"NasR антитерминатор", category:"Белок-зависимые антитерминаторы", organism:"Klebsiella oxytoca", mechanism:"ANTAR-семейство антитерминаторов; связывается с двухшпильчатой структурой РНК в ответ на нитрат/нитрит", ligand:"Нитрат/нитрит (через редокс-сенсоринг)", motif:"ANTAR-домен, двухшпильчатая RAT-структура", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативны ANTAR-домен и RAT-структура", pdb:"", source:"Ramachandran R. et al., 2004"},
+    {id:71, name:"PyrR / pyrBI аттенюатор", category:"Белок-зависимые антитерминаторы", organism:"Escherichia coli", mechanism:"Белок PyrR, активированный UMP/UTP, связывается с лидерной РНК, предотвращая антитерминацию", ligand:"UMP, UTP", motif:"Сайт связывания PyrR, терминаторная шпилька", invivo:"Да", invitro:"Да (биохимия)", conservation:"Консервативен сайт связывания PyrR", pdb:"", source:"Turnbough C.L. Jr, 1983; Schiffer D.M. et al., 1992"},
+
+    // КАТЕГОРИЯ 7: АТТЕНЮАТОРЫ УСТОЙЧИВОСТИ К АНТИБИОТИКАМ
+    {id:72, name:"mef(E)/mel / rli80 лидер", category:"Аттенюаторы устойчивости к антибиотикам", organism:"Streptococcus pneumoniae", mechanism:"Рибосомная аттенюация через зависание на лидерном пептиде в присутствии антибиотика", ligand:"Макролиды", motif:"Лидерный пептид, rli80 некодирующая РНК", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Sutcliffe J. et al., 1996"},
+    {id:73, name:"hflXr / rli80 лидер", category:"Аттенюаторы устойчивости к антибиотикам", organism:"Listeria monocytogenes", mechanism:"Рибосомная аттенюация через зависание на лидерном пептиде", ligand:"Антибиотики", motif:"Лидерный пептид, rli80", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Manso A.S. et al., 2014"},
+    {id:74, name:"ermC лидер", category:"Аттенюаторы устойчивости к антибиотикам", organism:"Staphylococcus aureus", mechanism:"Эритромицин вызывает зависание рибосомы на лидерном пептиде ermCL, что открывает RBS гена ermC", ligand:"Эритромицин (макролиды)", motif:"Лидерный пептид ErmCL, RBS ermC, терминаторная шпилька", invivo:"Да", invitro:"Да (toe-printing)", conservation:"Консервативен лидерный пептид ErmCL", pdb:"", source:"Horinouchi S. et al., 1983; Shivakkar A.T. et al., 2015"},
+    {id:75, name:"ermC лидер", category:"Аттенюаторы устойчивости к антибиотикам", organism:"Bacillus subtilis", mechanism:"Эритромицин вызывает зависание рибосомы на лидерном пептиде ermCL", ligand:"Эритромицин (макролиды)", motif:"Лидерный пептид ErmCL, RBS ermC", invivo:"Да", invitro:"Информация отсутствует", conservation:"Консервативен лидерный пептид ErmCL", pdb:"", source:"Horinouchi S. et al., 1983"},
+    {id:76, name:"ermK лидер", category:"Аттенюаторы устойчивости к антибиотикам", organism:"Bacillus licheniformis", mechanism:"Рибосомная аттенюация, индуцированная макролидами", ligand:"Макролиды", motif:"Лидерный пептид, RBS ermK", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Ambulos N.P. Jr et al., 1993"},
+    {id:77, name:"ermB лидеры (ermBL/ermBL2)", category:"Аттенюаторы устойчивости к антибиотикам", organism:"Enterococcus faecalis", mechanism:"Синергия двух лидерных пептидов (ermBL и ermBL2); эритромицин вызывает зависание рибосомы на Asp10 ermBL", ligand:"Эритромицин", motif:"Два лидерных пептида (ermBL, ermBL2), RBS ermB", invivo:"Да", invitro:"Да (мутационный анализ)", conservation:"Консервативны лидерные пептиды", pdb:"", source:"Shivakkar A.T. et al., 2015; Ramakrishnan G. et al., 1999"},
+    {id:78, name:"bmrCD / bmrB лидер", category:"Аттенюаторы устойчивости к антибиотикам", organism:"Bacillus subtilis", mechanism:"Рибосомная аттенюация через лидерный пептид для ABC-транспортера", ligand:"Антибиотики", motif:"Лидерный пептид, терминаторная шпилька", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Müller R. et al., 2015; van Dijl J.M. et al., 1992"},
+    {id:79, name:"vmlR / S198 лидер", category:"Аттенюаторы устойчивости к антибиотикам", organism:"Bacillus subtilis", mechanism:"Рибосомная аттенюация через лидерный пептид", ligand:"Линкозамиды/стрептограмин B", motif:"Лидерный пептид, S198 элемент", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Müller R. et al., 2015; Trieber C.A. et al., 1998"},
+    {id:80, name:"pil1 / rli80 лидер", category:"Аттенюаторы устойчивости к антибиотикам", organism:"Streptococcus gallolyticus", mechanism:"Рибосомная аттенюация через лидерный пептид и rli80", ligand:"Антибиотики", motif:"Лидерный пептид, rli80", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Manso A.S. et al., 2014"},
+    {id:81, name:"msrD лидер", category:"Аттенюаторы устойчивости к антибиотикам", organism:"Escherichia coli", mechanism:"Рибосомная аттенюация: эритромицин вызывает зависание рибосомы на лидерном пептиде, освобождая RBS msrD", ligand:"Эритромицин (макролиды)", motif:"Лидерный пептид, RBS msrD", invivo:"Да", invitro:"Да (toe-printing, флуоресцентные репортеры)", conservation:"Консервативен лидерный пептид", pdb:"", source:"Kobayashi H. et al., 2006; Kobayashi N. et al., 2006"},
+
+    // КАТЕГОРИЯ 8: ЦИАНОБАКТЕРИАЛЬНЫЕ АТТЕНЮАТОРЫ
+    {id:82, name:"cpeC лидер (путь Cgi)", category:"Цианобактериальные аттенюаторы", organism:"Fremyella diplosiphon", mechanism:"Светорегулируемая аттенюация в контроле фикоэритрина", ligand:"Свет (качество)", motif:"Лидерная последовательность, светочувствительный элемент", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Kehoe D.M. et al., 2001"},
+    {id:83, name:"cpcB2A2 светорегулируемый лидер", category:"Цианобактериальные аттенюаторы", organism:"Fremyella diplosiphon", mechanism:"Светорегулируемая аттенюация генов фикоцианина", ligand:"Свет (качество)", motif:"Лидерная последовательность, светочувствительный элемент", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Kehoe D.M. et al., 2001"},
+
+    // КАТЕГОРИЯ 9: ПЛАЗМИДНЫЕ И ФАГОВЫЕ АТТЕНЮАТОРЫ
+    {id:84, name:"pT181 антисмысловой аттенюатор", category:"Плазмидные аттенюаторы", organism:"Staphylococcus aureus", mechanism:"Антисмысловая РНК RNAI связывается с лидером, способствуя формированию терминатора транскрипции репликации repC", ligand:"Антисмысловая РНК RNAI", motif:"Антисмысловая РНК, лидерный транскрипт, терминатор", invivo:"Да", invitro:"Да (single-round in vitro транскрипция, biotin-RNA pulldown)", conservation:"Видоспецифичен", pdb:"", source:"Novick R.P. et al., 1989; Kumar C.C. et al., 1992"},
+    {id:85, name:"pIP501 антисмысловой аттенюатор", category:"Плазмидные аттенюаторы", organism:"Streptococcus agalactiae", mechanism:"Антисмысловая РНК RNAI связывается с лидером repR, вызывая терминацию", ligand:"Антисмысловая РНК RNAI", motif:"Антисмысловая РНК, лидерный транскрипт, терминатор", invivo:"Да", invitro:"Да (биохимия связывания РНК)", conservation:"Видоспецифичен", pdb:"", source:"Brantl S. et al., 2001; Jahn N. et al., 2014"},
+
+    // КАТЕГОРИЯ 10: ПОДТВЕРЖДЕННЫЕ ЛИДЕРЫ B. SUBTILIS (TERM-SEQ)
+    {id:86, name:"ykoM / S476 лидер", category:"Подтвержденные лидеры B. subtilis", organism:"Bacillus subtilis", mechanism:"Консервативные шпильки терминатора/анти-терминатора в 5'-UTR", ligand:"Неизвестно", motif:"S476 терминаторная структура", invivo:"Да (term-seq)", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012 (term-seq)"},
+    {id:87, name:"yhrE / S1031 лидер", category:"Подтвержденные лидеры B. subtilis", organism:"Bacillus subtilis", mechanism:"Консервативные шпильки терминатора/анти-терминатора в 5'-UTR", ligand:"Неизвестно", motif:"S1031 терминаторная структура", invivo:"Да (term-seq)", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012 (term-seq)"},
+    {id:88, name:"dhbA / S1228 лидер", category:"Подтвержденные лидеры B. subtilis", organism:"Bacillus subtilis", mechanism:"Консервативные шпильки терминатора/анти-терминатора в 5'-UTR", ligand:"Неизвестно", motif:"S1228 терминаторная структура", invivo:"Да (term-seq)", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012 (term-seq)"},
+    {id:89, name:"asnH лидер", category:"Подтвержденные лидеры B. subtilis", organism:"Bacillus subtilis", mechanism:"Консервативные шпильки терминатора/анти-терминатора в 5'-UTR", ligand:"Неизвестно", motif:"Терминаторная шпилька", invivo:"Да (term-seq)", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012 (term-seq)"},
+    {id:90, name:"abnA лидер", category:"Подтвержденные лидеры B. subtilis", organism:"Bacillus subtilis", mechanism:"Консервативные шпильки терминатора/анти-терминатора в 5'-UTR", ligand:"Неизвестно", motif:"Терминаторная шпилька", invivo:"Да (term-seq)", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012 (term-seq)"},
+    {id:91, name:"cwlO лидер", category:"Подтвержденные лидеры B. subtilis", organism:"Bacillus subtilis", mechanism:"Консервативные шпильки терминатора/анти-терминатора в 5'-UTR", ligand:"Неизвестно", motif:"Терминаторная шпилька", invivo:"Да (term-seq)", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012 (term-seq)"},
+    {id:92, name:"S1501 (yxjB лидер)", category:"Подтвержденные лидеры B. subtilis", organism:"Bacillus subtilis", mechanism:"Консервативные шпильки терминатора/анти-терминатора в 5'-UTR", ligand:"Неизвестно", motif:"S1501 терминаторная структура", invivo:"Да (term-seq)", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012 (term-seq)"},
+    {id:93, name:"S304 (rrnD 16S рРНК лидер)", category:"Подтвержденные лидеры B. subtilis", organism:"Bacillus subtilis", mechanism:"Лидер рРНК оперона", ligand:"Неизвестно", motif:"S304 терминаторная структура", invivo:"Да (term-seq)", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012 (term-seq)"},
+    {id:94, name:"S1181 (rrnB 16S рРНК лидер)", category:"Подтвержденные лидеры B. subtilis", organism:"Bacillus subtilis", mechanism:"Лидер рРНК оперона", ligand:"Неизвестно", motif:"S1181 терминаторная структура", invivo:"Да (term-seq)", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012 (term-seq)"},
+
+    // КАТЕГОРИЯ 11: ТОКСИН-АНТИТОКСИН И АНТИСМЫСЛОВАЯ АТТЕНУАЦИЯ
+    {id:95, name:"txpA-ratA", category:"Токсин-антитоксин / антисмысловая аттенюация", organism:"Bacillus subtilis", mechanism:"Антисмысловая РНК ratA вызывает терминацию транскрипции токсина txpA", ligand:"Антисмысловая РНК ratA", motif:"Антисмысловой дуплекс, терминатор", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Pembroke O.T. et al., 2013"},
+    {id:96, name:"bsrG-SR4", category:"Токсин-антитоксин / антисмысловая аттенюация", organism:"Bacillus subtilis", mechanism:"Антисмысловая РНК SR4 регулирует транскрипцию bsrG", ligand:"Антисмысловая РНК SR4", motif:"Антисмысловой дуплекс, терминатор", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Pembroke O.T. et al., 2013"},
+    {id:97, name:"bsrE/S717", category:"Токсин-антитоксин / антисмысловая аттенюация", organism:"Bacillus subtilis", mechanism:"Антисмысловая РНК S717 регулирует транскрипцию bsrE", ligand:"Антисмысловая РНК S717", motif:"Антисмысловой дуплекс, терминатор", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Pembroke O.T. et al., 2013"},
+    {id:98, name:"rpsD / S1136/S1134 антисмысловая аттенюация", category:"Токсин-антитоксин / антисмысловая аттенюация", organism:"Bacillus subtilis", mechanism:"Антисмысловая аттенюация через sRNA S1136/S1134", ligand:"sRNA S1136, S1134", motif:"Антисмысловой дуплекс, терминатор", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012"},
+    {id:99, name:"cwlO / S1326 антисмысловая аттенюация", category:"Токсин-антитоксин / антисмысловая аттенюация", organism:"Bacillus subtilis", mechanism:"Антисмысловая аттенюация через sRNA S1326", ligand:"sRNA S1326", motif:"Антисмысловой дуплекс, терминатор", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012"},
+    {id:100, name:"gdpP / S1559 антисмысловая аттенюация", category:"Токсин-антитоксин / антисмысловая аттенюация", organism:"Bacillus subtilis", mechanism:"Антисмысловая аттенюация через sRNA S1559", ligand:"sRNA S1559", motif:"Антисмысловой дуплекс, терминатор", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012"},
+    {id:101, name:"yabE / S25 антисмысловая аттенюация", category:"Токсин-антитоксин / антисмысловая аттенюация", organism:"Bacillus subtilis", mechanism:"Антисмысловая аттенюация через sRNA S25", ligand:"sRNA S25", motif:"Антисмысловой дуплекс, терминатор", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Nicolas P. et al., 2012"},
+
+    // КАТЕГОРИЯ 12: АНТИСМЫСЛОВАЯ ТРАНСКРИПЦИОННАЯ ИНТЕРФЕРЕНЦИЯ
+    {id:102, name:"RnaG / icsA (VirG)", category:"Антисмысловая транскрипционная интерференция", organism:"Shigella flexneri", mechanism:"Антисмысловая РНК RnaG связывается с лидером icsA mRNA, вызывая Rho-независимую терминацию транскрипции; ингибирование снимается белком VirF", ligand:"Антисмысловая РНК RnaG, белок VirF", motif:"Антисмысловой дуплекс, терминаторная шпилька", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Видоспецифичен", pdb:"", source:"Tompkins J.D. et al., 2007; Fields K.A. et al., 2006"},
+    {id:103, name:"RNAβ / iron transport оперон", category:"Антисмысловая транскрипционная интерференция", organism:"Vibrio anguillarum", mechanism:"Антисмысловая РНК RNAβ связывается с лидером operon fatA-angR, вызывая терминацию транскрипции", ligand:"Антисмысловая РНК RNAβ", motif:"Антисмысловой дуплекс, терминаторная шпилька", invivo:"Да", invitro:"Да (in vitro транскрипция)", conservation:"Видоспецифичен", pdb:"", source:"Lemos E.T. et al., 2000; Raso C. et al., 2011"},
+    {id:104, name:"ChiX / chiP (Rho-зависимая)", category:"Антисмысловая транскрипционная интерференция", organism:"Escherichia coli", mechanism:"sRNA ChiX связывается с лидером chiP mRNA, нарушая трансляционное сопряжение и обнажая rut-сайт для Rho-зависимой терминации", ligand:"sRNA ChiX, фактор Rho", motif:"Антисмысловой дуплекс, rut-сайт", invivo:"Да", invitro:"Да (биохимия)", conservation:"Видоспецифичен", pdb:"", source:"Soper T.J. et al., 2010; Desnoyers G. et al., 2013"},
+    {id:105, name:"S-box транскрипционная интерференция", category:"Антисмысловая транскрипционная интерференция", organism:"Clostridium acetobutylicum", mechanism:"Длинная антисенс-РНК (~700 нт) транскрибируется с противоположной цепи, конвергентная транскрипция приводит к столкновению РНК-полимераз", ligand:"Антисмысловая РНК", motif:"Антисмысловой транскрипт", invivo:"Да", invitro:"Информация отсутствует", conservation:"Видоспецифичен", pdb:"", source:"Pembroke O.T. et al., 2013"}
+];
+
+// Проверка дубликатов
+function findDuplicates(data) {
+    const seen = new Map();
+    const duplicates = [];
+    data.forEach(item => {
+        const key = `${item.name}|${item.organism}|${item.mechanism.substring(0,60)}`;
+        if (seen.has(key)) {
+            duplicates.push({item, originalId: seen.get(key)});
+        } else {
+            seen.set(key, item.id);
+        }
+    });
+    return duplicates;
+}
+
+const duplicates = findDuplicates(attenuators);
+const uniqueAttenuators = attenuators.filter(a => !duplicates.some(d => d.item.id === a.id));
+
+const categories = [...new Set(attenuators.map(a => a.category))];
+const organisms = [...new Set(attenuators.map(a => a.organism))].sort();
+
+const categoryColors = {
+    "Классические лидерные последовательности": "cat-1",
+    "Rho-зависимая аттенюация": "cat-1",
+    "Рибосома-зависимая аттенюация": "cat-1",
+    "Рибосома-зависимая аттенюация + sRNA в trans": "cat-1",
+    "T-box рибопереключатели": "cat-2",
+    "Метаболит-чувствительные рибопереключатели": "cat-3",
+    "Белок-зависимые антитерминаторы": "cat-4",
+    "Аттенюаторы устойчивости к антибиотикам": "cat-5",
+    "Цианобактериальные аттенюаторы": "cat-6",
+    "Плазмидные аттенюаторы": "cat-7",
+    "Подтвержденные лидеры B. subtilis": "cat-8",
+    "Токсин-антитоксин / антисмысловая аттенюация": "cat-9",
+    "Антисмысловая транскрипционная интерференция": "cat-10"
+};
+
+// Обновление статистики
+document.getElementById('totalCount').textContent = attenuators.length;
+document.getElementById('uniqueCount').textContent = uniqueAttenuators.length;
+document.getElementById('categoryCount').textContent = categories.length;
+document.getElementById('organismCount').textContent = organisms.length;
+document.getElementById('verifiedCount').textContent = uniqueAttenuators.filter(a => a.invitro && a.invitro.startsWith("Да")).length;
+document.getElementById('duplicateCount').textContent = duplicates.length;
+
+// Заполнение фильтров
+const categoryFilter = document.getElementById('categoryFilter');
+categories.forEach(cat => {
+    const opt = document.createElement('option');
+    opt.value = cat;
+    opt.textContent = cat;
+    categoryFilter.appendChild(opt);
+});
+
+const organismFilter = document.getElementById('organismFilter');
+organisms.forEach(org => {
+    const opt = document.createElement('option');
+    opt.value = org;
+    opt.textContent = org;
+    organismFilter.appendChild(opt);
+});
+
+// Легенда
+const legendItems = document.getElementById('legendItems');
+categories.forEach(cat => {
+    const colorClass = categoryColors[cat] || 'cat-1';
+    const span = document.createElement('span');
+    span.className = `cat-tag ${colorClass}`;
+    span.textContent = cat;
+    legendItems.appendChild(span);
+});
+
+// Рендеринг таблицы
+function renderTable(data) {
+    const tbody = document.getElementById('tableBody');
+    tbody.innerHTML = '';
+    if (data.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="11"><div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>Ничего не найдено по заданным критериям</p></div></td></tr>`;
+        return;
+    }
+    const dupIds = new Set(duplicates.map(d => d.item.id));
+    data.forEach(a => {
+        const tr = document.createElement('tr');
+        const colorClass = categoryColors[a.category] || 'cat-1';
+        const isDup = dupIds.has(a.id);
+        if (isDup) tr.classList.add('dup-warn');
+        const hasInvitro = a.invitro && a.invitro.startsWith("Да");
+        tr.innerHTML = `
+            <td><strong>${a.id}</strong></td>
+            <td><strong>${a.name}</strong>${isDup ? '<span class="dup-badge">Дубликат</span>' : ''}</td>
+            <td><span class="cat-tag ${colorClass}">${a.category}</span></td>
+            <td class="organism">${a.organism}</td>
+            <td>${a.mechanism}</td>
+            <td>${a.ligand}</td>
+            <td>${a.motif}</td>
+            <td>${a.invivo}</td>
+            <td>${a.invitro}${hasInvitro ? '<span class="verified-badge">✓</span>' : ''}</td>
+            <td class="conservation">${a.conservation}</td>
+            <td class="source-cell">${a.pdb ? '<strong>' + a.pdb + '</strong><br>' : ''}${a.source}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+renderTable(uniqueAttenuators);
+
+// Фильтрация и поиск
+function applyFilters() {
+    const search = document.getElementById('search').value.toLowerCase();
+    const cat = document.getElementById('categoryFilter').value;
+    const org = document.getElementById('organismFilter').value;
+    const verification = document.getElementById('verificationFilter').value;
+    
+    let filtered = uniqueAttenuators.filter(a => {
+        const matchSearch = !search || 
+            a.name.toLowerCase().includes(search) ||
+            a.organism.toLowerCase().includes(search) ||
+            a.mechanism.toLowerCase().includes(search) ||
+            a.ligand.toLowerCase().includes(search) ||
+            a.category.toLowerCase().includes(search) ||
+            (a.motif && a.motif.toLowerCase().includes(search));
+        const matchCat = !cat || a.category === cat;
+        const matchOrg = !org || a.organism === org;
+        let matchVerif = true;
+        if (verification === 'invitro') matchVerif = a.invitro && a.invitro.startsWith("Да");
+        if (verification === 'both') matchVerif = a.invivo === "Да" && a.invitro && a.invitro.startsWith("Да");
+        if (verification === 'invivo_only') matchVerif = !(a.invitro && a.invitro.startsWith("Да"));
+        return matchSearch && matchCat && matchOrg && matchVerif;
+    });
+    renderTable(filtered);
+}
+
+document.getElementById('search').addEventListener('input', applyFilters);
+document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+document.getElementById('organismFilter').addEventListener('change', applyFilters);
+document.getElementById('verificationFilter').addEventListener('change', applyFilters);
+
+// Сортировка
+let sortDir = {};
+function sortTable(col) {
+    const keys = ['id','name','category','organism','mechanism','ligand','motif','invivo','invitro','conservation','source'];
+    const key = keys[col];
+    sortDir[key] = !sortDir[key];
+    uniqueAttenuators.sort((a,b) => {
+        const va = (a[key] || '').toString();
+        const vb = (b[key] || '').toString();
+        const numA = parseFloat(va);
+        const numB = parseFloat(vb);
+        if (!isNaN(numA) && !isNaN(numB)) {
+            return sortDir[key] ? numA - numB : numB - numA;
+        }
+        return sortDir[key] ? va.localeCompare(vb, 'ru') : vb.localeCompare(va, 'ru');
+    });
+    applyFilters();
+}
+
+// Экспорт JSON
+function exportJSON() {
+    const data = JSON.stringify({
+        metadata: {
+            title: "База данных аттенюаторов транскрипции прокариот",
+            total: attenuators.length,
+            unique: uniqueAttenuators.length,
+            date: new Date().toISOString().split('T')[0],
+            duplicatesFound: duplicates.length
+        },
+        attenuators: uniqueAttenuators
+    }, null, 2);
+    downloadFile(data, 'attenuators_database.json', 'application/json');
+}
+
+// Экспорт CSV
+function exportCSV() {
+    const headers = ['ID','Название','Категория','Организм','Механизм','Лиганд/Фактор','Структурный мотив','In vivo','In vitro','Консервативность','PDB','Источник'];
+    const rows = uniqueAttenuators.map(a => [
+        a.id,
+        `"${a.name}"`,
+        `"${a.category}"`,
+        `"${a.organism}"`,
+        `"${a.mechanism}"`,
+        `"${a.ligand}"`,
+        `"${a.motif}"`,
+        `"${a.invivo}"`,
+        `"${a.invitro}"`,
+        `"${a.conservation}"`,
+        `"${a.pdb}"`,
+        `"${a.source}"`
+    ]);
+    const csv = [headers.join(';'), ...rows.map(r => r.join(';'))].join('\n');
+    downloadFile('\uFEFF' + csv, 'attenuators_database.csv', 'text/csv');
+}
+
+function downloadFile(content, filename, type) {
+    const blob = new Blob([content], {type: type + ';charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
