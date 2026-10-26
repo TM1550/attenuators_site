@@ -1,0 +1,2935 @@
+{
+  "schema_version": "2.0",
+  "title": "Подтверждённые транскрипционные аттенюаторы прокариот",
+  "reviewed_on": "2026-10-25",
+  "definition": "Аттенюатор — cis-регуляторный участок, управляющий преждевременной терминацией/антитерминацией. Имя гена обозначает регулируемый локус, а не обязательно самостоятельный белок-аттенюатор.",
+  "evidence_note": "Подтверждено означает экспериментально поддержано, а не абсолютную достоверность. In vivo и in vitro различены; репортёрная поддержка не названа реконструкцией терминации.",
+  "records": [
+    {
+      "id": "TA001",
+      "name": "trpL / аттенюатор trpEDCBA",
+      "organism": "Escherichia coli",
+      "target": "trpEDCBA",
+      "category": "Лидерный пептид",
+      "signal": "Trp через заряженную tRNA^Trp",
+      "mechanism": "Трансляция trpL управляет образованием альтернативных структур лидерной РНК и терминацией перед trpE.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Да — собственные опыты in vivo (1990). Замены двух Trp-кодонов и делеции trpL изменяли readthrough; Arg-stop приводил к полному прохождению аттенюатора.",
+      "limitations": "Исправлены библиография и ссылка. Убраны не подтверждённые для этой системы PDB 1TRP и Kd TRAP–RNA: они не доказывают работу аттенюатора E. coli. Проверено по аннотации.",
+      "references": [
+        {
+          "title": "Replacement of the Escherichia coli trp operon attenuation control codons alters operon expression",
+          "year": 1990,
+          "authors": "Landick Robert; Yanofsky Charles; Choo Karen; Phung Le",
+          "journal": "Journal of Molecular Biology",
+          "doi": "10.1016/S0022-2836(05)80058-0",
+          "url": "https://doi.org/10.1016/S0022-2836(05)80058-0",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — собственные опыты in vivo (1990). Замены двух Trp-кодонов и делеции trpL изменяли readthrough; Arg-stop приводил к полному прохождению аттенюатора."
+        }
+      ],
+      "source_250_rows": [
+        1
+      ],
+      "identity_key": "v1|escherichia-coli|trpedcba",
+      "aliases": [
+        "trpEDCBA"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA002",
+      "name": "trp лидер / TRAP-зависимый аттенюатор",
+      "organism": "Bacillus subtilis",
+      "target": "trpEDCFBA",
+      "category": "Белковая регуляция",
+      "signal": "Trp; TRAP (продукт mtrB)",
+      "mechanism": "Активированный триптофаном TRAP связывает лидерную РНК и способствует преждевременной терминации. TRAP может вызывать терминацию in vivo и при повреждении аттенюаторной структуры.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да — собственные опыты in vivo и in vitro (2014): мутации/делеции аттенюатора, сравнение терминации с TRAP, исследование NusA. Работа 1993 года: реконструкция TRAP-зависимой аттенюации in vitro.",
+      "limitations": "Исходная TRAP-независимая рибосомная модель не подтверждена и заменена. Независимость от структуры аттенюатора в заголовке статьи НЕ означает независимость от TRAP. Это исправление механизма исходной строки.",
+      "references": [
+        {
+          "title": "The Bacillus subtilis TRAP Protein Can Induce Transcription Termination in the Leader Region of the Tryptophan Biosynthetic (trp) Operon Independent of the trp Attenuator RNA",
+          "year": 2014,
+          "authors": "McAdams Natalie M.; Gollnick Paul",
+          "journal": "PLoS ONE",
+          "doi": "10.1371/journal.pone.0088097",
+          "url": "https://doi.org/10.1371/journal.pone.0088097",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — собственные опыты in vivo и in vitro (2014): мутации/делеции аттенюатора, сравнение терминации с TRAP, исследование NusA. Работа 1993 года: реконструкция TRAP-зависимой аттенюации in vitro."
+        },
+        {
+          "title": "Reconstitution of Bacillus subtilis trp attenuation in vitro with TRAP, the trp RNA-binding attenuation protein.",
+          "year": 1993,
+          "authors": "Babitzke P; Yanofsky C",
+          "journal": "Proceedings of the National Academy of Sciences",
+          "doi": "10.1073/pnas.90.1.133",
+          "url": "https://doi.org/10.1073/pnas.90.1.133",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — собственные опыты in vivo и in vitro (2014): мутации/делеции аттенюатора, сравнение терминации с TRAP, исследование NusA. Работа 1993 года: реконструкция TRAP-зависимой аттенюации in vitro."
+        }
+      ],
+      "source_250_rows": [
+        2,
+        63
+      ],
+      "identity_key": "v1|bacillus-subtilis|trpedcfba",
+      "aliases": [
+        "trpEDCFBA"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA003",
+      "name": "hisL / аттенюатор his-оперона",
+      "organism": "Escherichia coli",
+      "target": "his operon",
+      "category": "Лидерный пептид",
+      "signal": "His через tRNA^His",
+      "mechanism": "Трансляция богатого His лидерного пептида регулирует образование терминатора перед генами биосинтеза гистидина.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да — 1985: слияния his–galK, делеции антиаттенюаторной области и замена терминатора; снятие регуляции при голодании по His. 1981: лидерная РНК 180 нт, заканчивающаяся на аттенюаторе, получена in vitro и обнаружена in vivo.",
+      "limitations": "Статья о Salmonella заменена исследованиями именно E. coli. Прежнее «In vitro: Нет» исправлено. Проверены аннотации обеих статей.",
+      "references": [
+        {
+          "title": "Regulation of single and multicopy his operons in Escherichia coli",
+          "year": 1985,
+          "authors": "Riccio A; Bruni C B; Rosenberg M; Gottesman M; McKenney K; Blasi F",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/jb.163.3.1172-1179.1985",
+          "url": "https://doi.org/10.1128/jb.163.3.1172-1179.1985",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — 1985: слияния his–galK, делеции антиаттенюаторной области и замена терминатора; снятие регуляции при голодании по His. 1981: лидерная РНК 180 нт, заканчивающаяся на аттенюаторе, получена in vitro и обнаружена in vivo."
+        },
+        {
+          "title": "In vivo and in vitro detection of the leader RNA of the histidine operon of Escherichia coli K-12",
+          "year": 1981,
+          "authors": "Frunzio R., Bruni C.B., Blasi F.",
+          "journal": "PNAS 78(5):2767–2771",
+          "doi": "10.1073/pnas.78.5.2767",
+          "url": "https://doi.org/10.1073/pnas.78.5.2767",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — 1985: слияния his–galK, делеции антиаттенюаторной области и замена терминатора; снятие регуляции при голодании по His. 1981: лидерная РНК 180 нт, заканчивающаяся на аттенюаторе, получена in vitro и обнаружена in vivo."
+        }
+      ],
+      "identity_key": "v1|escherichia-coli|hisoperon",
+      "aliases": [
+        "his operon"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA004",
+      "name": "hisL / his-аттенюатор",
+      "organism": "Salmonella enterica serovar Typhimurium",
+      "target": "his operon",
+      "category": "Лидерный пептид",
+      "signal": "His–tRNA^His; косвенное влияние dnaA / дозировки hisR",
+      "mechanism": "Рибосомозависимая аттенюация his. У dnaA(Ts) меняется относительная дозировка hisR, кодирующего tRNA^His, что связано с деаттенюацией.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Да — собственные опыты in vivo (1999): his–lac репортёры, мутанты dnaA и hisO; увеличение числа копий hisR подавляло деаттенюацию. Southern blot использован для анализа дозировки ДНК.",
+      "limitations": "Удалены неподтверждённые утверждения о прямом связывании DnaA с лидерной РНК и EMSA. Работа поддерживает косвенный механизм; это не отдельный DnaA-связывающий аттенюатор.",
+      "references": [
+        {
+          "title": "Histidine Operon Deattenuation in dnaA Mutants of Salmonella typhimurium Correlates with a Decrease in the Gene Dosage Ratio between tRNA His and Histidine Biosynthetic Loci",
+          "year": 1999,
+          "authors": "Blanc-Potard Anne-Beatrice; Figueroa-Bossi Nara; Bossi Lionello",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/JB.181.9.2938-2941.1999",
+          "url": "https://doi.org/10.1128/JB.181.9.2938-2941.1999",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — собственные опыты in vivo (1999): his–lac репортёры, мутанты dnaA и hisO; увеличение числа копий hisR подавляло деаттенюацию. Southern blot использован для анализа дозировки ДНК."
+        }
+      ],
+      "source_250_rows": [
+        3,
+        64
+      ],
+      "identity_key": "v1|salmonella-enterica-serovar-typhimurium|hisoperon",
+      "aliases": [
+        "his operon"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA005",
+      "name": "pheL / аттенюатор pheA",
+      "organism": "Escherichia coli",
+      "target": "pheA",
+      "category": "Лидерный пептид",
+      "signal": "Phe через tRNA^Phe",
+      "mechanism": "Эффективность трансляции pheL и положение рибосомы определяют преждевременную терминацию перед pheA.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да — 1991: мутации RBS, старт-кодона и ранний стоп-кодон; измерение pheA–lacZ при разных условиях снабжения Phe. 1978: in vitro получен лидерный транскрипт около 140 нт с терминацией перед pheA.",
+      "limitations": "Заменены неверные библиографические сведения. In vitro подтверждение относится к работе 1978 г., а не к мутагенезу 1991 г. Проверены аннотации.",
+      "references": [
+        {
+          "title": "Role of translation of the pheA leader peptide coding region in attenuation regulation of the Escherichia coli pheA gene",
+          "year": 1991,
+          "authors": "Gavini N; Pulakat L",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/jb.173.15.4904-4907.1991",
+          "url": "https://doi.org/10.1128/jb.173.15.4904-4907.1991",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — 1991: мутации RBS, старт-кодона и ранний стоп-кодон; измерение pheA–lacZ при разных условиях снабжения Phe. 1978: in vitro получен лидерный транскрипт около 140 нт с терминацией перед pheA."
+        },
+        {
+          "title": "Nucleotide sequence of the leader region of the phenylalanine operon of Escherichia coli",
+          "year": 1978,
+          "authors": "Zurawski Gerard; Brown Keith; Killingly David; Yanofsky Charles",
+          "journal": "Proceedings of the National Academy of Sciences",
+          "doi": "10.1073/pnas.75.9.4271",
+          "url": "https://doi.org/10.1073/pnas.75.9.4271",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — 1991: мутации RBS, старт-кодона и ранний стоп-кодон; измерение pheA–lacZ при разных условиях снабжения Phe. 1978: in vitro получен лидерный транскрипт около 140 нт с терминацией перед pheA."
+        }
+      ],
+      "source_250_rows": [
+        68
+      ],
+      "identity_key": "v1|escherichia-coli|phea",
+      "aliases": [
+        "pheA"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA006",
+      "name": "thrL / аттенюатор thrABC",
+      "organism": "Escherichia coli",
+      "target": "thrABC",
+      "category": "Лидерный пептид",
+      "signal": "Thr/Ile; заряженность и модификация tRNA",
+      "mechanism": "Трансляция Thr/Ile-богатого лидера регулирует прохождение терминатора; нарушение модификации tRNA t6A ослабляет аттенюацию.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да — 2011, рис. 2E–F: сравнение thrL–lacZ и thrA–lacZ, удаление терминатора отделяет эффект аттенюации от инициации. 1982: около 90% терминации in vitro, около 75% у thr79-20; короткие РНК найдены и in vivo.",
+      "limitations": "Исправлена ссылка, ошибочно совпадавшая со строкой phe. Полный текст 2011 г. и аннотация 1982 г. Проверка относится к этой строке; возможные повторы ниже пока не редактировались.",
+      "references": [
+        {
+          "title": "Effects on Transcription of Mutations in ygjD , yeaZ , and yjeE Genes, Which Are Involved in a Universal tRNA Modification in Escherichia coli",
+          "year": 2011,
+          "authors": "Hashimoto Chika; Sakaguchi Kohei; Taniguchi Yuko; Honda Hirofumi; Oshima Taku; Ogasawara Naotake; Kato Jun-ichi",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/JB.05733-11",
+          "url": "https://doi.org/10.1128/JB.05733-11",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — 2011, рис. 2E–F: сравнение thrL–lacZ и thrA–lacZ, удаление терминатора отделяет эффект аттенюации от инициации. 1982: около 90% терминации in vitro, около 75% у thr79-20; короткие РНК найдены и in vivo."
+        },
+        {
+          "title": "Attenuation regulation in the thr operon of Escherichia coli K-12: molecular cloning and transcription of the controlling region",
+          "year": 1982,
+          "authors": "Lynn S.P., Gardner J.F., Reznikoff W.S.",
+          "journal": "Journal of Bacteriology 152(1):363–371",
+          "doi": "10.1128/jb.152.1.363-371.1982",
+          "url": "https://doi.org/10.1128/jb.152.1.363-371.1982",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — 2011, рис. 2E–F: сравнение thrL–lacZ и thrA–lacZ, удаление терминатора отделяет эффект аттенюации от инициации. 1982: около 90% терминации in vitro, около 75% у thr79-20; короткие РНК найдены и in vivo."
+        }
+      ],
+      "source_250_rows": [
+        4,
+        67
+      ],
+      "identity_key": "v1|escherichia-coli|thrabc",
+      "aliases": [
+        "thrABC"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA007",
+      "name": "leuL / аттенюатор leuABCD",
+      "organism": "Escherichia coli",
+      "target": "leuABCD",
+      "category": "Лидерный пептид",
+      "signal": "Leu через tRNA^Leu",
+      "mechanism": "Трансляция leuL связана с выбором терминаторной структуры перед leuA и регуляцией биосинтеза Leu.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да, с ограничением — 2026, раздел Suppression of ΔleuL, рис. 3a: отбор супрессоров ΔleuL и полногеномное секвенирование выявили мутации в предсказанном терминаторе. Нарушение шпильки — интерпретация, а не прямое измерение терминации. 1981: терминация in vitro с РНК около 165 нт.",
+      "limitations": "Добавлена работа 2026 г. вместе с прямым биохимическим подтверждением 1981 г. Экспериментальный фенотип и объясняющая его модель явно разделены. Полный текст 2026 г.; аннотация 1981 г.",
+      "references": [
+        {
+          "title": "Control of leu operon expression in Escherichia coli by a transcription attenuation mechanism",
+          "year": 1981,
+          "authors": "Wessler Susan R.; Calvo Joseph M.",
+          "journal": "Journal of Molecular Biology",
+          "doi": "10.1016/0022-2836(81)90348-X",
+          "url": "https://doi.org/10.1016/0022-2836(81)90348-X",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да, с ограничением — 2026, раздел Suppression of ΔleuL, рис. 3a: отбор супрессоров ΔleuL и полногеномное секвенирование выявили мутации в предсказанном терминаторе. Нарушение шпильки — интерпретация, а не прямое измерение терминации. 1981: терминация in vitro с РНК около 165 нт."
+        },
+        {
+          "title": "The Evolutionary Maintenance of Amino Acid Prototrophy in Escherichia coli",
+          "year": 2026,
+          "authors": "Lindahl Otto; Berruga-Fernández Talía; Soekhoe Jivanti; Huseby Douglas L; Hughes Diarmaid",
+          "journal": "Genome Biology and Evolution",
+          "doi": "10.1093/gbe/evag209",
+          "url": "https://doi.org/10.1093/gbe/evag209",
+          "role": "supporting",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": false,
+          "experimental_evidence": "Отбор и секвенирование супрессоров ΔleuL; прямого измерения терминации нет. Функциональное основание — работа 1981 года."
+        }
+      ],
+      "source_250_rows": [
+        65
+      ],
+      "identity_key": "v1|escherichia-coli|leuabcd",
+      "aliases": [
+        "leuABCD"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA008",
+      "name": "leuL / leu-аттенюатор с редкими CUA",
+      "organism": "Salmonella enterica serovar Typhimurium",
+      "target": "leuABCD",
+      "category": "Лидерный пептид",
+      "signal": "Leu / leucyl-tRNA",
+      "mechanism": "Редкие Leu-кодоны лидерного пептида определяют чувствительность аттенюации к ограничению Leu и leucyl-tRNA.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Да — собственные опыты in vivo (1986). Направленная замена одного или трёх CUA на CUG меняла базальную экспрессию и ответ на ограничение Leu / leucyl-tRNA.",
+      "limitations": "Неверная ссылка 1993 г. заменена реальной работой Carter, Bartkus и Calvo (1986). In vitro мутагенез сам по себе не считается реконструкцией аттенюации in vitro. Проверено по аннотации.",
+      "references": [
+        {
+          "title": "Transcription attenuation in Salmonella typhimurium: the significance of rare leucine codons in the leu leader",
+          "year": 1986,
+          "authors": "Carter P.W., Bartkus J.M., Calvo J.M.",
+          "journal": "PNAS 83(21):8127–8131",
+          "doi": "10.1073/pnas.83.21.8127",
+          "url": "https://doi.org/10.1073/pnas.83.21.8127",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — собственные опыты in vivo (1986). Направленная замена одного или трёх CUA на CUG меняла базальную экспрессию и ответ на ограничение Leu / leucyl-tRNA."
+        }
+      ],
+      "source_250_rows": [
+        5
+      ],
+      "identity_key": "v1|salmonella-enterica-serovar-typhimurium|leuabcd",
+      "aliases": [
+        "leuABCD"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA009",
+      "name": "ilvL / аттенюатор ilvGMEDA",
+      "organism": "Escherichia coli",
+      "target": "ilvGMEDA",
+      "category": "Лидерный пептид",
+      "signal": "Ile, Leu, Val через соответствующие tRNA",
+      "mechanism": "Трансляция BCAA-богатого лидера управляет конкурирующими структурами РНК и прохождением аттенюатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да — 1991: замены кодонов и изменения длины лидерной кодирующей области, репортёры lacZ/cat. 1980: секвенирование регуляторной области и исследование лидерной РНК; предложена модель мультивалентной аттенюации.",
+      "limitations": "Исправлена библиография. Дополнительно Hashimoto et al. (2011), DOI 10.1128/JB.05733-11, рис. 2D: ilvG–lacZ в мутанте ygjD. Контроль с удалением терминатора в этой работе выполнен для thr, не для ilv.",
+      "references": [
+        {
+          "title": "Mutations replacing the leucine codons or altering the length of the amino acid-coding portion of the ilvGMEDA leader region of Escherichia coli",
+          "year": 1991,
+          "authors": "Chen J W; Harms E; Umbarger H E",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/jb.173.7.2341-2353.1991",
+          "url": "https://doi.org/10.1128/jb.173.7.2341-2353.1991",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — 1991: замены кодонов и изменения длины лидерной кодирующей области, репортёры lacZ/cat. 1980: секвенирование регуляторной области и исследование лидерной РНК; предложена модель мультивалентной аттенюации."
+        },
+        {
+          "title": "Multivalent translational control of transcription termination at attenuator of ilvGEDA operon of Escherichia coli K-12",
+          "year": 1980,
+          "authors": "Lawther R.P., Hatfield G.W.",
+          "journal": "PNAS 77(4):1862–1866",
+          "doi": "10.1073/pnas.77.4.1862",
+          "url": "https://doi.org/10.1073/pnas.77.4.1862",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — 1991: замены кодонов и изменения длины лидерной кодирующей области, репортёры lacZ/cat. 1980: секвенирование регуляторной области и исследование лидерной РНК; предложена модель мультивалентной аттенюации."
+        }
+      ],
+      "source_250_rows": [
+        6,
+        66
+      ],
+      "identity_key": "v1|escherichia-coli|ilvgmeda",
+      "aliases": [
+        "ilvGMEDA"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA010",
+      "name": "ilvL / аттенюатор ilvGMEDA",
+      "organism": "Vibrio alginolyticus ZJ-T",
+      "target": "ilvGMEDA",
+      "category": "Лидерный пептид",
+      "signal": "BCAA (Ile, Leu, Val)",
+      "mechanism": "Трансляция ilvL обеспечивает BCAA-зависимую аттенюацию перед ilvGMEDA.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Да — собственные опыты (2019), рис. 3–5: 5′/3′-RACE, Northern blot, GFP-репортёры; делеции аттенюатора и старт-кодона ilvL. Удаление аттенюатора резко увеличивало уровни ilvG/ilvA РНК.",
+      "limitations": "Вымышленная/неподтверждённая привязка к Morimoto et al. (2006) заменена Deng et al. (2019). Проверен полный текст. Биохимический анализ выделенной РНК не равен реконструкции аттенюации in vitro.",
+      "references": [
+        {
+          "title": "The ilvGMEDA Operon Is Regulated by Transcription Attenuation in Vibrio alginolyticus ZJ-T",
+          "year": 2019,
+          "authors": "Deng Yiqin; Luo Xing; Xie Mei; Bouloc Philippe; Chen Chang; Jacq Annick",
+          "journal": "Applied and Environmental Microbiology",
+          "doi": "10.1128/AEM.00880-19",
+          "url": "https://doi.org/10.1128/AEM.00880-19",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — собственные опыты (2019), рис. 3–5: 5′/3′-RACE, Northern blot, GFP-репортёры; делеции аттенюатора и старт-кодона ilvL. Удаление аттенюатора резко увеличивало уровни ilvG/ilvA РНК."
+        }
+      ],
+      "identity_key": "v1|vibrio-alginolyticus-zj-t|ilvgmeda",
+      "aliases": [
+        "ilvGMEDA"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA011",
+      "name": "ivbL / аттенюатор ilvBN",
+      "organism": "Escherichia coli",
+      "target": "ilvBN",
+      "category": "Лидерный пептид",
+      "signal": "Val и Leu; в работе 1984 г. также ответ на ограничение Ala/Thr",
+      "mechanism": "Трансляция Val/Leu-богатого лидера регулирует преждевременную терминацию перед ilvB.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да. 1984: измерение синтеза и распада участков мРНК до и после аттенюатора; при недостатке Val/Leu деаттенюация около 4 раз. 1983: транскрипция in vitro даёт завершённую лидерную РНК 184 нт.",
+      "limitations": "Исправлены название лидерного гена (ivbL), сигнал Val/Leu вместо Ile/Val и ссылка, ранее относимая к другому ilv-лидеру. Проверены аннотации и текст первоисточника 1983 г.",
+      "references": [
+        {
+          "title": "Attenuation of the ilvB operon by amino acids reflecting substrates or products of the ilvB gene product.",
+          "year": 1984,
+          "authors": "Hauser C A; Hatfield G W",
+          "journal": "Proceedings of the National Academy of Sciences",
+          "doi": "10.1073/pnas.81.1.76",
+          "url": "https://doi.org/10.1073/pnas.81.1.76",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. 1984: измерение синтеза и распада участков мРНК до и после аттенюатора; при недостатке Val/Leu деаттенюация около 4 раз. 1983: транскрипция in vitro даёт завершённую лидерную РНК 184 нт."
+        },
+        {
+          "title": "Nucleotide sequence of theilvB multivalent attenuator region ofEscherichia coliK12",
+          "year": 1983,
+          "authors": "Hauser Craig A.; Hatfield G. Wesley",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/11.1.127",
+          "url": "https://doi.org/10.1093/nar/11.1.127",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. 1984: измерение синтеза и распада участков мРНК до и после аттенюатора; при недостатке Val/Leu деаттенюация около 4 раз. 1983: транскрипция in vitro даёт завершённую лидерную РНК 184 нт."
+        }
+      ],
+      "source_250_rows": [
+        7
+      ],
+      "identity_key": "v1|escherichia-coli|ilvbn",
+      "aliases": [
+        "ilvBN"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA012",
+      "name": "tnaC / Rho-зависимый аттенюатор tnaAB",
+      "organism": "Escherichia coli",
+      "target": "tnaAB",
+      "category": "Лидерный пептид",
+      "signal": "Свободный L-Trp",
+      "mechanism": "Свободный L-Trp вызывает остановку рибосомы на tnaC, препятствуя действию Rho и позволяя транскрипцию tnaAB.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да. 2021: мутагенез, tnaA–lacZ, биохимия и крио-ЭМ исследуют Trp-зависимую остановку рибосомы. Прямая реконструкция регуляции транскрипции: S-30-система, Gong & Yanofsky (2001).",
+      "limitations": "Разделены опыты по остановке трансляции (2021) и терминации транскрипции (2001). Исходная библиография заменена. Проверены полный текст 2021 г. и аннотация 2001 г.; непроверенные EMSA не перенесены.",
+      "references": [
+        {
+          "title": "Reproducing tna operon regulation in vitro in an S-30 system. Tryptophan induction inhibits cleavage of TnaC peptidyl-tRNA",
+          "year": 2001,
+          "authors": "Gong F., Yanofsky C.",
+          "journal": "Journal of Biological Chemistry 276(3):1974–1983",
+          "doi": "10.1074/jbc.M008892200",
+          "url": "https://doi.org/10.1074/jbc.M008892200",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. 2021: мутагенез, tnaA–lacZ, биохимия и крио-ЭМ исследуют Trp-зависимую остановку рибосомы. Прямая реконструкция регуляции транскрипции: S-30-система, Gong & Yanofsky (2001)."
+        },
+        {
+          "title": "Structural basis for the tryptophan sensitivity of TnaC-mediated ribosome stalling",
+          "year": 2021,
+          "authors": "van der Stel Anne-Xander; Gordon Emily R.; Sengupta Arnab; Martínez Allyson K.; Klepacki Dorota; Perry Thomas N.; Herrero del Valle Alba; Vázquez-Laslop Nora; Sachs Matthew S.; Cruz-Vera Luis R.; Innis C. Axel",
+          "journal": "Nature Communications",
+          "doi": "10.1038/s41467-021-25663-8",
+          "url": "https://doi.org/10.1038/s41467-021-25663-8",
+          "role": "supporting",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": false,
+          "experimental_evidence": "Рибосомная остановка, мутагенез, tnaA–lacZ и крио-ЭМ. Прямая реконструкция транскрипционной регуляции — работа 2001 года."
+        }
+      ],
+      "identity_key": "v1|escherichia-coli|tnaab",
+      "aliases": [
+        "tnaAB"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA013",
+      "name": "mgtL / лидер mgtA с Rho-зависимой терминацией",
+      "organism": "Salmonella enterica serovar Typhimurium",
+      "target": "mgtA",
+      "category": "Лидерный пептид",
+      "signal": "Mg²⁺; трансляция Pro-кодонов mgtL",
+      "mechanism": "Трансляция Pro-богатой ORF mgtL изменяет укладку лидерной РНК и доступность rut; при замедлении трансляции терминация подавляется.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да. 2016: замены Pro-кодонов mgtL, мутации efp/trmD и рибосомных генов, mgtA–lacZ. 2012: ингибитор Rho бицикломицин, мутации лидера, транскрипция с Rho in vitro и анализ ATPase.",
+      "limitations": "Обе работы поддерживают терминацию; 2012 исследует Mg-зависимую укладку РНК, 2016 — влияние трансляции mgtL. Конкретная мишень Mg²⁺ в трансляционном аппарате в 2016 г. остаётся гипотезой. Исходная ссылка 2000 г. заменена.",
+      "references": [
+        {
+          "title": "Mg 2+ regulates transcription of mgtA in Salmonella Typhimurium via translation of proline codons during synthesis of the MgtL peptide",
+          "year": 2016,
+          "authors": "Gall Aaron R.; Datsenko Kirill A.; Figueroa-Bossi Nara; Bossi Lionello; Masuda Isao; Hou Ya-Ming; Csonka Laszlo N.",
+          "journal": "Proceedings of the National Academy of Sciences",
+          "doi": "10.1073/pnas.1612268113",
+          "url": "https://doi.org/10.1073/pnas.1612268113",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. 2016: замены Pro-кодонов mgtL, мутации efp/trmD и рибосомных генов, mgtA–lacZ. 2012: ингибитор Rho бицикломицин, мутации лидера, транскрипция с Rho in vitro и анализ ATPase."
+        },
+        {
+          "title": "Riboswitch control of Rho-dependent transcription termination",
+          "year": 2012,
+          "authors": "Hollands Kerry; Proshkin Sergey; Sklyarova Svetlana; Epshtein Vitaly; Mironov Alexander; Nudler Evgeny; Groisman Eduardo A.",
+          "journal": "Proceedings of the National Academy of Sciences",
+          "doi": "10.1073/pnas.1112211109",
+          "url": "https://doi.org/10.1073/pnas.1112211109",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. 2016: замены Pro-кодонов mgtL, мутации efp/trmD и рибосомных генов, mgtA–lacZ. 2012: ингибитор Rho бицикломицин, мутации лидера, транскрипция с Rho in vitro и анализ ATPase."
+        }
+      ],
+      "source_250_rows": [
+        33
+      ],
+      "identity_key": "v1|salmonella-enterica-serovar-typhimurium|mgta",
+      "aliases": [
+        "mgtA",
+        "mgtL"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA014",
+      "name": "pyrBI / UTP-чувствительный аттенюатор",
+      "organism": "Escherichia coli",
+      "target": "pyrBI",
+      "category": "NTP-зависимая регуляция",
+      "signal": "UTP",
+      "mechanism": "При низком UTP транскрипционные паузы позволяют рибосоме сблизиться с РНК-полимеразой и препятствовать формированию терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да. 1994: транскрипция in vitro при разных NTP, картирование UTP-зависимых пауз и трёх позиций терминации; влияние NusA. 1983: около 98% транскриптов завершались на аттенюаторе in vitro.",
+      "limitations": "Исправлен первоисточник 1983 г. Добавлено экспериментальное исследование 1994 г. Проверены аннотации. Регуляция инициации через reiterative transcription — отдельный механизм, не доказательство работы этого аттенюатора.",
+      "references": [
+        {
+          "title": "Nucleotide-specific transcriptional pausing in the pyrBI leader region of Escherichia coli K-12.",
+          "year": 1994,
+          "authors": "Donahue J.P.; Turnbough C.L.",
+          "journal": "Journal of Biological Chemistry",
+          "doi": "10.1016/S0021-9258(17)32433-X",
+          "url": "https://doi.org/10.1016/S0021-9258(17)32433-X",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. 1994: транскрипция in vitro при разных NTP, картирование UTP-зависимых пауз и трёх позиций терминации; влияние NusA. 1983: около 98% транскриптов завершались на аттенюаторе in vitro."
+        },
+        {
+          "title": "Attenuation control of pyrBI operon expression in Escherichia coli K-12.",
+          "year": 1983,
+          "authors": "Turnbough C L; Hicks K L; Donahue J P",
+          "journal": "Proceedings of the National Academy of Sciences",
+          "doi": "10.1073/pnas.80.2.368",
+          "url": "https://doi.org/10.1073/pnas.80.2.368",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. 1994: транскрипция in vitro при разных NTP, картирование UTP-зависимых пауз и трёх позиций терминации; влияние NusA. 1983: около 98% транскриптов завершались на аттенюаторе in vitro."
+        }
+      ],
+      "source_250_rows": [
+        14
+      ],
+      "identity_key": "v1|escherichia-coli|pyrbi",
+      "aliases": [
+        "pyrBI"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA015",
+      "name": "trpL / аттенюатор trpE(G)",
+      "organism": "Sinorhizobium meliloti",
+      "target": "trpE(G)",
+      "category": "Лидерный пептид",
+      "signal": "Trp",
+      "mechanism": "Терминация между trpL и trpE(G) образует rnTrpL. Эта РНК дополнительно снижает стабильность trpDC мРНК через спаривание в trans.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Да. Рис. 6: Northern blot rnTrpL при истощении/добавлении Trp; анализ мРНК и мутантов trpL. Компенсаторные мутации исследуют взаимодействие rnTrpL–trpD в trans, а не сами по себе терминацию в cis.",
+      "limitations": "Исправлены авторы, год и DOI (2019 вместо 2013). Northern blot и qRT-PCR не являются реконструкцией аттенюации in vitro. Проверены текст статьи и подпись к рис. 6.",
+      "references": [
+        {
+          "title": "Transcription attenuation-derived small RNA rnTrpL regulates tryptophan biosynthesis gene expression in trans",
+          "year": 2019,
+          "authors": "Melior Hendrik; Li Siqi; Madhugiri Ramakanth; Stötzel Maximilian; Azarderakhsh Saina; Barth-Weber Susanne; Baumgardt Kathrin; Ziebuhr John; Evguenieva-Hackenberg Elena",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkz274",
+          "url": "https://doi.org/10.1093/nar/gkz274",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. Рис. 6: Northern blot rnTrpL при истощении/добавлении Trp; анализ мРНК и мутантов trpL. Компенсаторные мутации исследуют взаимодействие rnTrpL–trpD в trans, а не сами по себе терминацию в cis."
+        }
+      ],
+      "identity_key": "v1|sinorhizobium-meliloti|trpe(g)",
+      "aliases": [
+        "trpE(G)"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA016",
+      "name": "tyrS / T-box-аттенюатор",
+      "organism": "Bacillus subtilis",
+      "target": "tyrS",
+      "category": "T-box",
+      "signal": "Неаминоацилированная tRNA^Tyr",
+      "mechanism": "Незаряженная tRNA^Tyr стабилизирует антитерминатор лидера tyrS и способствует прохождению терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да. 2002: мутации лидера в tyrS–lacZ и транскрипция очищенной РНК-полимеразой B. subtilis; NusA усиливал терминацию. Добавление tRNA^Tyr не стимулировало readthrough в этой in vitro системе. 1994: компенсаторные мутации тРНК и T-box поддерживают спаривание.",
+      "limitations": "Убраны неподтверждённые для данной записи PDB 4FJW, метод крио-ЭМ, Kd и smFRET. Биохимическое исследование терминатора не приравнено к полной реконструкции tRNA-зависимого переключения. Проверен полный текст 2002 г. и аннотация 1994 г.",
+      "references": [
+        {
+          "title": "Sequence requirements for terminators and antiterminators in the T box transcription antitermination system: disparity between conservation and functional requirements",
+          "year": 2002,
+          "authors": "Grundy F.J., Moir T.R., Haldeman M.T., Henkin T.M.",
+          "journal": "Nucleic Acids Research 30(7):1646–1655",
+          "doi": "10.1093/nar/30.7.1646",
+          "url": "https://doi.org/10.1093/nar/30.7.1646",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. 2002: мутации лидера в tyrS–lacZ и транскрипция очищенной РНК-полимеразой B. subtilis; NusA усиливал терминацию. Добавление tRNA^Tyr не стимулировало readthrough в этой in vitro системе. 1994: компенсаторные мутации тРНК и T-box поддерживают спаривание."
+        },
+        {
+          "title": "Interaction between the acceptor end of tRNA and the T box stimulates antitermination in the Bacillus subtilis tyrS gene: a new role for the discriminator base",
+          "year": 1994,
+          "authors": "Grundy F J; Rollins S M; Henkin T M",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/jb.176.15.4518-4526.1994",
+          "url": "https://doi.org/10.1128/jb.176.15.4518-4526.1994",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. 2002: мутации лидера в tyrS–lacZ и транскрипция очищенной РНК-полимеразой B. subtilis; NusA усиливал терминацию. Добавление tRNA^Tyr не стимулировало readthrough в этой in vitro системе. 1994: компенсаторные мутации тРНК и T-box поддерживают спаривание."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|tyrs",
+      "aliases": [
+        "tyrS"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA017",
+      "name": "tyrZ / T-box между dtrR (ywaE) и tyrZ",
+      "organism": "Bacillus subtilis",
+      "target": "tyrZ",
+      "category": "T-box",
+      "signal": "Неаминоацилированная tRNA^Tyr",
+      "mechanism": "T-box контролирует терминацию перед tyrZ; DtrR/YwaE отдельно регулирует инициацию транскрипции оперона.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Да. Таблица 3: ywaE–tyrZ–lacZ, ингибирование биосинтеза Tyr через 4-ALP; удаление части терминаторной спирали устраняло ответ на 4-ALP.",
+      "limitations": "Реальная статья 2015 г. заменяет неверную общую ссылку 1994 г. Биохимия очищенных TyrS/TyrZ в статье исследует аминоацилирование, а не аттенюацию in vitro. Проверены полный текст и таблица 3.",
+      "references": [
+        {
+          "title": "The Bacillus subtilis tyrZ Gene Encodes a Highly Selective Tyrosyl-tRNA Synthetase and Is Regulated by a MarR Regulator and T Box Riboswitch",
+          "year": 2015,
+          "authors": "Williams-Wagner Rebecca N.; Grundy Frank J.; Raina Medha; Ibba Michael; Henkin Tina M.",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/JB.00008-15",
+          "url": "https://doi.org/10.1128/JB.00008-15",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. Таблица 3: ywaE–tyrZ–lacZ, ингибирование биосинтеза Tyr через 4-ALP; удаление части терминаторной спирали устраняло ответ на 4-ALP."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|tyrz",
+      "aliases": [
+        "tyrZ"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA018",
+      "name": "glyQS / T-box-аттенюатор",
+      "organism": "Bacillus subtilis",
+      "target": "glyQS",
+      "category": "T-box",
+      "signal": "Неаминоацилированная tRNA^Gly",
+      "mechanism": "Незаряженная tRNA^Gly стабилизирует антитерминатор лидера glyQS.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да. Флуоресцентный тест транскрипции in vitro с матрицей B. subtilis glyQS: сравнение с/без tRNA, действие пептидов, контроль общей транскрипции без T-box. Масс-спектрометрия связывания модельной РНК — отдельный опыт.",
+      "limitations": "Добавлена статья 2026 г.; проверены библиография и раздел T-Box Riboswitch Function Assay. Это исследование модуляции известного аттенюатора, а не его первое открытие. Непроверенные прежние PDB/Kd не перенесены.",
+      "references": [
+        {
+          "title": "Polycationic Peptides That Bind T‐Box Riboswitch Antiterminator RNA and Inhibit Riboswitch Function",
+          "year": 2026,
+          "authors": "Fairchild Emily; Herath Danushika; Lux Sebastian; Harvey Sophie R.; Amesaki Deborah; McCartney Destini; Richter Monique; Hoffmann Ralf; Hines Jennifer V.",
+          "journal": "Chemical Biology & Drug Design",
+          "doi": "10.1111/cbdd.70312",
+          "url": "https://doi.org/10.1111/cbdd.70312",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. Флуоресцентный тест транскрипции in vitro с матрицей B. subtilis glyQS: сравнение с/без tRNA, действие пептидов, контроль общей транскрипции без T-box. Масс-спектрометрия связывания модельной РНК — отдельный опыт."
+        },
+        {
+          "title": "tRNA-mediated transcription antitermination in vitro: Codon–anticodon pairing independent of the ribosome",
+          "doi": "10.1073/pnas.162366799",
+          "url": "https://doi.org/10.1073/pnas.162366799",
+          "year": 2002,
+          "authors": "",
+          "journal": "",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Очищенная система транскрипции, специфическая tRNA^Gly-зависимая антитерминация и комплементарные мутации."
+        }
+      ],
+      "source_250_rows": [
+        42
+      ],
+      "identity_key": "v1|bacillus-subtilis|glyqs",
+      "aliases": [
+        "glyQS"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA019",
+      "name": "thrS / T-box-аттенюатор",
+      "organism": "Bacillus subtilis",
+      "target": "thrS",
+      "category": "T-box",
+      "signal": "Неаминоацилированная tRNA^Thr(GGU)",
+      "mechanism": "Незаряженная tRNA^Thr(GGU) способствует прохождению лидерного терминатора thrS.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да. Реконструкция транскрипции с tRNA^Thr и частично очищенной белковой фракцией; аминоацилирование tRNA отменяло эффект. Высокая концентрация спермидина заменяла фракцию in vitro; его отсутствие не нарушало индукцию in vivo.",
+      "limitations": "Сохранена ранняя работа с прямым экспериментом. Наличие более новых общих обзоров не заменяет доказательство для конкретного thrS. Проверены аннотация и разделы результатов.",
+      "references": [
+        {
+          "title": "Transfer RNA-mediated antitermination in vitro",
+          "year": 2002,
+          "authors": "Putzer H.",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkf415",
+          "url": "https://doi.org/10.1093/nar/gkf415",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. Реконструкция транскрипции с tRNA^Thr и частично очищенной белковой фракцией; аминоацилирование tRNA отменяло эффект. Высокая концентрация спермидина заменяла фракцию in vitro; его отсутствие не нарушало индукцию in vivo."
+        }
+      ],
+      "source_250_rows": [
+        46
+      ],
+      "identity_key": "v1|bacillus-subtilis|thrs",
+      "aliases": [
+        "thrS"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA020",
+      "name": "metE / SAM-I (S-box)-аттенюатор",
+      "organism": "Bacillus subtilis",
+      "target": "metE",
+      "category": "SAM-I / S-box",
+      "signal": "S-аденозилметионин (SAM), не tRNA^Met",
+      "mechanism": "Связывание SAM способствует преждевременной терминации перед metE.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да. 2020, рис. 3G: дозозависимое подавление транскрипционного выхода метE при добавлении SAM (SPRINT). 2008: транскрипция in vitro и эффективность терминации, Northern blot и репортёры in vivo.",
+      "limitations": "Исправлена классификация: SAM-I/S-box вместо T-box; свободный метионин и tRNA^Met не являются непосредственными лигандами. Проверены рис. 3G и результаты 2008 г.",
+      "references": [
+        {
+          "title": "SPRINT: a Cas13a-based platform for detection of small molecules",
+          "year": 2020,
+          "authors": "Iwasaki R.S., Batey R.T.",
+          "journal": "Nucleic Acids Research 48(17):e101",
+          "doi": "10.1093/nar/gkaa673",
+          "url": "https://doi.org/10.1093/nar/gkaa673",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. 2020, рис. 3G: дозозависимое подавление транскрипционного выхода метE при добавлении SAM (SPRINT). 2008: транскрипция in vitro и эффективность терминации, Northern blot и репортёры in vivo."
+        },
+        {
+          "title": "Natural Variability in S-Adenosylmethionine (SAM)-Dependent Riboswitches: S-Box Elements in Bacillus subtilis Exhibit Differential Sensitivity to SAM In Vivo and In Vitro",
+          "year": 2008,
+          "authors": "Tomšić J., McDaniel B.A., Grundy F.J., Henkin T.M.",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/JB.01034-07",
+          "url": "https://doi.org/10.1128/JB.01034-07",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. 2020, рис. 3G: дозозависимое подавление транскрипционного выхода метE при добавлении SAM (SPRINT). 2008: транскрипция in vitro и эффективность терминации, Northern blot и репортёры in vivo."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|mete",
+      "aliases": [
+        "metE"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA021",
+      "name": "alaS / T-box-аттенюатор",
+      "organism": "Clostridium acetobutylicum",
+      "target": "alaS",
+      "category": "T-box",
+      "signal": "Неаминоацилированная tRNA^Ala",
+      "mechanism": "Когнатная tRNA^Ala способствует прохождению терминатора alaS.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Да. Однораундовая транскрипция in vitro, зависимость readthrough от tRNA^Ala, сравнение когнатной и гетерологичной tRNA и их мутантов. Гетерологичный alaS–lacZ в B. subtilis не дал значимой индукции при голодании по Ala.",
+      "limitations": "Исправлена ошибочная ссылка. Опыты в B. subtilis не считаются подтверждением in vivo в C. acetobutylicum. Проверен полный текст, включая раздел in vivo.",
+      "references": [
+        {
+          "title": "Non-Conserved Residues in Clostridium acetobutylicum tRNAAla Contribute to tRNA Tuning for Efficient Antitermination of the alaS T Box Riboswitch",
+          "year": 2015,
+          "authors": "Liu Liang-Chun; Grundy Frank; Henkin Tina",
+          "journal": "Life",
+          "doi": "10.3390/life5041567",
+          "url": "https://doi.org/10.3390/life5041567",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. Однораундовая транскрипция in vitro, зависимость readthrough от tRNA^Ala, сравнение когнатной и гетерологичной tRNA и их мутантов. Гетерологичный alaS–lacZ в B. subtilis не дал значимой индукции при голодании по Ala."
+        }
+      ],
+      "identity_key": "v1|clostridium-acetobutylicum|alas",
+      "aliases": [
+        "alaS"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA022",
+      "name": "glyS / T-box со вставкой stem Sa",
+      "organism": "Staphylococcus aureus",
+      "target": "glyS",
+      "category": "T-box",
+      "signal": "Неаминоацилированные tRNA^Gly",
+      "mechanism": "tRNA^Gly регулирует терминатор/антитерминатор glyS; вставка stem Sa влияет на readthrough и распознавание изоакцепторов.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Да. Делеция и перенос stem Sa, химическое зондирование и измерение readthrough in vitro и in vivo; удаление stem Sa снижает транскрипционный выход и различение tRNA^Gly. Изучено действие антибиотиков.",
+      "limitations": "Исправлено glyQS → glyS. Термин «GT-box» как самостоятельный класс не поддерживается выбранной статьёй: это вариант T-box со вставкой stem Sa. Проверены аннотация и текст; не заявляется подтверждение в нативном организме для всех репортёрных опытов.",
+      "references": [
+        {
+          "title": "Lineage-specific insertions in T-box riboswitches modulate antibiotic binding and action",
+          "year": 2022,
+          "authors": "Giarimoglou Nikoleta; Kouvela Adamantia; Patsi Ioanna; Zhang Jinwei; Stamatopoulou Vassiliki; Stathopoulos Constantinos",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkac359",
+          "url": "https://doi.org/10.1093/nar/gkac359",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да. Делеция и перенос stem Sa, химическое зондирование и измерение readthrough in vitro и in vivo; удаление stem Sa снижает транскрипционный выход и различение tRNA^Gly. Изучено действие антибиотиков."
+        }
+      ],
+      "identity_key": "v1|staphylococcus-aureus|glys",
+      "aliases": [
+        "glyS"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA023",
+      "name": "Гуаниновый переключатель guaA",
+      "organism": "Clostridioides difficile",
+      "target": "guaA",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "Гуанин",
+      "mechanism": "Гуанин способствует образованию терминатора в лидере guaA.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Лиганд-зависимая регуляция транскрипционных gusA-слияний и анализ мутантов аптамера; in-line probing подтверждает распознавание гуанина.",
+      "limitations": "Не приравнивается к реконструкции терминации очищенными компонентами. Исправлен год: публикация 2021, не 2022.",
+      "references": [
+        {
+          "title": "Inactivation of the riboswitch-controlled GMP synthase GuaA in Clostridioides difficile is associated with severe growth defects and poor infectivity in a mouse model of infection",
+          "year": 2021,
+          "authors": "Smith-Peter Erich; Séguin David Lalonde; St-Pierre Émilie; Sekulovic Ognjen; Jeanneau Simon; Tremblay-Tétreault Cédrick; Lamontagne Anne-Marie; Jacques Pierre-Étienne; Lafontaine Daniel A.; Fortier Louis-Charles",
+          "journal": "RNA Biology",
+          "doi": "10.1080/15476286.2021.1978768",
+          "url": "https://doi.org/10.1080/15476286.2021.1978768",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональный анализ riboswitch–gusA и мутантов; биохимическое связывание. Инфекционные опыты сами по себе не доказывают терминацию."
+        }
+      ],
+      "identity_key": "v1|clostridioides-difficile|guaa",
+      "aliases": [
+        "guaA"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA024",
+      "name": "FMN-переключатель ribD",
+      "organism": "Bacillus subtilis",
+      "target": "ribDEAHT",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "FMN",
+      "mechanism": "FMN стабилизирует терминатор; Rho может усиливать терминацию при отсутствии FMN.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Term-seq в WT и Δrho; однораундовая транскрипция с FMN и Rho по отдельности и совместно.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "Comprehensive transcription terminator atlas for Bacillus subtilis",
+          "year": 2022,
+          "authors": "Mandell Zachary F.; Vishwakarma Rishi K.; Yakhnin Helen; Murakami Katsuhiko S.; Kashlev Mikhail; Babitzke Paul",
+          "journal": "Nature Microbiology",
+          "doi": "10.1038/s41564-022-01240-7",
+          "url": "https://doi.org/10.1038/s41564-022-01240-7",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — Term-seq и транскрипция in vitro на ribD; непосредственно исследуется эффективность терминации."
+        },
+        {
+          "title": "An mRNA structure that controls gene expression by binding FMN",
+          "doi": "10.1073/pnas.212628899",
+          "url": "https://doi.org/10.1073/pnas.212628899",
+          "year": 2002,
+          "authors": "",
+          "journal": "",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "FMN-зависимая терминация ribD in vitro, картирование участка и мутации U-богатого сегмента."
+        }
+      ],
+      "source_250_rows": [
+        128
+      ],
+      "identity_key": "v1|bacillus-subtilis|ribd",
+      "aliases": [
+        "ribD",
+        "ribDEAHT",
+        "ribDG(E)ABHT"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA025",
+      "name": "Mn²⁺-переключатель yybP",
+      "organism": "Bacillus subtilis",
+      "target": "yybP",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "Mn²⁺",
+      "mechanism": "Mn²⁺ способствует прохождению лидерного терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Northern blot: при добавлении Mn²⁺ уменьшается короткая лидерная РНК ~140 нт и появляются более длинные транскрипты.",
+      "limitations": "Для ykoY длинные РНК видны преимущественно при длительной экспозиции. Опыт mntP нельзя переносить на эти два локуса.",
+      "references": [
+        {
+          "title": "The Ubiquitous yybP-ykoY Riboswitch Is a Manganese-Responsive Regulatory Element",
+          "year": 2015,
+          "authors": "Dambach Michael; Sandoval Melissa; Updegrove Taylor B.; Anantharaman Vivek; Aravind L.; Waters Lauren S.; Storz Gisela",
+          "journal": "Molecular Cell",
+          "doi": "10.1016/j.molcel.2015.01.035",
+          "url": "https://doi.org/10.1016/j.molcel.2015.01.035",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — рис. 4B, S3: короткие и readthrough-РНК B. subtilis ±Mn²⁺. Биохимическая система mntP E. coli в той же статье исследует трансляцию."
+        }
+      ],
+      "source_250_rows": [
+        79
+      ],
+      "identity_key": "v1|bacillus-subtilis|yybp",
+      "aliases": [
+        "yybP"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA026",
+      "name": "Mn²⁺-переключатель ykoY",
+      "organism": "Bacillus subtilis",
+      "target": "ykoY",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "Mn²⁺",
+      "mechanism": "Mn²⁺ способствует прохождению лидерного терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Northern blot: при добавлении Mn²⁺ уменьшается короткая лидерная РНК ~160 нт и появляются более длинные транскрипты.",
+      "limitations": "Для ykoY длинные РНК видны преимущественно при длительной экспозиции. Опыт mntP нельзя переносить на эти два локуса.",
+      "references": [
+        {
+          "title": "The Ubiquitous yybP-ykoY Riboswitch Is a Manganese-Responsive Regulatory Element",
+          "year": 2015,
+          "authors": "Dambach Michael; Sandoval Melissa; Updegrove Taylor B.; Anantharaman Vivek; Aravind L.; Waters Lauren S.; Storz Gisela",
+          "journal": "Molecular Cell",
+          "doi": "10.1016/j.molcel.2015.01.035",
+          "url": "https://doi.org/10.1016/j.molcel.2015.01.035",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — рис. 4B, S3: короткие и readthrough-РНК B. subtilis ±Mn²⁺. Биохимическая система mntP E. coli в той же статье исследует трансляцию."
+        }
+      ],
+      "source_250_rows": [
+        77
+      ],
+      "identity_key": "v1|bacillus-subtilis|ykoy",
+      "aliases": [
+        "ykoY"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA027",
+      "name": "Кобаламиновый переключатель yvrC",
+      "organism": "Bacillus subtilis",
+      "target": "yvrC–yvrB–yvrA–yvqK",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "Аденозилкобаламин (B12)",
+      "mechanism": "B12-зависимый транскрипционный OFF-переключатель с внутренним терминатором.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Транскрипционное слияние yvrC–lacZ под гетерологичным промотором: B12 снижает сигнал примерно втрое; in-line probing подтверждает связывание.",
+      "limitations": "Функциональная поддержка транскрипционной регуляции; биохимия в этой статье — связывание, а не реконструкция терминации.",
+      "references": [
+        {
+          "title": "Coenzyme B12 riboswitches are widespread genetic control elements in prokaryotes",
+          "year": 2004,
+          "authors": "Nahvi A., Barrick J.E., Breaker R.R.",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkh167",
+          "url": "https://doi.org/10.1093/nar/gkh167",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональное транскрипционное слияние; нет прямого измерения процента терминации in vitro."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|yvrc-yvrb-yvra-yvqk",
+      "aliases": [
+        "yvrC–yvrB–yvrA–yvqK"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA028",
+      "name": "CTP-чувствительный лидер pyrG",
+      "organism": "Bacillus subtilis",
+      "target": "pyrG",
+      "category": "NTP-зависимая регуляция",
+      "signal": "CTP",
+      "mechanism": "При низком CTP повторная инициальная транскрипция добавляет G-остатки, позволяющие сформировать антитерминатор.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Регуляция воспроизведена с матрицами pyrG in vitro при изменении CTP; анализ повторной транскрипции и прохождения терминатора.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "Regulation of pyrG expression in Bacillus subtilis: CTP‐regulated antitermination and reiterative transcription with pyrG templates in vitro",
+          "year": 2007,
+          "authors": "Jensen‐MacAllister Irene E.; Meng Qi; Switzer Robert L.",
+          "journal": "Molecular Microbiology",
+          "doi": "10.1111/j.1365-2958.2007.05595.x",
+          "url": "https://doi.org/10.1111/j.1365-2958.2007.05595.x",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — прямая транскрипция in vitro с контролем CTP."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|pyrg",
+      "aliases": [
+        "pyrG"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA029",
+      "name": "c-di-GMP-I / Cd1 перед flgB",
+      "organism": "Clostridioides difficile",
+      "target": "flgB flagellar operon",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "c-di-GMP",
+      "mechanism": "c-di-GMP усиливает преждевременную терминацию перед жгутиковым опероном.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Cd1: in vitro сопоставлены завершённые и полные транскрипты при добавлении c-di-GMP.",
+      "limitations": "Включён конкретный Cd1/flgB; другие c-di-GMP-переключатели C. difficile не объявляются дубликатами этого локуса.",
+      "references": [
+        {
+          "title": "Riboswitches in Eubacteria Sense the Second Messenger Cyclic Di-GMP",
+          "year": 2008,
+          "authors": "Sudarsan N. et al.",
+          "journal": "Science",
+          "doi": "10.1126/science.1159491",
+          "url": "https://doi.org/10.1126/science.1159491",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — лиганд-зависимая терминация Cd1 in vitro."
+        }
+      ],
+      "identity_key": "v1|clostridioides-difficile|flgbflagellaroperon",
+      "aliases": [
+        "flgB flagellar operon"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA030",
+      "name": "MET-T-box перед metICFE-mdh",
+      "organism": "Staphylococcus aureus",
+      "target": "metICFE-mdh",
+      "category": "T-box",
+      "signal": "Неаминоацилированная инициаторная tRNAᶠᴹᵉᵗ",
+      "mechanism": "tRNA-зависимая антитерминация лидера; дополнительные уровни — CodY и распад РНК.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Northern и функциональный анализ метиониновой зависимости различают лидер и полный транскрипт; проверено взаимодействие с инициаторной tRNA.",
+      "limitations": "Распад met-мРНК — отдельный механизм; не считается самостоятельным доказательством аттенюации.",
+      "references": [
+        {
+          "title": "Methionine Biosynthesis in Staphylococcus aureus Is Tightly Controlled by a Hierarchical Network Involving an Initiator tRNA-Specific T-box Riboswitch",
+          "year": 2013,
+          "authors": "Schoenfelder Sonja M. K.; Marincola Gabriella; Geiger Tobias; Goerke Christiane; Wolz Christiane; Ziebuhr Wilma",
+          "journal": "PLoS Pathogens",
+          "doi": "10.1371/journal.ppat.1003606",
+          "url": "https://doi.org/10.1371/journal.ppat.1003606",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — анализ met leader и транскрипции met-оперона in vivo, связывание tRNA in vitro."
+        }
+      ],
+      "identity_key": "v1|staphylococcus-aureus|meticfe-mdh",
+      "aliases": [
+        "metICFE-mdh"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA031",
+      "name": "Фторидный переключатель crcB",
+      "organism": "Bacillus cereus",
+      "target": "crcB",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "F⁻",
+      "mechanism": "Фторид предотвращает формирование преждевременного терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Котранскрипционное SHAPE-Seq и транскрипционные опыты с WT/мутантами показывают фторид-зависимое прохождение терминатора.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "Cotranscriptional folding of a riboswitch at nucleotide resolution",
+          "year": 2016,
+          "authors": "Watters K.E. et al.",
+          "journal": "Nature Structural & Molecular Biology",
+          "doi": "10.1038/nsmb.3316",
+          "url": "https://doi.org/10.1038/nsmb.3316",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — in vitro транскрипция, функциональные контроли и котранскрипционный фолдинг B. cereus crcB."
+        }
+      ],
+      "identity_key": "v1|bacillus-cereus|crcb",
+      "aliases": [
+        "crcB"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA032",
+      "name": "TPP-переключатель thiC",
+      "organism": "Escherichia coli",
+      "target": "thiC",
+      "category": "Rho-зависимый рибопереключатель",
+      "signal": "TPP",
+      "mechanism": "Подавление инициации трансляции облегчает Rho-зависимое преждевременное завершение транскрипции.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "ChIP-qPCR РНК-полимеразы на thiC в условиях изменения действия Rho и лиганда поддерживает компонент Rho-зависимой регуляции.",
+      "limitations": "Не заявляется прямой in vitro опыт терминации на thiC. Система сочетает трансляционную и транскрипционную регуляцию.",
+      "references": [
+        {
+          "title": "Translational control and Rho-dependent transcription termination are intimately linked in riboswitch regulation",
+          "year": 2017,
+          "authors": "Bastet Laurène; Chauvier Adrien; Singh Navjot; Lussier Antony; Lamontagne Anne-Marie; Prévost Karine; Massé Eric; Wade Joseph T.; Lafontaine Daniel A.",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkx434",
+          "url": "https://doi.org/10.1093/nar/gkx434",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — thiC исследован in vivo (рис. 6E: ChIP-qPCR); детальная реконструкция in vitro в статье выполнена главным образом для ribB."
+        },
+        {
+          "title": "Transcriptional pausing at the translation start site operates as a critical checkpoint for riboswitch regulation",
+          "doi": "10.1038/ncomms13892",
+          "url": "https://doi.org/10.1038/ncomms13892",
+          "year": 2017,
+          "authors": "",
+          "journal": "",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Биохимические и клеточные эксперименты с thiC, паузой РНК-полимеразы и Rho-зависимой терминацией."
+        }
+      ],
+      "source_250_rows": [
+        155,
+        157
+      ],
+      "identity_key": "v1|escherichia-coli|thic",
+      "aliases": [
+        "thiC"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA033",
+      "name": "Гуанидин-I / ykkC перед ykkCD",
+      "organism": "Bacillus subtilis",
+      "target": "ykkCD (gdnCD)",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "Гуанидиний",
+      "mechanism": "Связывание гуанидиния способствует антитерминации.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "B. subtilis ykkC–lacZ индуцируется гуанидинием; направленные изменения консервативного мотива нарушают ответ.",
+      "limitations": "In vitro результат smr другого вида не записан как эксперимент на B. subtilis.",
+      "references": [
+        {
+          "title": "Metabolism of Free Guanidine in Bacteria Is Regulated by a Widespread Riboswitch Class",
+          "year": 2017,
+          "authors": "Nelson James W.; Atilho Ruben M.; Sherlock Madeline E.; Stockbridge Randy B.; Breaker Ronald R.",
+          "journal": "Molecular Cell",
+          "doi": "10.1016/j.molcel.2016.11.019",
+          "url": "https://doi.org/10.1016/j.molcel.2016.11.019",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — B. subtilis reporter и мутации; прямое разделение коротких/полных РНК in vitro в этой работе выполнено на smr Desulfotomaculum ruminis."
+        }
+      ],
+      "source_250_rows": [
+        27,
+        78
+      ],
+      "identity_key": "v1|bacillus-subtilis|ykkcd",
+      "aliases": [
+        "ykkC",
+        "ykkCD",
+        "gdnCD"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA034",
+      "name": "PyrR-зависимые аттенюаторы pyr-оперона",
+      "organism": "Bacillus subtilis",
+      "target": "pyr operon (три лидерных участка)",
+      "category": "Белковая регуляция",
+      "signal": "Уридиновые нуклеотиды / PyrR",
+      "mechanism": "PyrR связывает лидерные РНК и переключает их в терминаторную конформацию.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Регуляция терминации на трёх участках pyr-оперона реконструирована in vitro с PyrR.",
+      "limitations": "Три участка одного оперона сохранены одной системой; структура PyrR не посчитана отдельным аттенюатором.",
+      "references": [
+        {
+          "title": "Transcriptional attenuation of the Bacillus subtilis pyr operon by the PyrR regulatory protein and uridine nucleotides in vitro",
+          "year": 1996,
+          "authors": "Lu Y., Switzer R.L.",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/jb.178.24.7206-7211.1996",
+          "url": "https://doi.org/10.1128/jb.178.24.7206-7211.1996",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — прямая PyrR/нуклеотид-зависимая терминация in vitro."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|pyroperon(трилидерныхучастка)",
+      "aliases": [
+        "pyr operon (три лидерных участка)"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA035",
+      "name": "LicT-зависимый аттенюатор bglPH",
+      "organism": "Bacillus subtilis",
+      "target": "bglPH",
+      "category": "Белковая регуляция",
+      "signal": "β-глюкозиды / состояние PTS",
+      "mechanism": "LicT связывает RAT-РНК и препятствует формированию терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "bglP–lacZ, делеции и анализ licT демонстрируют зависимость индукции от антитерминатора и лидерного участка.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "Regulation of the putative bglPH operon for aryl-beta-glucoside utilization in Bacillus subtilis",
+          "year": 1995,
+          "authors": "Krüger S; Hecker M",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/jb.177.19.5590-5597.1995",
+          "url": "https://doi.org/10.1128/jb.177.19.5590-5597.1995",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональные генетические и транскрипционные репортёрные опыты."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|bglph",
+      "aliases": [
+        "bglPH"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA036",
+      "name": "SacY-зависимый аттенюатор sacB",
+      "organism": "Bacillus subtilis",
+      "target": "sacB",
+      "category": "Белковая регуляция",
+      "signal": "Сахароза / PTS",
+      "mechanism": "SacY связывает RAT-элемент и предотвращает лидерную терминацию.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Мутации РНК-связывающего домена, функциональные репортёры и анализ взаимодействия с RAT.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "From genetic to structural characterization of a new class of RNA-binding domain within the SacY/BglG family of antiterminator proteins",
+          "year": 1997,
+          "authors": "Manival X. et al.",
+          "journal": "EMBO Journal",
+          "doi": "10.1093/emboj/16.16.5019",
+          "url": "https://doi.org/10.1093/emboj/16.16.5019",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональные опыты in vivo в дополнение к NMR/связыванию; структура отдельно не доказывает терминацию."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|sacb",
+      "aliases": [
+        "sacB"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA037",
+      "name": "GlpP-зависимый аттенюатор glpD",
+      "organism": "Bacillus subtilis",
+      "target": "glpD",
+      "category": "Белковая регуляция",
+      "signal": "Глицерол-3-фосфат",
+      "mechanism": "GlpP связывает лидер glpD и способствует прохождению терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Титрование антитерминирующей активности лидерной РНК in vivo; связывание очищенного GlpP с лидером in vitro.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "Antiterminator protein GlpP of Bacillus subtilis binds to glpD leader mRNA",
+          "year": 1998,
+          "authors": "Glatz E. et al.",
+          "journal": "Microbiology",
+          "doi": "10.1099/00221287-144-2-449",
+          "url": "https://doi.org/10.1099/00221287-144-2-449",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональная антитерминация in vivo; gel shift in vitro подтверждает связывание, а не сам по себе терминацию."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|glpd",
+      "aliases": [
+        "glpD"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA038",
+      "name": "HutP-зависимый аттенюатор hut",
+      "organism": "Bacillus subtilis",
+      "target": "hut operon",
+      "category": "Белковая регуляция",
+      "signal": "Гистидин и двухвалентный металл / HutP",
+      "mechanism": "Активированный HutP связывает лидерную РНК и препятствует преждевременной терминации.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Функциональный анализ мутантов РНК и HutP с hut-репортёрами, дополненный структурными и связывающими опытами.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "Insights into anti-termination regulation of the hut operon in Bacillus subtilis: importance of the dual RNA-binding surfaces of HutP",
+          "year": 2008,
+          "authors": "Gopinath S.C.B. et al.",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkn199",
+          "url": "https://doi.org/10.1093/nar/gkn199",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональная антитерминация in vivo плюс структурная/биохимическая проверка."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|hutoperon",
+      "aliases": [
+        "hut operon"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA039",
+      "name": "L4-зависимый аттенюатор S10",
+      "organism": "Escherichia coli",
+      "target": "S10 ribosomal protein operon (rpsJ leader)",
+      "category": "Белковая регуляция",
+      "signal": "Свободный рибосомный белок L4",
+      "mechanism": "L4 совместно с NusA усиливает преждевременную терминацию в лидере S10.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Показано L4-зависимое завершение транскрипции на специфическом участке лидера in vitro.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "Ribosomal protein L4 stimulates in vitro termination of transcription at a NusA-dependent terminator in the S10 operon leader.",
+          "year": 1990,
+          "authors": "Zengel J M; Lindahl L",
+          "journal": "Proceedings of the National Academy of Sciences",
+          "doi": "10.1073/pnas.87.7.2675",
+          "url": "https://doi.org/10.1073/pnas.87.7.2675",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — прямой тест терминации in vitro с L4 и NusA."
+        }
+      ],
+      "source_250_rows": [
+        11,
+        98,
+        99
+      ],
+      "identity_key": "v1|escherichia-coli|s10-leader",
+      "aliases": [
+        "S10",
+        "rpsJ",
+        "L4"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA040",
+      "name": "AmiR-зависимый аттенюатор ami",
+      "organism": "Pseudomonas aeruginosa",
+      "target": "ami amidase operon / T1",
+      "category": "Белковая регуляция",
+      "signal": "Амиды через AmiC–AmiR",
+      "mechanism": "AmiR взаимодействует с лидерной РНК и обеспечивает прохождение T1.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Направленные мутации лидерного участка выявили элементы, необходимые для антитерминации; проведены опыты in vivo и in vitro.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "Transcription antitermination regulation of the Pseudomonas aeruginosa amidase operon.",
+          "year": 1996,
+          "authors": "Wilson S. A.; Wachira S. J.; Norman R. A.; Pearl L. H.; Drew R. E.",
+          "journal": "The EMBO Journal",
+          "doi": "10.1002/j.1460-2075.1996.tb00977.x",
+          "url": "https://doi.org/10.1002/j.1460-2075.1996.tb00977.x",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональные in vivo и in vitro исследования AmiR-зависимой антитерминации."
+        }
+      ],
+      "identity_key": "v1|pseudomonas-aeruginosa|amiamidaseoperon/t1",
+      "aliases": [
+        "ami amidase operon / T1"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA041",
+      "name": "NasR-зависимый аттенюатор nas",
+      "organism": "Klebsiella oxytoca",
+      "target": "nas nitrate-assimilation operon",
+      "category": "Белковая регуляция",
+      "signal": "Нитрат / нитрит",
+      "mechanism": "NasR обеспечивает лиганд-зависимую антитерминацию в лидере nas.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Реконструкция транскрипции in vitro: NasR и нитрат/нитрит повышают прохождение лидерного терминатора.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "NasR, a novel RNA-binding protein, mediates nitrate-responsive transcription antitermination of the Klebsiella oxytoca m5al nasF operon leader in Vitro",
+          "year": 1998,
+          "authors": "Chai Weihang; Stewart Valley",
+          "journal": "Journal of Molecular Biology",
+          "doi": "10.1006/jmbi.1998.2105",
+          "url": "https://doi.org/10.1006/jmbi.1998.2105",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — прямая реконструкция in vitro."
+        }
+      ],
+      "identity_key": "v1|klebsiella-oxytoca|nasnitrate-assimilationoperon",
+      "aliases": [
+        "nas nitrate-assimilation operon"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA042",
+      "name": "Лидер mef(E)–mel",
+      "organism": "Streptococcus pneumoniae",
+      "target": "mef(E)–mel / msr(D)",
+      "category": "Лидерный пептид",
+      "signal": "Макролиды",
+      "mechanism": "Индукция препятствует преждевременному завершению лидерного транскрипта.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "RNA-seq ±индуктор, картирование начала транскрипции, лидерные делеции и mef(E)–lacZ.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "Transcriptional Attenuation Controls Macrolide Inducible Efflux and Resistance in Streptococcus pneumoniae and in Other Gram-Positive Bacteria Containing mef/mel(msr(D)) Elements",
+          "year": 2015,
+          "authors": "Chancey Scott T.; Bai Xianhe; Kumar Nikhil; Drabek Elliott F.; Daugherty Sean C.; Colon Thomas; Ott Sandra; Sengamalay Naomi; Sadzewicz Lisa; Tallon Luke J.; Fraser Claire M.; Tettelin Hervé; Stephens David S.",
+          "journal": "PLOS ONE",
+          "doi": "10.1371/journal.pone.0116254",
+          "url": "https://doi.org/10.1371/journal.pone.0116254",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — RNA-seq и функциональные лидерные/репортёрные конструкции."
+        }
+      ],
+      "identity_key": "v1|streptococcus-pneumoniae|mef(e)-mel/msr(d)",
+      "aliases": [
+        "mef(E)–mel / msr(D)"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA043",
+      "name": "rli80 / лидер hflXr",
+      "organism": "Listeria monocytogenes",
+      "target": "hflXr",
+      "category": "Лидерный пептид",
+      "signal": "Антибиотики, вызывающие остановку рибосомы",
+      "mechanism": "Трансляция короткого ORF в rli80 управляет альтернативными структурами и терминатором.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Лидерные мутации и функциональный анализ антибиотик-зависимой транскрипционной индукции hflXr.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "HflXr, a homolog of a ribosome-splitting factor, mediates antibiotic resistance",
+          "year": 2018,
+          "authors": "Duval Mélodie; Dar Daniel; Carvalho Filipe; Rocha Eduardo P. C.; Sorek Rotem; Cossart Pascale",
+          "journal": "Proceedings of the National Academy of Sciences",
+          "doi": "10.1073/pnas.1810555115",
+          "url": "https://doi.org/10.1073/pnas.1810555115",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — эксперименты с лидером rli80 и малым ORF, подтверждающие рибосомно-зависимую транскрипционную аттенюацию."
+        }
+      ],
+      "identity_key": "v1|listeria-monocytogenes|hflxr",
+      "aliases": [
+        "hflXr"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA044",
+      "name": "Транскрипционный лидер ermK",
+      "organism": "Bacillus licheniformis",
+      "target": "ermK",
+      "category": "Лидерный пептид",
+      "signal": "Макролиды",
+      "mechanism": "Рибосомная остановка меняет выбор двух преждевременных терминаторов.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Короткие РНК ~210/333 нт получены in vivo и in vitro; удаление терминаторов в последующей работе делает транскрипцию конститутивной.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "Transcriptional attenuation control of ermK, a macrolide-lincosamide-streptogramin B resistance determinant from Bacillus licheniformis",
+          "year": 1991,
+          "authors": "Kwak J.H. et al.",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/jb.173.15.4725-4735.1991",
+          "url": "https://doi.org/10.1128/jb.173.15.4725-4735.1991",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — короткие/полные транскрипты in vivo и in vitro."
+        },
+        {
+          "title": "Role of mRNA termination in regulation of ermK",
+          "year": 1997,
+          "authors": "Choi S S; Kim S K; Oh T G; Choi E C",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/jb.179.6.2065-2067.1997",
+          "url": "https://doi.org/10.1128/jb.179.6.2065-2067.1997",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — мутации терминаторов и анализ транскриптов."
+        }
+      ],
+      "identity_key": "v1|bacillus-licheniformis|ermk",
+      "aliases": [
+        "ermK"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA045",
+      "name": "bmrB / аттенюатор bmrCD",
+      "organism": "Bacillus subtilis",
+      "target": "bmrCD",
+      "category": "Лидерный пептид",
+      "signal": "Антибиотики, включая линкомицин",
+      "mechanism": "Остановка рибосомы на bmrB способствует прохождению лидерного терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Транскрипционный анализ и мутации лидерного ORF/РНК связывают экспрессию bmrCD с трансляцией bmrB.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "The multidrug ABC transporter BmrC / BmrD of Bacillus subtilis is regulated via a ribosome-mediated transcriptional attenuation mechanism",
+          "year": 2014,
+          "authors": "Reilman Ewoud; Mars Ruben A. T.; van Dijl Jan Maarten; Denham Emma L.",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gku832",
+          "url": "https://doi.org/10.1093/nar/gku832",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональные мутации лидера, репортёры и анализ транскрипции."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|bmrcd",
+      "aliases": [
+        "bmrCD"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA046",
+      "name": "Лидер vmlR",
+      "organism": "Bacillus subtilis",
+      "target": "vmlR",
+      "category": "Лидерный пептид",
+      "signal": "Линкомицин / ретапамулин / ибоксамицин",
+      "mechanism": "Лидерный ORF и NusG-зависимая пауза управляют терминацией; дополнительно регулируется трансляция.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Сочетание мутаций лидера, репортёров и транскрипционных опытов позволяет разделить паузу, терминацию и трансляционную регуляцию.",
+      "limitations": "VmlR — фактор защиты рибосомы ABCF; исправлена прежняя ссылка и спектр антибиотиков.",
+      "references": [
+        {
+          "title": "Expression of Bacillus subtilis ABCF antibiotic resistance factor VmlR is regulated by RNA polymerase pausing, transcription attenuation, translation attenuation and (p)ppGpp",
+          "year": 2022,
+          "authors": "Takada H. et al.",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkac497",
+          "url": "https://doi.org/10.1093/nar/gkac497",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональное исследование транскрипционного и трансляционного компонентов, анализ транскрипции in vitro."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|vmlr",
+      "aliases": [
+        "vmlR"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA047",
+      "name": "Лидер с GCAGA-повторами pil1",
+      "organism": "Streptococcus gallolyticus",
+      "target": "pilA–pilB–srtC (pil1)",
+      "category": "Лидерный пептид",
+      "signal": "Фазовая вариация длины лидерного ORF",
+      "mechanism": "Изменение числа повторов удлиняет лидерный пептид и нарушает преждевременный терминатор.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Варианты повторов, мутации лидерного ORF/терминатора и RT-qPCR до/после шпильки поддерживают модель аттенюации.",
+      "limitations": "Это фазовая вариация, не антибиотик-чувствительный rli80.",
+      "references": [
+        {
+          "title": "Single Cell Stochastic Regulation of Pilus Phase Variation by an Attenuation-like Mechanism",
+          "year": 2014,
+          "authors": "Danne Camille; Dubrac Sarah; Trieu-Cuot Patrick; Dramsi Shaynoor",
+          "journal": "PLoS Pathogens",
+          "doi": "10.1371/journal.ppat.1003860",
+          "url": "https://doi.org/10.1371/journal.ppat.1003860",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональная генетика и RT-qPCR. Прямой тест терминации очищенной RNAP не выполнен."
+        }
+      ],
+      "identity_key": "v1|streptococcus-gallolyticus|pila-pilb-srtc(pil1)",
+      "aliases": [
+        "pilA–pilB–srtC (pil1)"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA048",
+      "name": "Антисмысловой аттенюатор pT181",
+      "organism": "Staphylococcus aureus; plasmid pT181",
+      "target": "repC",
+      "category": "Антисмысловая РНК",
+      "signal": "RNAI",
+      "mechanism": "RNAI направляет формирование терминатора в лидере repC.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Однораундовый транскрипционный тест количественно показывает антисмысловую RNA-зависимую аттенюацию.",
+      "limitations": "Происхождение — стафилококковая плазмида; биохимический опыт не равен проверке в нативном хозяине.",
+      "references": [
+        {
+          "title": "Antisense RNA‐mediated transcriptional attenuation: an in vitro study of plasmid pT181",
+          "year": 2000,
+          "authors": "Brantl Sabine; Wagner E. Gerhart H.",
+          "journal": "Molecular Microbiology",
+          "doi": "10.1046/j.1365-2958.2000.01813.x",
+          "url": "https://doi.org/10.1046/j.1365-2958.2000.01813.x",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — single-round транскрипция in vitro."
+        }
+      ],
+      "identity_key": "v1|staphylococcus-aureus;-plasmid-pt181|repc",
+      "aliases": [
+        "repC"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA049",
+      "name": "Антисмысловой аттенюатор pIP501",
+      "organism": "Streptococcus agalactiae; plasmid pIP501",
+      "target": "repR / RNAII",
+      "category": "Антисмысловая РНК",
+      "signal": "RNAIII",
+      "mechanism": "RNAIII вызывает завершение sense-транскрипта RNAII перед repR.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Количественный in vitro анализ аттенюации и кинетики контакта двух РНК.",
+      "limitations": "Исправлено название антисмысловой РНК: RNAIII, не RNAI.",
+      "references": [
+        {
+          "title": "Antisense RNA-mediated transcriptional attenuation occurs faster than stable antisense/target RNA pairing: an in vitro study of plasmid pIP501",
+          "year": 1994,
+          "authors": "Brantl S., Wagner E.G.H.",
+          "journal": "EMBO Journal",
+          "doi": "10.1002/j.1460-2075.1994.tb06667.x",
+          "url": "https://doi.org/10.1002/j.1460-2075.1994.tb06667.x",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — прямая транскрипционная аттенюация in vitro."
+        }
+      ],
+      "identity_key": "v1|streptococcus-agalactiae;-plasmid-pip501|repr/rnaii",
+      "aliases": [
+        "repR / RNAII"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA050",
+      "name": "RnaG-зависимый аттенюатор icsA",
+      "organism": "Shigella flexneri",
+      "target": "icsA / virG",
+      "category": "Антисмысловая РНК",
+      "signal": "RnaG",
+      "mechanism": "Спаривание RnaG с icsA способствует образованию преждевременного терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Транскрипция in vitro ±RnaG и структурное зондирование показывают короткий продукт и перестройку лидерной РНК.",
+      "limitations": "Конвергентная транскрипционная интерференция в том же локусе — дополнительный механизм.",
+      "references": [
+        {
+          "title": "A novel antisense RNA regulates at transcriptional level the virulence gene icsA of Shigella flexneri",
+          "year": 2010,
+          "authors": "Giangrossi M. et al.",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkq025",
+          "url": "https://doi.org/10.1093/nar/gkq025",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — прямая транскрипция in vitro и структурное зондирование."
+        }
+      ],
+      "identity_key": "v1|shigella-flexneri|icsa/virg",
+      "aliases": [
+        "icsA / virG"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA051",
+      "name": "RNAβ / внутренний аттенюатор ITB",
+      "organism": "Vibrio anguillarum; plasmid pJM1",
+      "target": "fatDCBA–angRT (между fatA и angR)",
+      "category": "Антисмысловая РНК",
+      "signal": "RNAβ",
+      "mechanism": "Антисмысловая РНК вызывает завершение транскрипции между транспортными и биосинтетическими генами.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "S1-картирование, транскрипционные lacZ-слияния и реконструкция in vitro ±RNAβ.",
+      "limitations": "Не приписывается стандартная Rho-независимая терминаторная шпилька: статья описывает необычный механизм.",
+      "references": [
+        {
+          "title": "Transcription Termination within the Iron Transport-Biosynthesis Operon of Vibrio anguillarum Requires an Antisense RNA",
+          "year": 2007,
+          "authors": "Stork M. et al.",
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/JB.00619-06",
+          "url": "https://doi.org/10.1128/JB.00619-06",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — прямая реконструкция терминации in vitro плюс S1 и репортёры in vivo."
+        }
+      ],
+      "identity_key": "v1|vibrio-anguillarum;-plasmid-pjm1|fatdcba-angrt(междуfataиangr)",
+      "aliases": [
+        "fatDCBA–angRT (между fatA и angR)"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA052",
+      "name": "ChiX / Rho-зависимая аттенюация chiPQ",
+      "organism": "Salmonella enterica serovar Typhimurium",
+      "target": "chiPQ",
+      "category": "Антисмысловая РНК",
+      "signal": "ChiX / Rho / NusG",
+      "mechanism": "Блокирование трансляции chiP открывает Rho доступ к внутригенно́му rut-участку, подавляя chiQ.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Мутанты Rho/NusG, репортёры и in vitro транскрипция chiP демонстрируют полярность через преждевременную терминацию.",
+      "limitations": "Исправлен организм: прямое основание этой статьи — Salmonella, не E. coli.",
+      "references": [
+        {
+          "title": "A role for Rho-dependent polarity in gene regulation by a noncoding small RNA",
+          "year": 2012,
+          "authors": "Bossi L. et al.",
+          "journal": "Genes & Development",
+          "doi": "10.1101/gad.195412.112",
+          "url": "https://doi.org/10.1101/gad.195412.112",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — Rho/NusG-зависимая терминация chiP in vitro и генетика in vivo."
+        }
+      ],
+      "identity_key": "v1|salmonella-enterica-serovar-typhimurium|chipq",
+      "aliases": [
+        "chiPQ"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA053",
+      "name": "S-box в антисмысловом направлении ubiG",
+      "organism": "Clostridium acetobutylicum",
+      "target": "Антисмысловая РНК к ubiG–mccBA",
+      "category": "SAM-I / S-box",
+      "signal": "SAM",
+      "mechanism": "SAM управляет терминацией антисмыслового транскрипта; его продолжение влияет на ubiG–mccBA.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Northern, картирование концов и функциональные конструкции выявляют SAM/S-box-зависимые короткие и длинные антисмысловые РНК.",
+      "limitations": "Включён сам SAM-зависимый терминатор антисмысловой РНК. Столкновение полимераз — предложенное объяснение интерференции, не прямо наблюдённый факт.",
+      "references": [
+        {
+          "title": "S-box and T-box riboswitches and antisense RNA control a sulfur metabolic operon of Clostridium acetobutylicum",
+          "year": 2008,
+          "authors": "André Gaëlle; Even Sergine; Putzer Harald; Burguière Pierre; Croux Christian; Danchin Antoine; Martin-Verstraete Isabelle; Soutourina Olga",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkn601",
+          "url": "https://doi.org/10.1093/nar/gkn601",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональный анализ двух транскрипционных регуляторных областей и антисмысловых РНК in vivo."
+        }
+      ],
+      "identity_key": "v1|clostridium-acetobutylicum|антисмысловаярнккubig-mccba",
+      "aliases": [
+        "Антисмысловая РНК к ubiG–mccBA"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA054",
+      "name": "Лизиновый L-box перед lysC",
+      "organism": "Bacillus subtilis",
+      "target": "lysC",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "L-лизин",
+      "mechanism": "Лизин стабилизирует терминатор лидера lysC.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Лизин-зависимые транскрипционные продукты, функциональные мутации и репортёры; связывание лиганда независимо проверено.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "An mRNA structure in bacteria that controls gene expression by binding lysine",
+          "year": 2003,
+          "authors": "Sudarsan Narasimhan; Wickiser J. Kenneth; Nakamura Shingo; Ebert Margaret S.; Breaker Ronald R.",
+          "journal": "Genes & Development",
+          "doi": "10.1101/gad.1140003",
+          "url": "https://doi.org/10.1101/gad.1140003",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — лизин-зависимая терминация/функциональные тесты B. subtilis lysC."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|lysc",
+      "aliases": [
+        "lysC"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA055",
+      "name": "Адениновый переключатель pbuE",
+      "organism": "Bacillus subtilis",
+      "target": "pbuE (ydhL)",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "Аденин",
+      "mechanism": "Аденин препятствует образованию терминатора и включает транскрипцию.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Транскрипционные тесты и мутации переключателя демонстрируют аденин-зависимое прохождение терминатора.",
+      "limitations": "В строке 53 pbuE ошибочно был назван preQ1-переключателем; объединён с адениновым pbuE.",
+      "references": [
+        {
+          "title": "Adenine riboswitches and gene activation by disruption of a transcription terminator",
+          "year": 2004,
+          "authors": "Mandal Maumita; Breaker Ronald R",
+          "journal": "Nature Structural & Molecular Biology",
+          "doi": "10.1038/nsmb710",
+          "url": "https://doi.org/10.1038/nsmb710",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональная проверка транскрипционного ON-переключателя."
+        },
+        {
+          "title": "Comparative study between transcriptionally- and translationally-acting adenine riboswitches reveals key differences in riboswitch regulatory mechanisms",
+          "doi": "10.1371/journal.pgen.1001278",
+          "url": "https://doi.org/10.1371/journal.pgen.1001278",
+          "year": 2011,
+          "authors": "",
+          "journal": "",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Экспериментальная проверка транскрипционного механизма pbuE."
+        }
+      ],
+      "source_250_rows": [
+        22
+      ],
+      "identity_key": "v1|bacillus-subtilis|pbue",
+      "aliases": [
+        "pbuE",
+        "ydhL"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA056",
+      "name": "preQ1-I перед queCDEF",
+      "organism": "Bacillus subtilis",
+      "target": "queCDEF / ykvJKLM",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "preQ1",
+      "mechanism": "preQ1 способствует преждевременному завершению транскрипции лидера.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Транскрипционные тесты и лиганд-зависимое структурное зондирование B. subtilis переключателя.",
+      "limitations": "Не переносится на трансляционные preQ1-переключатели других организмов.",
+      "references": [
+        {
+          "title": "A riboswitch selective for the queuosine precursor preQ1 contains an unusually small aptamer domain",
+          "year": 2007,
+          "authors": "Roth Adam; Winkler Wade C; Regulski Elizabeth E; Lee Bobby W K; Lim Jinsoo; Jona Inbal; Barrick Jeffrey E; Ritwik Ankita; Kim Jane N; Welz Rüdiger; Iwata-Reuyl Dirk; Breaker Ronald R",
+          "journal": "Nature Structural & Molecular Biology",
+          "doi": "10.1038/nsmb1224",
+          "url": "https://doi.org/10.1038/nsmb1224",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональная регуляция транскрипции и биохимическое распознавание preQ1."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|quecdef/ykvjklm",
+      "aliases": [
+        "queCDEF / ykvJKLM"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA057",
+      "name": "Гуаниновый переключатель xpt–pbuX",
+      "organism": "Bacillus subtilis",
+      "target": "xpt–pbuX",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "Гуанин",
+      "mechanism": "Гуанин способствует формированию преждевременного терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "RT-qPCR различает полные и завершённые транскрипты ±гуанин; котранскрипционное исследование объясняет роль пауз.",
+      "limitations": "",
+      "references": [
+        {
+          "title": "Ligand recognition determinants of guanine riboswitches",
+          "year": 2007,
+          "authors": "Mulhbacher Jérôme; Lafontaine Daniel A.",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkm572",
+          "url": "https://doi.org/10.1093/nar/gkm572",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — отношение полных/завершённых транскриптов in vivo и мутагенез."
+        },
+        {
+          "title": "Pausing guides RNA folding to populate transiently stable RNA structures for riboswitch-based transcription regulation",
+          "year": 2017,
+          "authors": "Steinert Hannah; Sochor Florian; Wacker Anna; Buck Janina; Helmling Christina; Hiller Fabian; Keyhani Sara; Noeske Jonas; Grimm Steffen; Rudolph Martin M; Keller Heiko; Mooney Rachel Anne; Landick Robert; Suess Beatrix; Fürtig Boris; Wöhnert Jens; Schwalbe Harald",
+          "journal": "eLife",
+          "doi": "10.7554/eLife.21297",
+          "url": "https://doi.org/10.7554/eLife.21297",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — котранскрипционная динамика и регуляция терминации."
+        }
+      ],
+      "source_250_rows": [
+        72
+      ],
+      "identity_key": "v1|bacillus-subtilis|xpt-pbux",
+      "aliases": [
+        "xpt",
+        "xpt-pbuX"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA058",
+      "name": "TPP-переключатель thiM",
+      "organism": "Escherichia coli",
+      "target": "thiMD",
+      "category": "Rho-зависимый рибопереключатель",
+      "signal": "TPP",
+      "mechanism": "Связывание TPP подавляет трансляцию и способствует Rho-зависимой терминации.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Транскрипционные слияния и ChIP-qPCR RNAP ±Rho демонстрируют компонент преждевременной терминации.",
+      "limitations": "Дополнительный трансляционный контроль сохраняется; структура аптамера не является отдельной системой.",
+      "references": [
+        {
+          "title": "Translational control and Rho-dependent transcription termination are intimately linked in riboswitch regulation",
+          "year": 2017,
+          "authors": "Bastet Laurène; Chauvier Adrien; Singh Navjot; Lussier Antony; Lamontagne Anne-Marie; Prévost Karine; Massé Eric; Wade Joseph T.; Lafontaine Daniel A.",
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkx434",
+          "url": "https://doi.org/10.1093/nar/gkx434",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — thiM in vivo, транскрипционные репортёры и ChIP-qPCR; структурная работа 2006 года не служит самостоятельным основанием."
+        }
+      ],
+      "source_250_rows": [
+        21,
+        156
+      ],
+      "identity_key": "v1|escherichia-coli|thimd",
+      "aliases": [
+        "thiM",
+        "thiD",
+        "thiMD"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA059",
+      "name": "BglG-зависимые аттенюаторы bgl",
+      "organism": "Escherichia coli",
+      "target": "bglGFB",
+      "category": "Белковая регуляция",
+      "signal": "β-глюкозиды / BglF / PTS",
+      "mechanism": "BglG связывает RAT-последовательности и предотвращает терминацию в bgl-опероне.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Функциональные генетические и транскрипционные опыты устанавливают положительную регуляцию через антитерминацию.",
+      "limitations": "Не упрощено до «любая дефосфорилированная форма активна»: важны разные сайты PTS-фосфорилирования.",
+      "references": [
+        {
+          "title": "Transcriptional antitermination in the bgl operon of E. coli is modulated by a specific RNA binding protein",
+          "year": 1990,
+          "authors": "Houman F., Diaz-Torres M.R., Wright A.",
+          "journal": "Cell",
+          "doi": "10.1016/0092-8674(90)90392-R",
+          "url": "https://doi.org/10.1016/0092-8674(90)90392-R",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональное исследование BglG-зависимой антитерминации."
+        }
+      ],
+      "identity_key": "v1|escherichia-coli|bglgfb",
+      "aliases": [
+        "bglGFB"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA060",
+      "name": "GlcT-зависимый аттенюатор ptsGHI",
+      "organism": "Bacillus subtilis",
+      "target": "ptsGHI",
+      "category": "Белковая регуляция",
+      "signal": "Глюкоза / PTS",
+      "mechanism": "GlcT связывает RAT-лидер и позволяет РНК-полимеразе пройти терминатор.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Мутации GlcT и его регуляторных доменов/PTS, транскрипционные репортёры и анализ фосфорилирования.",
+      "limitations": "Фосфорилирование PRD1 и PRD2 имеет разные эффекты; детали структуры не считаются отдельными аттенюаторами.",
+      "references": [
+        {
+          "title": "Control of the Bacillus subtilis Antiterminator Protein GlcT by Phosphorylation",
+          "year": 2003,
+          "authors": "Schmalisch Matthias H.; Bachem Steffi; Stülke Jörg",
+          "journal": "Journal of Biological Chemistry",
+          "doi": "10.1074/jbc.M309972200",
+          "url": "https://doi.org/10.1074/jbc.M309972200",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональные опыты антитерминации и PTS-зависимой регуляции."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|ptsghi",
+      "aliases": [
+        "ptsGHI"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA061",
+      "name": "SpeFL-зависимый аттенюатор speF",
+      "organism": "Escherichia coli",
+      "target": "speF",
+      "category": "Лидерный пептид",
+      "signal": "Орнитин",
+      "mechanism": "Остановка рибосомы на SpeFL при наличии орнитина препятствует Rho-зависимой терминации.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Орнитин-зависимые репортёры ±бицикломицин, мутации лидерного пептида и структура остановленной рибосомы.",
+      "limitations": "Мишень — speF. Указание Salmonella из общей исходной строки не перенесено без отдельного доказательства.",
+      "references": [
+        {
+          "title": "Ornithine capture by a translating ribosome controls bacterial polyamine synthesis",
+          "year": 2020,
+          "authors": "Herrero del Valle Alba; Seip Britta; Cervera-Marzal Iñaki; Sacheau Guénaël; Seefeldt A. Carolin; Innis C. Axel",
+          "journal": "Nature Microbiology",
+          "doi": "10.1038/s41564-020-0669-1",
+          "url": "https://doi.org/10.1038/s41564-020-0669-1",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — функциональные опыты с контролем Rho; крио-ЭМ объясняет сенсор, но сама по себе не измеряет терминацию."
+        }
+      ],
+      "identity_key": "v1|escherichia-coli|spef",
+      "aliases": [
+        "speF"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA062",
+      "name": "ToiL / Rho-зависимый аттенюатор topAI",
+      "organism": "Escherichia coli",
+      "target": "topAI–yjhQ",
+      "category": "Лидерный пептид",
+      "signal": "Ингибиторы трансляции / остановка на ToiL",
+      "mechanism": "ToiL управляет доступностью Rho и преждевременным завершением транскрипции topAI.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "topAI–lacZ, мутант Rho R66S, изменения rut-участка, RT-qPCR и ChIP-qPCR RNAP подтверждают Rho-зависимую регуляцию.",
+      "limitations": "Использована финальная версия статьи 2025 года; исходная ссылка Cell 2012 заменена.",
+      "references": [
+        {
+          "title": "A bacterial regulatory uORF senses multiple classes of ribosome-targeting antibiotics",
+          "year": 2025,
+          "authors": "Baniulyte Gabriele; Wade Joseph T",
+          "journal": "eLife",
+          "doi": "10.7554/eLife.101217.4",
+          "url": "https://doi.org/10.7554/eLife.101217.4",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Да — генетические тесты Rho/rut и анализ RNAP/РНК in vivo; биохимической реконструкции терминации очищенными компонентами нет."
+        }
+      ],
+      "identity_key": "v1|escherichia-coli|topai-yjhq",
+      "aliases": [
+        "topAI–yjhQ"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA063",
+      "name": "Лидерный аттенюатор pheST",
+      "organism": "Escherichia coli",
+      "target": "pheST",
+      "category": "Лидерный пептид",
+      "signal": "Phe через состояние аминоацилирования tRNA^Phe",
+      "mechanism": "Трансляция Phe-богатого лидерного пептида управляет формированием терминатора перед pheST.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Делеции регуляторной области и транскрипционные репортёры показывают необходимость лидерного терминатора. Статья сопоставляет результаты с предыдущими опытами in vitro.",
+      "limitations": "Отдельная система от биосинтетического гена pheA. В указанной работе исследование регуляции выполнено in vivo; предыдущие опыты in vitro обсуждаются отдельно.",
+      "source_250_rows": [
+        8
+      ],
+      "references": [
+        {
+          "title": "Attenuation control of the Escherichia coli phenylalanyl-tRNA synthetase operon",
+          "year": 1985,
+          "authors": "Springer M. et al.",
+          "journal": "",
+          "doi": "10.1016/0022-2836(85)90420-6",
+          "url": "https://doi.org/10.1016/0022-2836(85)90420-6",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Делеции регуляторной области и транскрипционные репортёры показывают необходимость лидерного терминатора. Статья сопоставляет результаты с предыдущими опытами in vitro."
+        }
+      ],
+      "identity_key": "v1|escherichia-coli|phest",
+      "aliases": [
+        "pheST"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA064",
+      "name": "Гуаниновый переключатель перед purE",
+      "organism": "Bacillus subtilis",
+      "target": "purE / pur operon",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "Гуанин",
+      "mechanism": "Связывание гуанина повышает преждевременную терминацию транскрипции pur-оперона.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "RT-qPCR коротких и полноразмерных транскриптов при разных концентрациях гуанина подтверждает контроль транскрипционного прочитывания.",
+      "limitations": "Самостоятельный аттенюатор перед purE; не дубликат xpt–pbuX и не белковый репрессор PurR.",
+      "source_250_rows": [
+        71
+      ],
+      "references": [
+        {
+          "title": "Ligand recognition determinants of guanine riboswitches",
+          "year": 2007,
+          "authors": "Mulhbacher J.; Lafontaine D. A.",
+          "journal": "",
+          "doi": "10.1093/nar/gkm572",
+          "url": "https://doi.org/10.1093/nar/gkm572",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "RT-qPCR коротких и полноразмерных транскриптов при разных концентрациях гуанина подтверждает контроль транскрипционного прочитывания."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|pure/puroperon",
+      "aliases": [
+        "purE / pur operon"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA065",
+      "name": "M-box перед mgtE (ykoK)",
+      "organism": "Bacillus subtilis",
+      "target": "mgtE",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "Mg²⁺",
+      "mechanism": "Mg²⁺ стабилизирует структуру M-box, препятствует образованию антитерминатора и способствует преждевременной терминации.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Генетические и биохимические эксперименты подтверждают Mg²⁺-зависимый контроль транскрипции.",
+      "limitations": "ykoK — прежнее название mgtE. Исправлены ошибочные лиганды preQ1/preQ0; три исходные строки объединены. Отличается от Rho-зависимого mgtA Salmonella.",
+      "source_250_rows": [
+        29,
+        80,
+        174
+      ],
+      "references": [
+        {
+          "title": "Structure and mechanism of a metal-sensing regulatory RNA",
+          "year": 2007,
+          "authors": "Dann C. E. III et al.",
+          "journal": "",
+          "doi": "10.1016/j.cell.2007.06.051",
+          "url": "https://doi.org/10.1016/j.cell.2007.06.051",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Генетические и биохимические эксперименты подтверждают Mg²⁺-зависимый контроль транскрипции."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|mgte",
+      "aliases": [
+        "mgtE",
+        "ykoK"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA066",
+      "name": "T-box перед ileS",
+      "organism": "Staphylococcus aureus",
+      "target": "ileS",
+      "category": "T-box",
+      "signal": "Незаряженная tRNA^Ile; мупироцин",
+      "mechanism": "Незаряженная тРНК способствует прочитыванию лидерного терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Показана функциональность лидерного терминатора in vivo; прочитывание увеличивается при действии мупироцина, ингибитора IleRS.",
+      "limitations": "Опыты in vivo не обозначены как реконструкция терминации in vitro.",
+      "source_250_rows": [
+        193
+      ],
+      "references": [
+        {
+          "title": "The Staphylococcus aureus ileS gene, encoding isoleucyl-tRNA synthetase, is a member of the T-box family",
+          "year": 1997,
+          "authors": "Grundy F. J. et al.",
+          "journal": "",
+          "doi": "10.1128/jb.179.11.3767-3772.1997",
+          "url": "https://doi.org/10.1128/jb.179.11.3767-3772.1997",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Показана функциональность лидерного терминатора in vivo; прочитывание увеличивается при действии мупироцина, ингибитора IleRS."
+        }
+      ],
+      "identity_key": "v1|staphylococcus-aureus|iles",
+      "aliases": [
+        "ileS"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA067",
+      "name": "Гуаниновый переключатель xpt",
+      "organism": "Staphylococcus aureus",
+      "target": "xpt–pbuX–guaB–guaA",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "Гуанин",
+      "mechanism": "Гуаниновый рибопереключатель перед xpt подавляет транскрипционное прочитывание в нижележащий оперон.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Генетические репортёры и анализ транскрипции подтверждают функциональную регуляцию; биофизически подтверждено связывание гуанина.",
+      "limitations": "guaB и guaA также транскрибируются с дополнительных промоторов независимо от переключателя. Прямой тест терминации in vitro не заявлен.",
+      "source_250_rows": [
+        229
+      ],
+      "references": [
+        {
+          "title": "De Novo Guanine Biosynthesis but Not the Riboswitch-Regulated Purine Salvage Pathway Is Required for Staphylococcus aureus Infection In Vivo",
+          "year": 2016,
+          "authors": "Kofoed E. M. et al.",
+          "journal": "",
+          "doi": "10.1128/JB.00051-16",
+          "url": "https://doi.org/10.1128/JB.00051-16",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Генетические репортёры и анализ транскрипции подтверждают функциональную регуляцию; биофизически подтверждено связывание гуанина."
+        }
+      ],
+      "identity_key": "v1|staphylococcus-aureus|xpt-leader",
+      "aliases": [
+        "xpt",
+        "xpt-pbuX",
+        "xpt-pbuX-guaB-guaA"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA068",
+      "name": "SAM-I / S-box перед yitJ",
+      "organism": "Bacillus subtilis",
+      "target": "yitJ",
+      "category": "SAM-I / S-box",
+      "signal": "S-аденозилметионин (SAM)",
+      "mechanism": "SAM связывается с лидерной РНК и способствует образованию структуры, разрешающей формирование терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "SAM вызывает терминацию в очищенной транскрипционной системе; мутации лидера нарушают связывание и SAM-зависимую терминацию и вызывают конститутивную экспрессию in vivo.",
+      "limitations": "Исправлены гуанин/аденин на SAM. Строки 23 и 84 объединены; сведения о других видах не перенесены.",
+      "source_250_rows": [
+        23,
+        84
+      ],
+      "references": [
+        {
+          "title": "Transcription termination control of the S box system: direct measurement of S-adenosylmethionine by the leader RNA",
+          "year": 2003,
+          "authors": "McDaniel B. A. et al.",
+          "journal": "",
+          "doi": "10.1073/pnas.0630422100",
+          "url": "https://doi.org/10.1073/pnas.0630422100",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "SAM вызывает терминацию в очищенной транскрипционной системе; мутации лидера нарушают связывание и SAM-зависимую терминацию и вызывают конститутивную экспрессию in vivo."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|yitj",
+      "aliases": [
+        "yitJ"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA069",
+      "name": "Leu-T-box перед ilvBHC–leuABCD",
+      "organism": "Bacillus subtilis",
+      "target": "ilvBHC–leuABCD",
+      "category": "T-box",
+      "signal": "Незаряженная tRNA^Leu",
+      "mechanism": "тРНК-зависимая антитерминация регулирует единый оперон биосинтеза разветвлённых аминокислот.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Замена CUC-спецификатора на кодоны других аминокислот меняет специфичность регуляции транскрипционного репортёра.",
+      "limitations": "Исправлены ilvBNI и рибосомный механизм. Отдельные записи ilv/leu объединены как один регуляторный участок.",
+      "source_250_rows": [
+        43,
+        111,
+        113
+      ],
+      "references": [
+        {
+          "title": "A CUC triplet confers leucine-dependent regulation of the Bacillus subtilis ilv-leu operon",
+          "year": 1996,
+          "authors": "Marta P. T.; Ladner R. D.; Grandoni J. A.",
+          "journal": "",
+          "doi": "10.1128/jb.178.7.2150-2153.1996",
+          "url": "https://doi.org/10.1128/jb.178.7.2150-2153.1996",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Замена CUC-спецификатора на кодоны других аминокислот меняет специфичность регуляции транскрипционного репортёра."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|ilv-leu-leader",
+      "aliases": [
+        "ilvBHC-leuABCD",
+        "ilvB",
+        "leuABCD"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA070",
+      "name": "c-di-AMP-переключатель yuaA",
+      "organism": "Bacillus subtilis",
+      "target": "yuaA",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "c-di-AMP",
+      "mechanism": "Связывание c-di-AMP способствует преждевременной терминации перед yuaA (OFF-переключатель).",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Транскрипционный тест с yuaA непосредственно показывает увеличение доли завершённых транскриптов при добавлении c-di-AMP.",
+      "limitations": "Исправлены SAM/SAM-IV на c-di-AMP. Опыты in vivo в этой работе выполнены также с родственным ydaO, который не считается дубликатом yuaA.",
+      "source_250_rows": [
+        76,
+        83,
+        85
+      ],
+      "references": [
+        {
+          "title": "Riboswitches in eubacteria sense the second messenger c-di-AMP",
+          "year": 2013,
+          "authors": "Nelson J. W. et al.",
+          "journal": "",
+          "doi": "10.1038/nchembio.1363",
+          "url": "https://doi.org/10.1038/nchembio.1363",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Транскрипционный тест с yuaA непосредственно показывает увеличение доли завершённых транскриптов при добавлении c-di-AMP."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|yuaa",
+      "aliases": [
+        "yuaA"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA071",
+      "name": "T-box перед valS–folC",
+      "organism": "Bacillus subtilis",
+      "target": "valS–folC",
+      "category": "T-box",
+      "signal": "Незаряженная tRNA^Val",
+      "mechanism": "Валиновое голодание способствует тРНК-зависимому прочитыванию лидерного терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Northern-анализ, транскрипционный valS-lacZ репортёр и замена спецификатора GUC (Val) на ACC (Thr) подтверждают регуляцию.",
+      "limitations": "Подтверждение относится к указанному организму и регуляторному участку. Уровень доказательств in vivo и in vitro различён.",
+      "source_250_rows": [
+        95
+      ],
+      "references": [
+        {
+          "title": "Structure and regulation of expression of the Bacillus subtilis valyl-tRNA synthetase gene",
+          "year": 1997,
+          "authors": "Luo D. et al.",
+          "journal": "",
+          "doi": "10.1128/jb.179.8.2472-2478.1997",
+          "url": "https://doi.org/10.1128/jb.179.8.2472-2478.1997",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Northern-анализ, транскрипционный valS-lacZ репортёр и замена спецификатора GUC (Val) на ACC (Thr) подтверждают регуляцию."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|vals-folc",
+      "aliases": [
+        "valS–folC"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA072",
+      "name": "TRAP-зависимый trp-аттенюатор",
+      "organism": "Bacillus halodurans",
+      "target": "trpEDCFBA",
+      "category": "Белковая регуляция",
+      "signal": "Trp; TRAP",
+      "mechanism": "Trp-активированный TRAP повышает преждевременную терминацию в лидерной области trp-оперона.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Транскрипционные репортёры и опыты in vitro демонстрируют усиление терминации при добавлении активированного TRAP.",
+      "limitations": "Исправлен рибосомо-опосредованный механизм. Система другого организма не объединяется с TRAP-аттенюатором B. subtilis.",
+      "source_250_rows": [
+        109
+      ],
+      "references": [
+        {
+          "title": "Regulation of the Tryptophan Biosynthetic Genes in Bacillus halodurans: Common Elements but Different Strategies than Those Used by Bacillus subtilis",
+          "year": 2004,
+          "authors": "Исследование trp-регуляции B. halodurans",
+          "journal": "",
+          "doi": "10.1128/jb.186.3.818-828.2004",
+          "url": "https://doi.org/10.1128/jb.186.3.818-828.2004",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Транскрипционные репортёры и опыты in vitro демонстрируют усиление терминации при добавлении активированного TRAP."
+        }
+      ],
+      "identity_key": "v1|bacillus-halodurans|trpedcfba",
+      "aliases": [
+        "trpEDCFBA"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA073",
+      "name": "S-box перед metIC (yjcIJ)",
+      "organism": "Bacillus subtilis",
+      "target": "metIC",
+      "category": "SAM-I / S-box",
+      "signal": "SAM; метиониновый статус клетки",
+      "mechanism": "SAM-чувствительный лидерный участок управляет преждевременной терминацией перед metIC.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Northern выявляет короткий лидерный и полный metIC-транскрипты; сравнительное исследование S-box включает SAM-зависимую терминацию in vitro.",
+      "limitations": "Не дубликат yitJ или metE: самостоятельный участок перед metIC. Исправлено неопределённое met и рибосомное описание.",
+      "source_250_rows": [
+        116
+      ],
+      "references": [
+        {
+          "title": "Natural variability in S-adenosylmethionine (SAM)-dependent riboswitches: S-box elements in Bacillus subtilis exhibit differential sensitivity to SAM in vivo and in vitro",
+          "year": 2008,
+          "authors": "Tomsic J. et al.",
+          "journal": "",
+          "doi": "10.1128/JB.01034-07",
+          "url": "https://doi.org/10.1128/JB.01034-07",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Northern выявляет короткий лидерный и полный metIC-транскрипты; сравнительное исследование S-box включает SAM-зависимую терминацию in vitro."
+        },
+        {
+          "title": "The metIC operon involved in methionine biosynthesis in Bacillus subtilis is controlled by transcription antitermination",
+          "year": 2002,
+          "authors": "Auger S. et al.",
+          "journal": "Microbiology",
+          "doi": "10.1099/00221287-148-2-507",
+          "url": "https://doi.org/10.1099/00221287-148-2-507",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Northern-анализ короткого лидерного и полного транскриптов metIC."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|metic",
+      "aliases": [
+        "metIC",
+        "yjcIJ",
+        "metI"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA074",
+      "name": "Pro-T-box перед proBA",
+      "organism": "Bacillus subtilis",
+      "target": "proBA",
+      "category": "T-box",
+      "signal": "Незаряженная tRNA^Pro",
+      "mechanism": "Незаряженная тРНК стабилизирует антитерминатор и разрешает транскрипцию proBA при дефиците пролина.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Northern коротких и полных транскриптов, proB-treA репортёр и замена CCU-спецификатора на UUC показывают смену ответа с Pro на Phe.",
+      "limitations": "Конкретизирована исходная запись pro. Отдельный лидер proI из той же статьи не добавляется как часть этих 37 систем.",
+      "source_250_rows": [
+        117
+      ],
+      "references": [
+        {
+          "title": "T-box-mediated control of the anabolic proline biosynthetic genes of Bacillus subtilis",
+          "year": 2011,
+          "authors": "Brill J. et al.",
+          "journal": "",
+          "doi": "10.1099/mic.0.047357-0",
+          "url": "https://doi.org/10.1099/mic.0.047357-0",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Northern коротких и полных транскриптов, proB-treA репортёр и замена CCU-спецификатора на UUC показывают смену ответа с Pro на Phe."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|proba",
+      "aliases": [
+        "proBA"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA075",
+      "name": "Глициновый переключатель gcvT",
+      "organism": "Bacillus subtilis",
+      "target": "gcvT–gcvPA–gcvPB",
+      "category": "Метаболитный рибопереключатель",
+      "signal": "Глицин",
+      "mechanism": "Свободный глицин способствует антитерминации перед опероном расщепления глицина (ON-переключатель).",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Northern показывает короткую лидерную РНК и появление полного транскрипта после добавления глицина; исключены повышенная стабильность и процессинг как объяснение короткой РНК.",
+      "limitations": "Исправлены название оперона и рибосомное описание; две записи объединены.",
+      "source_250_rows": [
+        118,
+        120
+      ],
+      "references": [
+        {
+          "title": "Development of a glycine-inducible expression system for Bacillus subtilis",
+          "year": 2007,
+          "authors": "Phan T. T. P.; Schumann W.",
+          "journal": "",
+          "doi": "10.1016/j.jbiotec.2006.12.007",
+          "url": "https://doi.org/10.1016/j.jbiotec.2006.12.007",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Northern показывает короткую лидерную РНК и появление полного транскрипта после добавления глицина; исключены повышенная стабильность и процессинг как объяснение короткой РНК."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|gcvt",
+      "aliases": [
+        "gcvT",
+        "gcvT-gcvPA-gcvPB"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA076",
+      "name": "T-box перед alaS",
+      "organism": "Bacillus subtilis",
+      "target": "alaS",
+      "category": "T-box",
+      "signal": "Незаряженная tRNA^Ala",
+      "mechanism": "тРНК-зависимая стабилизация антитерминатора разрешает прочитывание лидерного терминатора.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro + in vivo",
+      "experimental_evidence": "Для B. subtilis показана слабая антитерминация in vitro и примерно двукратная индукция alaS-lacZ при аланиновом голодании.",
+      "limitations": "Основная система статьи — C. acetobutylicum, однако B. subtilis alaS отдельно экспериментально проверен. Его эффект слабый; данные двух организмов не объединены.",
+      "source_250_rows": [
+        129
+      ],
+      "references": [
+        {
+          "title": "Non-Conserved Residues in Clostridium acetobutylicum tRNA(Ala) Contribute to tRNA Tuning for Efficient Antitermination of the alaS T Box Riboswitch",
+          "year": 2015,
+          "authors": "Исследование alaS-T-box",
+          "journal": "",
+          "doi": "",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4695836/",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Для B. subtilis показана слабая антитерминация in vitro и примерно двукратная индукция alaS-lacZ при аланиновом голодании."
+        }
+      ],
+      "identity_key": "v1|bacillus-subtilis|alas",
+      "aliases": [
+        "alaS"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    },
+    {
+      "id": "TA077",
+      "name": "Rli60 перед ilv–leu-опероном",
+      "organism": "Listeria monocytogenes",
+      "target": "ilvD / ilv–leu operon",
+      "category": "Лидерный пептид",
+      "signal": "Разветвлённые аминокислоты: Ile, Leu, Val",
+      "mechanism": "Трансляция короткого лидерного пептида управляет преждевременной терминацией перед генами биосинтеза разветвлённых аминокислот.",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Анализ РНК, мутации лидерного пептида и терминатора, транскрипционные репортёры подтверждают рибосомо-опосредованную аттенюацию.",
+      "limitations": "Объединены исходные leu и ilv как одна система Rli60. Не заявляется биохимическая реконструкция терминации in vitro.",
+      "source_250_rows": [
+        220,
+        222
+      ],
+      "references": [
+        {
+          "title": "Controlled branched-chain amino acids auxotrophy in Listeria monocytogenes allows isoleucine to serve as a host signal and virulence effector",
+          "year": 2018,
+          "authors": "Brenner M. et al.",
+          "journal": "",
+          "doi": "10.1371/journal.pgen.1007283",
+          "url": "https://doi.org/10.1371/journal.pgen.1007283",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "experimental_evidence": "Анализ РНК, мутации лидерного пептида и терминатора, транскрипционные репортёры подтверждают рибосомо-опосредованную аттенюацию."
+        }
+      ],
+      "identity_key": "v1|listeria-monocytogenes|rli60",
+      "aliases": [
+        "Rli60",
+        "ilvD",
+        "ilv-leu"
+      ],
+      "status": "confirmed",
+      "identity_note": "Ключ миграции закреплён за регуляторным участком. Не менять при правке названий, механизма или лиганда. Координаты/штамм требуют отдельного уточнения."
+    }
+  ],
+  "integration": {
+    "source": "Аудит исходной базы из 250 строк",
+    "systems_merged": 37,
+    "already_present": 22,
+    "new_systems": 15,
+    "total_unique_systems": 77
+  }
+}

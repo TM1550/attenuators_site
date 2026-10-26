@@ -1,0 +1,19 @@
+{
+  "id": "TA078",
+  "identity_key": "v1|REPLACE_ORGANISM|REPLACE_LOCUS|leader-1",
+  "name": "Название нового регуляторного участка",
+  "organism": "Организм и вид",
+  "target": "Канонический ген / локус",
+  "aliases": [
+    "Старое название гена"
+  ],
+  "category": "T-box",
+  "signal": "Незаряженная tRNA",
+  "mechanism": "Описание механизма, требующее проверки",
+  "status": "candidate",
+  "transcription_attenuation_confirmed": false,
+  "evidence_level": "",
+  "experimental_evidence": "",
+  "limitations": "Кандидат: экспериментальное подтверждение ещё не проверено.",
+  "references": []
+}

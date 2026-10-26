@@ -1,0 +1,795 @@
+{
+  "schema_version": "2.0",
+  "title": "Подтверждённые транскрипционные аттенюаторы — дополнения после TA177",
+  "reviewed_on": "2026-10-26",
+  "record_count": 20,
+  "scope": "Отобраны из дополнений, обсуждённых в этом чате после набора TA001–TA177. Первые 177 записей не включены.",
+  "definition": "Природный cis-регуляторный участок, функционально управляющий преждевременной транскрипционной терминацией либо её подавлением. Включены также экспериментально проверенные частичные лидерные и межгенные терминаторы.",
+  "evidence_note": "Уверенность относится к функции аттенюации и не означает, что все детали механизма установлены. Репортёрные опыты, картирование РНК и прямые измерения терминации in vitro явно различены.",
+  "import_note": "Массив records следует структуре прежнего JSON схемы 2.0. Заполнены identity_key, status и aliases; назначены ID TA178–TA197. Служебные identity_hash и временные метки рассчитывает импортёр. Файл подготовлен для импорта; загрузка в базу данных не выполнялась.",
+  "deduplication": {
+    "baseline_record_count": 177,
+    "baseline_id_range": "TA001–TA177",
+    "selected_record_count": 20,
+    "identity_key_collisions": 0,
+    "method": "Сверка с четырьмя исходными файлами: 77 записей в transcription_attenuators.html и дополнения на 36, 32 и 32 записи. Дополнительно проверены организмы, локусы и синонимы. Повторные обсуждения объединены."
+  },
+  "field_notes": {
+    "confidence": "Уверенность в функции аттенюации, а не во всех деталях механизма.",
+    "ribosome_mediated": "true: трансляция участвует в механизме; false: не заявлена как необходимая; null: предложенная роль трансляции не установлена полностью.",
+    "direct_termination_measured_in_vitro": "true только при прямом различении терминированных и полноразмерных продуктов транскрипции.",
+    "functional_evidence_in_vivo": "Включает гетерологичные репортёрные системы, явно указанные в limitations.",
+    "target_annotation_verified": "false: точное имя downstream-гена или locus tag не верифицированы; исследованный элемент идентифицирован по организму, обозначению и первичной статье."
+  },
+  "selection_notes": [
+    {
+      "element": "aroR / aroF, Corynebacterium glutamicum",
+      "decision": "not_included",
+      "reason": "Предлагался как предварительная находка; в этом отборе недостаточно прямой функциональной проверки аттенюаторного участка."
+    },
+    {
+      "element": "leuA / LEU element, Corynebacterium glutamicum",
+      "decision": "not_included",
+      "reason": "Предварительная находка; короткие РНК и предсказанная структура не приняты как достаточная самостоятельная функциональная проверка."
+    },
+    {
+      "element": "rpmG–fpg, Escherichia coli",
+      "decision": "not_included",
+      "reason": "Консервативно исключён из основного импорта: в обсуждённой статье основная опора — картирование концов РНК и readthrough; адресной мутационной проверки участка нет."
+    },
+    {
+      "element": "rpsB–tsf, Streptomyces coelicolor",
+      "decision": "not_included",
+      "reason": "Консервативно исключён: заключение основано на анализе транскриптов; адресная функциональная проверка терминатора не представлена."
+    }
+  ],
+  "records": [
+    {
+      "id": "TA178",
+      "identity_key": "v1|bacillus-subtilis|glpfk-tglpfk",
+      "name": "glpFK / t_glpFK",
+      "organism": "Bacillus subtilis",
+      "target": "glpFK",
+      "aliases": [
+        "t_glpFK",
+        "glpF leader"
+      ],
+      "category": "Белок-зависимая антитерминация",
+      "signal": "Глицерол-3-фосфат через GlpP",
+      "mechanism": "Активированный GlpP подавляет преждевременную терминацию перед glpFK.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Удаление t_glpFK повышало экспрессию транскрипционной lacZ-фузии и ослабляло катаболитную репрессию.",
+      "limitations": "Функция проверена генетически in vivo; прямой опыт терминации in vitro в выбранной статье не представлен.",
+      "references": [
+        {
+          "title": "Antitermination by GlpP, catabolite repression via CcpA and inducer exclusion triggered by P~GlpK dephosphorylation control Bacillus subtilis glpFK expression",
+          "year": 2002,
+          "journal": "Molecular Microbiology",
+          "doi": "10.1046/j.1365-2958.2002.02800.x",
+          "url": "https://doi.org/10.1046/j.1365-2958.2002.02800.x",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Раздел Deleting the terminator preceding B. subtilis glpFK caused partial relief from CCR; таблица 2"
+        }
+      ],
+      "direct_termination_measured_in_vitro": false,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA179",
+      "identity_key": "v1|escherichia-coli|grea-gral",
+      "name": "greA / GraL-лидер",
+      "organism": "Escherichia coli",
+      "target": "greA",
+      "aliases": [
+        "GraL",
+        "greA leader attenuator"
+      ],
+      "category": "Лидерная преждевременная терминация",
+      "signal": "Специфический физиологический сигнал не установлен",
+      "mechanism": "Терминация в лидере ограничивает транскрипцию greA и образует короткие GraL-РНК.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro и in vivo",
+      "experimental_evidence": "Картирование коротких РНК, мутационный анализ и транскрипция in vitro подтвердили терминацию в лидере greA.",
+      "limitations": "Подтверждена функция частичного терминатора; переключение в ответ на конкретный метаболит не доказано.",
+      "references": [
+        {
+          "title": "Imprecise transcription termination within Escherichia coli greA leader gives rise to an array of short transcripts, GraL",
+          "year": 2010,
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkp1150",
+          "url": "https://doi.org/10.1093/nar/gkp1150",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Картирование GraL, мутационный анализ и транскрипция in vitro"
+        }
+      ],
+      "direct_termination_measured_in_vitro": true,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA180",
+      "identity_key": "v1|thermotoga-petrophila|fluoride-riboswitch",
+      "name": "Фторидный рибопереключатель",
+      "organism": "Thermotoga petrophila",
+      "target": "Ген, ассоциированный с фторидным рибопереключателем",
+      "aliases": [
+        "T. petrophila fluoride riboswitch"
+      ],
+      "category": "Рибопереключатель: фторид",
+      "signal": "Фторид; температурная зависимость ответа",
+      "mechanism": "Связывание фторида способствует транскрипционному readthrough.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Однораундовые транскрипционные опыты измеряли терминированные и полноразмерные продукты; мутации проверяли роль псевдоузла.",
+      "limitations": "Подтверждение in vitro. Название downstream-гена не верифицировано; родной клеточный контекст не проверен в этой подборке.",
+      "references": [
+        {
+          "title": "The effect of pseudoknot base pairing on cotranscriptional structural switching of the fluoride riboswitch",
+          "year": 2024,
+          "journal": "Nucleic Acids Research",
+          "doi": "10.1093/nar/gkae231",
+          "url": "https://doi.org/10.1093/nar/gkae231",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Транскрипционные опыты с T. petrophila и мутантами псевдоузла"
+        }
+      ],
+      "direct_termination_measured_in_vitro": true,
+      "functional_evidence_in_vivo": false,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26",
+      "target_annotation_verified": false
+    },
+    {
+      "id": "TA181",
+      "identity_key": "v1|corynebacterium-glutamicum|trpl-trp-operon",
+      "name": "trpL / лидер trp-оперона",
+      "organism": "Corynebacterium glutamicum",
+      "target": "trp-оперон",
+      "aliases": [
+        "trpL",
+        "trp leader"
+      ],
+      "category": "Рибосомо-опосредованная аттенюация",
+      "signal": "Доступность триптофанил-тРНК",
+      "mechanism": "Трансляция trpL связана с преждевременной терминацией перед структурными генами.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "RNA-seq выявил короткие РНК в аттенюаторном участке trp-лидера; более ранняя генетическая работа описала регуляторную мутацию trpL.",
+      "limitations": "В выбранной работе 2014 года подтверждение основано на организации транскриптов; прямой опыт терминации in vitro не представлен.",
+      "references": [
+        {
+          "title": "Transcriptome sequencing revealed the transcriptional organization at ribosome-mediated attenuation sites in Corynebacterium glutamicum and identified a novel attenuator involved in aromatic amino acid biosynthesis",
+          "year": 2014,
+          "journal": "Journal of Biotechnology",
+          "doi": "10.1016/j.jbiotec.2014.05.033",
+          "url": "https://doi.org/10.1016/j.jbiotec.2014.05.033",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Анализ коротких РНК trp-лидера"
+        },
+        {
+          "title": "Cloning of the trp gene cluster from a tryptophan-hyperproducing strain of Corynebacterium glutamicum: identification of a mutation in the trp leader sequence",
+          "year": 1993,
+          "journal": "Applied and Environmental Microbiology",
+          "doi": "10.1128/AEM.59.3.791-799.1993",
+          "url": "https://doi.org/10.1128/AEM.59.3.791-799.1993",
+          "role": "supporting",
+          "evidence_location": "Генетический анализ trp-лидера"
+        }
+      ],
+      "direct_termination_measured_in_vitro": false,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": true,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA182",
+      "identity_key": "v1|clostridium-acetobutylicum|gatcab-ntbox",
+      "name": "gatCAB / NT-box",
+      "organism": "Clostridium acetobutylicum",
+      "target": "aspS2–gatCAB",
+      "aliases": [
+        "NT-box",
+        "two-codon T-box",
+        "aspS2-gatCAB NT-box",
+        "aspS2o-gatCABo"
+      ],
+      "category": "Рибопереключатель: T-box",
+      "signal": "Незаряженные тРНКAsn и тРНКGlu",
+      "mechanism": "NT-box распознаёт тРНКAsn и тРНКGlu и управляет антитерминацией в зависимости от их состояния.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Гетерологичный репортёр подтвердил антитерминацию при аминокислотном ограничении; связывание и структурные исследования поддержали распознавание двух тРНК.",
+      "limitations": "Клеточная функциональная проверка проведена в гетерологичной системе; прямой опыт терминации in vitro не заявляется.",
+      "references": [
+        {
+          "title": "Two-codon T-box riboswitch binding two tRNAs",
+          "year": 2013,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "doi": "10.1073/pnas.1304307110",
+          "url": "https://doi.org/10.1073/pnas.1304307110",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Функциональный репортёрный анализ NT-box и распознавание тРНК"
+        }
+      ],
+      "direct_termination_measured_in_vitro": false,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA183",
+      "identity_key": "v1|escherichia-coli|suhb-boxa",
+      "name": "suhB / BoxA-лидер",
+      "organism": "Escherichia coli",
+      "target": "suhB",
+      "aliases": [
+        "suhB BoxA",
+        "Nus-dependent suhB regulation"
+      ],
+      "category": "Nus-зависимая Rho-терминация",
+      "signal": "Комплекс факторов Nus",
+      "mechanism": "Комплекс Nus связывает BoxA, подавляет трансляцию suhB и способствует Rho-зависимой терминации внутри гена.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Сопоставление транскрипционных и трансляционных репортёров, анализ BoxA и распределения РНК-полимеразы подтвердили регуляцию через Rho-зависимую терминацию.",
+      "limitations": "Функциональные данные получены in vivo; биохимическое воспроизведение полной регуляторной цепи не заявляется.",
+      "references": [
+        {
+          "title": "Identification of regulatory targets for the bacterial Nus factor complex",
+          "year": 2017,
+          "journal": "Nature Communications",
+          "doi": "10.1038/s41467-017-02124-9",
+          "url": "https://doi.org/10.1038/s41467-017-02124-9",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Разделы об авторегуляции suhB, BoxA и Rho"
+        }
+      ],
+      "direct_termination_measured_in_vitro": false,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": true,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA184",
+      "identity_key": "v1|escherichia-coli|dead-csda-leader",
+      "name": "deaD / csdA-лидер",
+      "organism": "Escherichia coli",
+      "target": "deaD",
+      "aliases": [
+        "csdA",
+        "DeaD 5′ UTR"
+      ],
+      "category": "Rho-зависимая аттенюация",
+      "signal": "DeaD; структура лидерной РНК",
+      "mechanism": "Авторегуляция включает преждевременную Rho-зависимую терминацию и отдельный контроль стабильности мРНК.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro и in vivo",
+      "experimental_evidence": "Rho вызывал терминацию in vitro. Клеточные фузии, Northern blot и анализ лидера подтвердили транскрипционный компонент авторегуляции.",
+      "limitations": "Усиление терминации непосредственно белком DeaD полностью не воспроизведено in vitro; вклад деградации мРНК выделен отдельно.",
+      "references": [
+        {
+          "title": "Dual-level autoregulation of the E. coli DeaD RNA helicase via mRNA stability and Rho-dependent transcription termination",
+          "year": 2020,
+          "journal": "RNA",
+          "doi": "10.1261/rna.074112.119",
+          "url": "https://doi.org/10.1261/rna.074112.119",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Разделы о Rho-зависимой терминации в deaD-лидере"
+        }
+      ],
+      "direct_termination_measured_in_vitro": true,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA185",
+      "identity_key": "v1|listeria-monocytogenes|glyqs-tbox",
+      "name": "glyQS / глициновый T-box",
+      "organism": "Listeria monocytogenes",
+      "target": "glyQS",
+      "aliases": [
+        "glyQS T-box"
+      ],
+      "category": "Рибопереключатель: T-box",
+      "signal": "Незаряженная тРНКGly; недостаток глицина",
+      "mechanism": "Связывание незаряженной тРНК поддерживает антитерминацию.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Гетерологичный тест антитерминации показал ответ на глициновое голодание; химическое зондирование поддержало структуру T-box.",
+      "limitations": "Репортёрный тест проведён в E. coli; прямое разделение продуктов терминации in vitro не представлено.",
+      "references": [
+        {
+          "title": "Structural idiosyncrasies of glycyl T-box riboswitches among pathogenic bacteria",
+          "year": 2024,
+          "journal": "RNA",
+          "doi": "10.1261/rna.080071.124",
+          "url": "https://doi.org/10.1261/rna.080071.124",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Раздел T-box structural idiosyncrasies do not affect in vivo antitermination"
+        }
+      ],
+      "direct_termination_measured_in_vitro": false,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA186",
+      "identity_key": "v1|streptococcus-pneumoniae|glyqs-tbox",
+      "name": "glyQS / глициновый T-box",
+      "organism": "Streptococcus pneumoniae",
+      "target": "glyQS",
+      "aliases": [
+        "glyQS T-box"
+      ],
+      "category": "Рибопереключатель: T-box",
+      "signal": "Незаряженная тРНКGly; недостаток глицина",
+      "mechanism": "Связывание незаряженной тРНК поддерживает антитерминацию.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Гетерологичный тест антитерминации показал ответ на глициновое голодание; химическое зондирование поддержало структуру T-box.",
+      "limitations": "Репортёрный тест проведён в E. coli; прямое разделение продуктов терминации in vitro не представлено.",
+      "references": [
+        {
+          "title": "Structural idiosyncrasies of glycyl T-box riboswitches among pathogenic bacteria",
+          "year": 2024,
+          "journal": "RNA",
+          "doi": "10.1261/rna.080071.124",
+          "url": "https://doi.org/10.1261/rna.080071.124",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Раздел T-box structural idiosyncrasies do not affect in vivo antitermination"
+        }
+      ],
+      "direct_termination_measured_in_vitro": false,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA187",
+      "identity_key": "v1|streptococcus-pyogenes|glyqs-tbox",
+      "name": "glyQS / глициновый T-box",
+      "organism": "Streptococcus pyogenes",
+      "target": "glyQS",
+      "aliases": [
+        "glyQS T-box"
+      ],
+      "category": "Рибопереключатель: T-box",
+      "signal": "Незаряженная тРНКGly; недостаток глицина",
+      "mechanism": "Связывание незаряженной тРНК поддерживает антитерминацию.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Гетерологичный тест антитерминации показал ответ на глициновое голодание; химическое зондирование поддержало структуру T-box.",
+      "limitations": "Репортёрный тест проведён в E. coli; прямое разделение продуктов терминации in vitro не представлено.",
+      "references": [
+        {
+          "title": "Structural idiosyncrasies of glycyl T-box riboswitches among pathogenic bacteria",
+          "year": 2024,
+          "journal": "RNA",
+          "doi": "10.1261/rna.080071.124",
+          "url": "https://doi.org/10.1261/rna.080071.124",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Раздел T-box structural idiosyncrasies do not affect in vivo antitermination"
+        }
+      ],
+      "direct_termination_measured_in_vitro": false,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA188",
+      "identity_key": "v1|bacillus-licheniformis|lchaa-cdigmp",
+      "name": "lchAA / c-di-GMP-рибопереключатель",
+      "organism": "Bacillus licheniformis",
+      "target": "lchAA",
+      "aliases": [
+        "lchAA leader"
+      ],
+      "category": "Рибопереключатель: c-di-GMP",
+      "signal": "c-di-GMP",
+      "mechanism": "c-di-GMP усиливает преждевременную терминацию в лидере lchAA.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro и in vivo",
+      "experimental_evidence": "Транскрипционные опыты in vitro выявили лиганд-зависимое увеличение терминированного продукта; клеточный YFP-репортёр дополнил функциональную проверку.",
+      "limitations": "Природный элемент принадлежит B. licheniformis; клеточный репортёр изучали в B. subtilis.",
+      "references": [
+        {
+          "title": "Single-Cell Microscopy Reveals That Levels of Cyclic di-GMP Vary among Bacillus subtilis Subpopulations",
+          "year": 2019,
+          "journal": "Journal of Bacteriology",
+          "doi": "10.1128/JB.00247-19",
+          "url": "https://doi.org/10.1128/JB.00247-19",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Рис. 1B; рис. 2"
+        }
+      ],
+      "direct_termination_measured_in_vitro": true,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA189",
+      "identity_key": "v1|priestia-megaterium|mete-corrinoid",
+      "name": "metE / корриноидный рибопереключатель",
+      "organism": "Priestia megaterium",
+      "target": "metE",
+      "aliases": [
+        "Bacillus megaterium metE riboswitch"
+      ],
+      "category": "Рибопереключатель: корриноиды",
+      "signal": "Кобаламин",
+      "mechanism": "Корриноидный сигнал способствует образованию терминатора и подавлению экспрессии.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Клеточный GFP-репортёр и компенсаторные мутации подтвердили роли терминатора, антитерминатора и взаимодействий аптамера.",
+      "limitations": "Функциональная проверка в B. subtilis; прямой опыт терминации in vitro не представлен.",
+      "references": [
+        {
+          "title": "Genetic dissection of regulation by a repressing and novel activating corrinoid riboswitch enables engineering of synthetic riboswitches",
+          "year": 2023,
+          "journal": "mBio",
+          "doi": "10.1128/mbio.01588-23",
+          "url": "https://doi.org/10.1128/mbio.01588-23",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Рис. 1–2; природный metE-элемент"
+        }
+      ],
+      "direct_termination_measured_in_vitro": false,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA190",
+      "identity_key": "v1|alkalihalobacillus-halodurans|cobt-corrinoid",
+      "name": "cobT / активирующий корриноидный рибопереключатель",
+      "organism": "Alkalihalobacillus halodurans",
+      "target": "cobT",
+      "aliases": [
+        "Bacillus halodurans cobT riboswitch"
+      ],
+      "category": "Рибопереключатель: корриноиды",
+      "signal": "Кобинамид (Cbi)",
+      "mechanism": "Корриноид стабилизирует антитерминатор и разрешает транскрипцию.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "GFP-репортёр, нарушение альтернативных стеблей и частичное компенсаторное восстановление подтвердили антитерминационный механизм.",
+      "limitations": "Проверка в B. subtilis; прямой опыт терминации in vitro не представлен. Запись относится к природному элементу.",
+      "references": [
+        {
+          "title": "Genetic dissection of regulation by a repressing and novel activating corrinoid riboswitch enables engineering of synthetic riboswitches",
+          "year": 2023,
+          "journal": "mBio",
+          "doi": "10.1128/mbio.01588-23",
+          "url": "https://doi.org/10.1128/mbio.01588-23",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Рис. 3–4; природный cobT-элемент"
+        }
+      ],
+      "direct_termination_measured_in_vitro": false,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA191",
+      "identity_key": "v1|sinorhizobium-meliloti|duf1127-1-sorf26",
+      "name": "duf1127₁ / лидер с sORF26",
+      "organism": "Sinorhizobium meliloti",
+      "target": "duf1127₁",
+      "aliases": [
+        "sORF26",
+        "duf1127_1 leader"
+      ],
+      "category": "Рибосомо-опосредованная аттенюация",
+      "signal": "Нарушение трансляции; ответ на тетрациклин",
+      "mechanism": "Трансляция uORF регулирует доступность лидерных элементов, управляющих преждевременным завершением транскрипции.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "3′-RACE выявил концы РНК между uORF и duf1127₁; делеции лидера и изменения трансляции uORF снимали подавление.",
+      "limitations": "Функция аттенюации подтверждена in vivo; участие Rho предложено, но непосредственно не доказано. Использовано обозначение гена из статьи.",
+      "references": [
+        {
+          "title": "Early posttranscriptional response to tetracycline exposure in a gram-negative soil bacterium reveals unexpected attenuation mechanism of a DUF1127 gene",
+          "year": 2025,
+          "journal": "RNA Biology",
+          "doi": "10.1080/15476286.2025.2521887",
+          "url": "https://doi.org/10.1080/15476286.2025.2521887",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Рис. 4–7; картирование концов РНК и функциональный анализ лидера"
+        }
+      ],
+      "direct_termination_measured_in_vitro": false,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": true,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26",
+      "strain": "2011",
+      "target_annotation_verified": false
+    },
+    {
+      "id": "TA192",
+      "identity_key": "v1|bacillus-subtilis|kinb-intragenic",
+      "name": "kinB / внутригенный аттенюатор",
+      "organism": "Bacillus subtilis",
+      "target": "kinB",
+      "aliases": [
+        "kinB intragenic Rho-dependent terminator"
+      ],
+      "category": "Rho-зависимая внутригенная аттенюация",
+      "signal": "Доступность Rho; эффективность трансляции kinB",
+      "mechanism": "Rho завершает транскрипцию внутри kinB; трансляция противодействует этому процессу.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Изменение профиля РНК в rho-мутанте и репортёрные фузии подтвердили внутригенную терминацию; эффективность зависела от трансляции.",
+      "limitations": "Подтверждение in vivo; полного биохимического воспроизведения in vitro не заявляется.",
+      "references": [
+        {
+          "title": "Termination factor Rho: From the control of pervasive transcription to cell fate determination in Bacillus subtilis",
+          "year": 2017,
+          "journal": "PLOS Genetics",
+          "doi": "10.1371/journal.pgen.1006909",
+          "url": "https://doi.org/10.1371/journal.pgen.1006909",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Рис. 8"
+        }
+      ],
+      "direct_termination_measured_in_vitro": false,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": true,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA193",
+      "identity_key": "v1|escherichia-coli|lpxp-intragenic",
+      "name": "lpxP / внутригенный аттенюатор",
+      "organism": "Escherichia coli",
+      "target": "lpxP",
+      "aliases": [
+        "lpxP Rho-dependent terminator"
+      ],
+      "category": "Rho-зависимая внутригенная аттенюация",
+      "signal": "Rho; температурно-зависимый клеточный контекст",
+      "mechanism": "Rho вызывает раннюю терминацию в кодирующей области; трансляция предположительно ограничивает доступ Rho.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro и in vivo",
+      "experimental_evidence": "In vitro получены укороченные Rho-зависимые продукты. RT-qPCR при изменённой активности Rho подтвердил клеточную регуляцию.",
+      "limitations": "Терминация in vitro слабо зависела от температуры. Роль усиленной трансляции при охлаждении предложена как объяснение клеточного ответа.",
+      "references": [
+        {
+          "title": "Rho-dependent transcriptional switches regulate the bacterial response to cold shock",
+          "year": 2024,
+          "journal": "Molecular Cell",
+          "doi": "10.1016/j.molcel.2024.07.034",
+          "url": "https://doi.org/10.1016/j.molcel.2024.07.034",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Рис. 3E и 4D"
+        }
+      ],
+      "direct_termination_measured_in_vitro": true,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": null,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA194",
+      "identity_key": "v1|escherichia-coli|rpsu-dnag-t1",
+      "name": "rpsU–dnaG / аттенюатор T₁",
+      "organism": "Escherichia coli",
+      "target": "dnaG; rpsU–dnaG–rpoD",
+      "aliases": [
+        "T1",
+        "rpsU-dnaG intergenic terminator"
+      ],
+      "category": "Межгенная аттенюация через собственный терминатор",
+      "signal": "Физиологический сигнал не установлен",
+      "mechanism": "Частичная терминация между rpsU и dnaG ограничивает транскрипцию downstream-генов.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vivo",
+      "experimental_evidence": "Мутации T₁ проверены на эффективность терминации; генетические эксперименты подтвердили связь ослабленной терминации с повышением экспрессии dnaG.",
+      "limitations": "Функция терминатора-аттенюатора подтверждена генетически; специфический метаболитный сигнал не установлен.",
+      "references": [
+        {
+          "title": "Functional analysis of mutations in the transcription terminator T1 that suppress two dnaG alleles in Escherichia coli",
+          "year": 1995,
+          "journal": "Molecular and General Genetics",
+          "doi": "10.1007/BF00290719",
+          "url": "https://doi.org/10.1007/BF00290719",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Анализ мутаций T₁ и эффективности терминации in vivo"
+        }
+      ],
+      "direct_termination_measured_in_vitro": false,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA195",
+      "identity_key": "v1|streptomyces-coelicolor|rpfa-cdiamp",
+      "name": "rpfA / c-di-AMP-рибопереключатель",
+      "organism": "Streptomyces coelicolor",
+      "target": "rpfA",
+      "aliases": [
+        "rpfA c-di-AMP riboswitch"
+      ],
+      "category": "Рибопереключатель: c-di-AMP",
+      "signal": "c-di-AMP",
+      "mechanism": "Связывание c-di-AMP усиливает раннюю терминацию транскрипции rpfA.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro и in vivo",
+      "experimental_evidence": "In vitro c-di-AMP вызывал образование укороченной РНК; не отвечающие на лиганд мутанты теряли эффект.",
+      "limitations": "Положение терминации приходится на начало кодирующей области. Действие downstream-антисмысловой РНК не учитывается как второй аттенюатор.",
+      "references": [
+        {
+          "title": "Regulation of a muralytic enzyme-encoding gene by two non-coding RNAs",
+          "year": 2017,
+          "journal": "RNA Biology",
+          "doi": "10.1080/15476286.2017.1338241",
+          "url": "https://doi.org/10.1080/15476286.2017.1338241",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Рис. 3 и S5"
+        }
+      ],
+      "direct_termination_measured_in_vitro": true,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA196",
+      "identity_key": "v1|clostridium-acetobutylicum|kefb-nai",
+      "name": "kefB / Na⁺-I-рибопереключатель",
+      "organism": "Clostridium acetobutylicum",
+      "target": "kefB (аннотация в статье)",
+      "aliases": [
+        "DUF1646 motif",
+        "66 kefB",
+        "Na+-I riboswitch"
+      ],
+      "category": "Рибопереключатель: Na⁺-I",
+      "signal": "Na⁺",
+      "mechanism": "Связывание Na⁺ препятствует формированию терминатора и разрешает транскрипцию.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro и in vivo",
+      "experimental_evidence": "Однораундовая транскрипция показала Na⁺-зависимое readthrough; мутации аптамера устраняли ответ. Проверен клеточный репортёр.",
+      "limitations": "Клеточная проверка проведена в B. subtilis. Авторы обсуждают возможную неточность функциональной аннотации kefB.",
+      "references": [
+        {
+          "title": "Na+ riboswitches regulate genes for diverse physiological processes in bacteria",
+          "year": 2022,
+          "journal": "Nature Chemical Biology",
+          "doi": "10.1038/s41589-022-01086-4",
+          "url": "https://doi.org/10.1038/s41589-022-01086-4",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Рис. 3"
+        }
+      ],
+      "direct_termination_measured_in_vitro": true,
+      "functional_evidence_in_vivo": true,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26"
+    },
+    {
+      "id": "TA197",
+      "identity_key": "v1|desulfobulbus-propionicus|hypo-naii",
+      "name": "Na⁺-II-рибопереключатель перед гипотетическим геном",
+      "organism": "Desulfobulbus propionicus",
+      "target": "Ген гипотетического белка",
+      "aliases": [
+        "Na+-II riboswitch",
+        "71 hypo",
+        "Na+-responsive nhaA-I motif variant"
+      ],
+      "category": "Рибопереключатель: Na⁺-II",
+      "signal": "Na⁺",
+      "mechanism": "Na⁺ подавляет преждевременную терминацию и повышает образование полноразмерной РНК.",
+      "status": "confirmed",
+      "transcription_attenuation_confirmed": true,
+      "evidence_level": "in vitro",
+      "experimental_evidence": "Однораундовые транскрипционные опыты подтвердили Na⁺-зависимое readthrough; неработающие мутанты теряли ответ.",
+      "limitations": "Подтверждение in vitro. Locus tag downstream-гена не уточнён; обозначение nhaA-I относится к мотиву РНК.",
+      "references": [
+        {
+          "title": "Lithium-sensing riboswitch classes regulate expression of bacterial cation transporter genes",
+          "year": 2022,
+          "journal": "Scientific Reports",
+          "doi": "10.1038/s41598-022-20695-6",
+          "url": "https://doi.org/10.1038/s41598-022-20695-6",
+          "role": "functional",
+          "mentions_transcription_attenuation": true,
+          "own_transcription_experiments": true,
+          "evidence_location": "Рис. 5A–B; природный Na⁺-чувствительный вариант"
+        }
+      ],
+      "direct_termination_measured_in_vitro": true,
+      "functional_evidence_in_vivo": false,
+      "ribosome_mediated": false,
+      "confidence": "high",
+      "reviewed_on": "2026-10-26",
+      "target_annotation_verified": false
+    }
+  ]
+}
